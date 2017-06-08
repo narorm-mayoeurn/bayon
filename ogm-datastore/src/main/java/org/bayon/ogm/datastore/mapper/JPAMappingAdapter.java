@@ -5,15 +5,15 @@ import com.google.appengine.api.datastore.Entity;
 /**
  * Created by nm on 7/6/17.
  */
-public class JPADomainMappingAdapter<T> implements MappingAdapter<T> {
+public class JPAMappingAdapter<T> extends ReflectionMappingAdapter<T> {
 
     @Override
     public T map(Entity entity, Class<T> clazz) {
-        throw new UnsupportedOperationException();
+        return super.map(entity, clazz);
     }
 
     @Override
     public Entity map(T domain, Class<T> clazz) {
-        throw new UnsupportedOperationException();
+        return super.map(domain, clazz);
     }
 }

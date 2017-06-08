@@ -1,7 +1,7 @@
 package org.bayon.ogm.datastore.mapper.factory;
 
 import org.bayon.ogm.datastore.mapper.MappingAdapter;
-import org.bayon.ogm.datastore.mapper.JPADomainMappingAdapter;
+import org.bayon.ogm.datastore.mapper.JPAMappingAdapter;
 
 /**
  * Created by nm on 7/6/17.
@@ -10,6 +10,6 @@ public class JPADomainMappingAdapterFactory<T> implements MappingAdapterFactory<
 
     @Override
     public MappingAdapter<T> getMappingAdapter() {
-        return new JPADomainMappingAdapter<>();
+        return new JPAMappingAdapter<>();
     }
 }

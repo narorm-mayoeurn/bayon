@@ -14,42 +14,42 @@ import java.lang.reflect.ParameterizedType;
 
 public class DatastoreRepositoryImpl<T> implements DatastoreRepository<T> {
 
-    private Class<T> clazz;
-    private MappingAdapterFactory<T> mapperFactory;
-    private DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    protected Class<T> clazz;
+    protected MappingAdapterFactory<T> mappingAdapterFactory;
+    protected DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
     public DatastoreRepositoryImpl() {
         ParameterizedType type = (ParameterizedType) getClass().getGenericSuperclass();
         clazz = (Class<T>) type.getActualTypeArguments()[0];
 
         if (clazz.isAnnotationPresent(javax.persistence.Entity.class)) {
-            mapperFactory = new JPADomainMappingAdapterFactory<>();
+            mappingAdapterFactory = new JPADomainMappingAdapterFactory<>();
         } else {
-            mapperFactory = new DomainMappingAdapterFactory<>();
+            mappingAdapterFactory = new DomainMappingAdapterFactory<>();
         }
     }
 
-    public void setMapperFactory(MappingAdapterFactory<T> mappingAdapterFactory) {
-        this.mapperFactory = mappingAdapterFactory;
+    public void setMappingAdapterFactory(MappingAdapterFactory<T> mappingAdapterFactory) {
+        this.mappingAdapterFactory = mappingAdapterFactory;
     }
 
     public T findById(Long id)  {
         try {
             Key key = KeyFactory.createKey(clazz.getSimpleName(), id);
-            return mapperFactory.getMappingAdapter().map(datastore.get(key), clazz);
+            return mappingAdapterFactory.getMappingAdapter().map(datastore.get(key), clazz);
         } catch (EntityNotFoundException e) {
             return null;
         }
     }
 
     public Long create(T domain) {
-        Entity entity = mapperFactory.getMappingAdapter().map(domain, clazz);
+        Entity entity = mappingAdapterFactory.getMappingAdapter().map(domain, clazz);
         datastore.put(entity);
         return entity.getKey().getId();
     }
 
     public void update(T domain) {
-        Entity entity = mapperFactory.getMappingAdapter().map(domain, clazz);
+        Entity entity = mappingAdapterFactory.getMappingAdapter().map(domain, clazz);
         datastore.put(entity);
     }
 
