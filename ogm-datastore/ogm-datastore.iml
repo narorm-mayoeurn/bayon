@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module relativePaths="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true" LANGUAGE_LEVEL="JDK_1_7">
+    <exclude-output/>
+    <orderEntry type="inheritedJdk"/>
+    <content url="file://$MODULE_DIR$/">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false"/>
+      <excludeFolder url="file://$MODULE_DIR$/.gradle"/>
+      <excludeFolder url="file://$MODULE_DIR$/build"/>
+    </content>
+    <orderEntry type="sourceFolder" forTests="false"/>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/nm/.gradle/caches/modules-2/files-2.1/javax.persistence/persistence-api/1.0.2/8a7f96961047da52a53b7347b6a919c6fbc6d7fa/persistence-api-1.0.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/nm/.gradle/caches/modules-2/files-2.1/javax.persistence/persistence-api/1.0.2/eb8ae77be88577b23e64ce1e5386e874b08b49cc/persistence-api-1.0.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/nm/.gradle/caches/modules-2/files-2.1/com.google.appengine/appengine-api-1.0-sdk/1.9.53/9c555dc1cd17e77bca25e788e1ab70316e2c8daa/appengine-api-1.0-sdk-1.9.53.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES/>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar:///Users/nm/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.25/da76ca59f6a57ee3102f8f9bd9cee742973efa8a/slf4j-api-1.7.25.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///Users/nm/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.25/962153db4a9ea71b79d047dfd1b2a0d80d8f4739/slf4j-api-1.7.25-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+  <component name="ModuleRootManager"/>
+</module>
