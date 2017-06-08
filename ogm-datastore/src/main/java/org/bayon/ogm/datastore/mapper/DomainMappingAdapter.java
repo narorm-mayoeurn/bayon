@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by nm on 7/6/17.
  */
-public class DomainMapper<T> implements Mapper<T> {
+public class DomainMappingAdapter<T> implements MappingAdapter<T> {
 
     boolean setDomainProperty(Class<T> clazz, T domain, String property, Object value) {
         try {
@@ -33,7 +33,7 @@ public class DomainMapper<T> implements Mapper<T> {
         return false;
     }
 
-    public T mapToDomain(Entity entity, Class<T> clazz) {
+    public T map(Entity entity, Class<T> clazz) {
         T domain;
         try {
             domain = clazz.newInstance();
@@ -59,7 +59,7 @@ public class DomainMapper<T> implements Mapper<T> {
         return false;
     }
 
-    public Entity mapToEntity(T domain, Class<T> clazz) {
+    public Entity map(T domain, Class<T> clazz) {
         Entity entity = new Entity(clazz.getSimpleName());
         for (Method m : clazz.getMethods()) {
             if (isGetter(m)) {

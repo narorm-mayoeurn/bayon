@@ -2,23 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b901d175-8bcb-4bb7-8464-f07c9e84a766" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_appengine_appengine_api_1_0_sdk_1_9_53.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_persistence_persistence_api_1_0_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_slf4j_api_1_7_25.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/ogm-datastore/bayon-ogm-datastore.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/ogm-datastore/ogm-datastore.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradle.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ogm-datastore/gradle.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/DatastoreRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/DatastoreRepositoryImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/DomainMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/JPADomainMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/Mapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/DomainMapperFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/JPADomainMapperFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/MapperFactory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/DomainMapper.java" afterPath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/DomainMappingAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/JPADomainMapper.java" afterPath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/JPADomainMappingAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/Mapper.java" afterPath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/MappingAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/DomainMapperFactory.java" afterPath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/DomainMappingAdapterFactory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/JPADomainMapperFactory.java" afterPath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/JPADomainMappingAdapterFactory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/MapperFactory.java" afterPath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/MappingAdapterFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/DatastoreRepository.java" afterPath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/DatastoreRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/DatastoreRepositoryImpl.java" afterPath="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/DatastoreRepositoryImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -104,30 +96,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JPADomainMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/JPADomainMapper.java">
+      <file leaf-file-name="JPADomainMappingAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/JPADomainMappingAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+            <state relative-caret-position="195">
+              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding>
-                <element signature="e#254#255#0" expanded="true" />
-                <element signature="e#281#282#0" expanded="true" />
-                <element signature="e#354#355#0" expanded="true" />
-                <element signature="e#381#382#0" expanded="true" />
+                <element signature="e#262#263#0" expanded="true" />
+                <element signature="e#319#320#0" expanded="true" />
+                <element signature="e#384#385#0" expanded="true" />
+                <element signature="e#441#442#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JPADomainMapperFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/JPADomainMapperFactory.java">
+      <file leaf-file-name="DatastoreRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/DatastoreRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="32" lean-forward="false" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JPADomainMappingAdapterFactory.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/JPADomainMappingAdapterFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#304#305#0" expanded="true" />
-                <element signature="e#350#351#0" expanded="true" />
+                <element signature="e#352#353#0" expanded="true" />
+                <element signature="e#406#407#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,36 +148,32 @@
       <file leaf-file-name="DatastoreRepositoryImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/DatastoreRepositoryImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="29" column="38" lean-forward="false" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+            <state relative-caret-position="26">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1369#1370#0" expanded="true" />
-                <element signature="e#1419#1420#0" expanded="true" />
-                <element signature="e#2088#2089#0" expanded="true" />
-                <element signature="e#2169#2170#0" expanded="true" />
-                <element signature="e#2220#2221#0" expanded="true" />
-                <element signature="e#2247#2248#0" expanded="true" />
+                <element signature="e#2130#2131#0" expanded="true" />
+                <element signature="e#2211#2212#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapperFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/MapperFactory.java">
+      <file leaf-file-name="MappingAdapterFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/MappingAdapterFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+            <state relative-caret-position="165">
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DomainMapper.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/DomainMapper.java">
+      <file leaf-file-name="DomainMappingAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/DomainMappingAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+            <state relative-caret-position="113">
+              <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -183,25 +181,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DomainMapperFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/DomainMapperFactory.java">
+      <file leaf-file-name="DomainMappingAdapterFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/DomainMappingAdapterFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="8" column="64" lean-forward="false" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#304#305#0" expanded="true" />
-                <element signature="e#347#348#0" expanded="true" />
+                <element signature="e#346#347#0" expanded="true" />
+                <element signature="e#397#398#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/Mapper.java">
+      <file leaf-file-name="MappingAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/MappingAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="49" lean-forward="false" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+            <state relative-caret-position="105">
+              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -906,18 +904,23 @@
         <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/domain/Identifier.java" />
         <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/domain/PrimaryKey.java" />
         <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/exception/runtime/NoSuchFieldException.java" />
-        <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/DatastoreRepository.java" />
         <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/DomainDotaMapp.java" />
         <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/DataMapperFactory.java" />
         <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/DomainDataMapperFactory.java" />
         <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/DomainDotaMapper.java" />
         <option value="$PROJECT_DIR$/ogm-datastore/build.gradle" />
         <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/DataMapper.java" />
-        <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/DatastoreRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/JPADomainMapper.java" />
         <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/DomainReflectionMapper.java" />
-        <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/JPADomainMapperFactory.java" />
         <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/DomainMapper.java" />
+        <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/JPADomainMapperFactory.java" />
+        <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/DomainMapperFactory.java" />
+        <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/DomainMappingAdapterFactory.java" />
+        <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/MappingAdapterFactory.java" />
+        <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/MappingAdapter.java" />
+        <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/DatastoreRepository.java" />
+        <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/DatastoreRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/JPADomainMappingAdapter.java" />
       </list>
     </option>
   </component>
@@ -1429,7 +1432,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21173672" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" x="470" y="57" width="329" height="708" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3846154" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" x="470" y="57" width="329" height="708" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2672482" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1610,14 +1613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/DatastoreRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ogm-datastore/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1631,75 +1626,6 @@
         <state relative-caret-position="150">
           <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/DatastoreRepositoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="29" column="38" lean-forward="false" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1369#1370#0" expanded="true" />
-            <element signature="e#1419#1420#0" expanded="true" />
-            <element signature="e#2088#2089#0" expanded="true" />
-            <element signature="e#2169#2170#0" expanded="true" />
-            <element signature="e#2220#2221#0" expanded="true" />
-            <element signature="e#2247#2248#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/Mapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="49" lean-forward="false" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/JPADomainMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding>
-            <element signature="e#254#255#0" expanded="true" />
-            <element signature="e#281#282#0" expanded="true" />
-            <element signature="e#354#355#0" expanded="true" />
-            <element signature="e#381#382#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/DomainMapperFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#304#305#0" expanded="true" />
-            <element signature="e#347#348#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/MapperFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/JPADomainMapperFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#304#305#0" expanded="true" />
-            <element signature="e#350#351#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1722,12 +1648,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/DomainMapper.java">
+    <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/MappingAdapterFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/DomainMappingAdapterFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="64" lean-forward="false" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/DomainMappingAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/DatastoreRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="32" lean-forward="false" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/DatastoreRepositoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2130#2131#0" expanded="true" />
+            <element signature="e#2211#2212#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/MappingAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/JPADomainMappingAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+            <element signature="e#441#442#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ogm-datastore/src/main/java/org/bayon/ogm/datastore/mapper/factory/JPADomainMappingAdapterFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#352#353#0" expanded="true" />
+            <element signature="e#406#407#0" expanded="true" />
           </folding>
         </state>
       </provider>

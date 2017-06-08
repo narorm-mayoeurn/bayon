@@ -5,9 +5,9 @@ import com.google.appengine.api.datastore.Entity;
 /**
  * Created by nm on 7/6/17.
  */
-public interface Mapper<T> {
+public interface MappingAdapter<T> {
     String __ID_PROPERTY__ = "id";
 
-    T mapToDomain(Entity entity, Class<T> clazz);
-    Entity mapToEntity(T domain, Class<T> clazz);
+    T map(Entity entity, Class<T> clazz);
+    Entity map(T domain, Class<T> clazz);
 }
