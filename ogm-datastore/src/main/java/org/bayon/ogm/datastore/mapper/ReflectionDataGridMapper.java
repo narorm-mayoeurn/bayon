@@ -11,8 +11,8 @@ import java.lang.reflect.Method;
 /**
  * Created by nm on 7/6/17.
  */
-public class ReflectionMappingAdapter<T> implements MappingAdapter<T> {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ReflectionMappingAdapter.class);
+public class ReflectionDataGridMapper<T> implements DataGridMapper<T> {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ReflectionDataGridMapper.class);
 
     public T map(Entity entity, Class<T> clazz) {
         T domain;

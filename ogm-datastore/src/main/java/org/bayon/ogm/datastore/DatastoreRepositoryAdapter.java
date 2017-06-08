@@ -6,50 +6,50 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
-import org.bayon.ogm.datastore.mapper.factory.JPADomainMappingAdapterFactory;
-import org.bayon.ogm.datastore.mapper.factory.MappingAdapterFactory;
-import org.bayon.ogm.datastore.mapper.factory.DomainMappingAdapterFactory;
+import org.bayon.ogm.datastore.mapper.factory.JPADomainDataGridMapperFactory;
+import org.bayon.ogm.datastore.mapper.factory.DataGridMapperFactory;
+import org.bayon.ogm.datastore.mapper.factory.ReflectionDataGridMapperFactory;
 
 import java.lang.reflect.ParameterizedType;
 
-public class DatastoreRepositoryImpl<T> implements DatastoreRepository<T> {
+public class DatastoreRepositoryAdapter<T> implements DatastoreRepository<T> {
 
     protected Class<T> clazz;
-    protected MappingAdapterFactory<T> mappingAdapterFactory;
+    protected DataGridMapperFactory<T> dataGridMapperFactory;
     protected DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
-    public DatastoreRepositoryImpl() {
+    public DatastoreRepositoryAdapter() {
         ParameterizedType type = (ParameterizedType) getClass().getGenericSuperclass();
         clazz = (Class<T>) type.getActualTypeArguments()[0];
 
         if (clazz.isAnnotationPresent(javax.persistence.Entity.class)) {
-            mappingAdapterFactory = new JPADomainMappingAdapterFactory<>();
+            dataGridMapperFactory = new JPADomainDataGridMapperFactory<>();
         } else {
-            mappingAdapterFactory = new DomainMappingAdapterFactory<>();
+            dataGridMapperFactory = new ReflectionDataGridMapperFactory<>();
         }
     }
 
-    public void setMappingAdapterFactory(MappingAdapterFactory<T> mappingAdapterFactory) {
-        this.mappingAdapterFactory = mappingAdapterFactory;
+    public void setDataGridMapperFactory(DataGridMapperFactory<T> dataGridMapperFactory) {
+        this.dataGridMapperFactory = dataGridMapperFactory;
     }
 
     public T findById(Long id)  {
         try {
             Key key = KeyFactory.createKey(clazz.getSimpleName(), id);
-            return mappingAdapterFactory.getMappingAdapter().map(datastore.get(key), clazz);
+            return dataGridMapperFactory.getDataGridMapper().map(datastore.get(key), clazz);
         } catch (EntityNotFoundException e) {
             return null;
         }
     }
 
     public Long create(T domain) {
-        Entity entity = mappingAdapterFactory.getMappingAdapter().map(domain, clazz);
+        Entity entity = dataGridMapperFactory.getDataGridMapper().map(domain, clazz);
         datastore.put(entity);
         return entity.getKey().getId();
     }
 
     public void update(T domain) {
-        Entity entity = mappingAdapterFactory.getMappingAdapter().map(domain, clazz);
+        Entity entity = dataGridMapperFactory.getDataGridMapper().map(domain, clazz);
         datastore.put(entity);
     }
 

@@ -5,7 +5,7 @@ import com.google.appengine.api.datastore.Entity;
 /**
  * Created by nm on 7/6/17.
  */
-public class JPAMappingAdapter<T> extends ReflectionMappingAdapter<T> {
+public class JPADataGridMapper<T> extends ReflectionDataGridMapper<T> {
 
     @Override
     public T map(Entity entity, Class<T> clazz) {
