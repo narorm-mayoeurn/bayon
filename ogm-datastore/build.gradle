@@ -1,7 +1,6 @@
 dependencies {
     compile group: 'javax.persistence', name: 'persistence-api', version: '1.0.2'
     compile group: 'com.google.appengine', name: 'appengine-api-1.0-sdk', version: '1.9.53'
-    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
 }
 
 sourceCompatibility = 1.7  // App Engine Standard uses Java 7
