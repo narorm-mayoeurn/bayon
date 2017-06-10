@@ -5,7 +5,7 @@ import org.bayon.ogm.datastore.mapper.DataGridMapper;
 /**
  * Created by nm on 7/6/17.
  */
-public interface DataGridMapperFactory<T> {
+public interface DataGridMapperFactory {
 
-    DataGridMapper<T> getDataGridMapper();
+    <T> DataGridMapper<T> getDataGridMapper(Class<T> clazz);
 }
