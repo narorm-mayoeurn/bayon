@@ -1,2 +1,17 @@
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+    <display-name>HelloWorld Application</display-name>
+    <description>
+        This is a simple web application with a source code organization
+        based on the recommendations of the Application Developer's Guide.
+    </description>
+
+    <servlet>
+        <servlet-name>frontCommand</servlet-name>
+        <servlet-class>com.camhub.antiochschool.FrontControllerImp</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>frontCommand</servlet-name>
+        <url-pattern>*</url-pattern>
+    </servlet-mapping>
 </web-app>

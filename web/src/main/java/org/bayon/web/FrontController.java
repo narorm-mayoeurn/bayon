@@ -12,10 +12,11 @@ import java.io.IOException;
 public abstract class FrontController extends HttpServlet {
 
     private FrontCommand frontCommand;
+    private CommandClassMapper cmdClassMapper = CommandClassMapper.getInstance();
 
 
     public void init() throws ServletException {
-        getCommandPackage();
+        registerCommandClass();
     }
 
 
@@ -44,6 +45,12 @@ public abstract class FrontController extends HttpServlet {
         return (String)req.getAttribute("com");
     }
 
+    public void register(String name, Class<? extends FrontCommand> cls) {
+        cmdClassMapper.register(name, cls);
+    }
+
+    public abstract void registerCommandClass();
 
     public abstract String getCommandPackage();
+
 }
