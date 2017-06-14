@@ -2,6 +2,7 @@ package org.bayon.ogm.datastore;
 
 import com.google.appengine.api.datastore.Query;
 import org.bayon.ogm.datastore.query.QueryBuilder;
+import org.bayon.ogm.datastore.query.TypeQuery;
 
 import java.util.List;
 
@@ -17,9 +18,9 @@ public interface DatastoreRepository<T> {
 
     QueryBuilder<T> createQueryBuilder();
 
-    T findOne(Query query);
+    T findOne(TypeQuery query);
 
-    List<T> find(Query query);
+    List<T> find(TypeQuery query);
 
-    List<T> find(Query query, int offset, int limit);
+    List<T> find(TypeQuery query, int offset, int limit);
 }

@@ -7,11 +7,11 @@ import com.google.appengine.api.datastore.EntityNotFoundException;
 import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
-import com.google.appengine.api.datastore.Query;
 import org.bayon.ogm.datastore.mapper.DataGridMapper;
 import org.bayon.ogm.datastore.mapper.factory.DataGridMapperFactory;
 import org.bayon.ogm.datastore.mapper.factory.DefaultDataGridMapperFactory;
 import org.bayon.ogm.datastore.query.QueryBuilder;
+import org.bayon.ogm.datastore.query.TypeQuery;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
@@ -64,23 +64,23 @@ public class DatastoreRepositoryAdapter<T> implements DatastoreRepository<T> {
     }
 
     @Override
-    public T findOne(Query query) {
-        return dataGridMapper.map(datastore.prepare(query).asSingleEntity(), clazz);
+    public T findOne(TypeQuery query) {
+        return dataGridMapper.map(datastore.prepare(query.getQuery()).asSingleEntity(), clazz);
     }
 
     @Override
-    public List<T> find(Query query) {
+    public List<T> find(TypeQuery query) {
         List<T> domains = new ArrayList<>();
-        for (Entity entity : datastore.prepare(query).asIterable()) {
+        for (Entity entity : datastore.prepare(query.getQuery()).asIterable()) {
             domains.add(dataGridMapper.map(entity, clazz));
         }
         return domains;
     }
 
     @Override
-    public List<T> find(Query query, int offset, int limit) {
+    public List<T> find(TypeQuery query, int offset, int limit) {
         List<T> domains = new ArrayList<>();
-        for (Entity entity : datastore.prepare(query).asList(FetchOptions.Builder.withOffset(offset).limit(limit))) {
+        for (Entity entity : datastore.prepare(query.getQuery()).asList(FetchOptions.Builder.withOffset(offset).limit(limit))) {
             domains.add(dataGridMapper.map(entity, clazz));
         }
         return domains;

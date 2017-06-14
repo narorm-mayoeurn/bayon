@@ -3,13 +3,13 @@ package org.bayon.ogm.datastore.query;
 /**
  * Created by nm on 11/6/17.
  */
-public final class Condition {
+public final class Filter {
 
     private String property;
     private Operator operator;
     private Object value;
 
-    public Condition(String property, Operator operator, Object value) {
+    public Filter(String property, Operator operator, Object value) {
         this.property = property;
         this.operator = operator;
         this.value = value;
