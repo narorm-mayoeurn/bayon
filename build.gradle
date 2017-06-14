@@ -1,6 +1,8 @@
 group 'org.bayon'
 version '1.0-SNAPSHOT'
 
+
+
 allprojects {
     apply plugin: 'java'
     apply plugin: 'eclipse'
@@ -10,6 +12,9 @@ allprojects {
 }
 
 subprojects {
+
+    sourceCompatibility = 1.7  // App Engine Standard uses Java 7
+    targetCompatibility = 1.7  // App Engine Standard uses Java 7
 
     repositories {
         mavenCentral()

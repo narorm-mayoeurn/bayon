@@ -1,2 +1,5 @@
 rootProject.name = 'bayon'
 include 'ogm-datastore', 'antioch-school'
+include 'mvc'
+include 'web'
+

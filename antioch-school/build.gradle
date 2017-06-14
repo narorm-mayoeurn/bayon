@@ -38,5 +38,3 @@ appengine {  // App Engine tasks configuration
     }
 }
 
-sourceCompatibility = 1.7  // App Engine Standard uses Java 7
-targetCompatibility = 1.7  // App Engine Standard uses Java 7
