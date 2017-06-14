@@ -1,6 +1,9 @@
 package org.bayon.ogm.datastore.query;
 
+import com.google.appengine.api.datastore.PropertyProjection;
 import com.google.appengine.api.datastore.Query;
+
+import java.util.Map;
 
 /**
  * Created by nm on 10/6/17.
@@ -15,7 +18,7 @@ public final class QueryBuilder<T> {
         query = new Query(clazz.getSimpleName());
     }
 
-    Query.Filter get(String property, Condition.Operator operator, Object value) {
+    Query.Filter get(String property, Filter.Operator operator, Object value) {
         Query.Filter filter;
         switch (operator) {
             case EQUAL: filter = new Query.FilterPredicate(property, Query.FilterOperator.EQUAL, value); break;
@@ -30,7 +33,14 @@ public final class QueryBuilder<T> {
         return filter;
     }
 
-    public QueryBuilder<T> and(String property, Condition.Operator operator, Object value) {
+    public QueryBuilder select(Map<String, Class> projections) {
+        for (Map.Entry<String, Class> entry : projections.entrySet()) {
+            query.addProjection(new PropertyProjection(entry.getKey(), entry.getValue()));
+        }
+        return this;
+    }
+
+    public QueryBuilder<T> and(String property, Filter.Operator operator, Object value) {
         Query.Filter filter = get(property, operator, value);
         if (query.getFilter() == null) {
             query.setFilter(filter);
@@ -40,14 +50,14 @@ public final class QueryBuilder<T> {
         return this;
     }
 
-    public QueryBuilder<T> and(Condition... conditions) {
-        for (Condition condition : conditions) {
-            and(condition.getProperty(), condition.getOperator(), condition.getValue());
+    public QueryBuilder<T> and(Filter... filters) {
+        for (Filter filter : filters) {
+            and(filter.getProperty(), filter.getOperator(), filter.getValue());
         }
         return this;
     }
 
-    public QueryBuilder<T> or(String property, Condition.Operator operator, Object value) {
+    public QueryBuilder<T> or(String property, Filter.Operator operator, Object value) {
         Query.Filter filter = get(property, operator, value);
         if (query.getFilter() == null) {
             query.setFilter(filter);
@@ -57,9 +67,9 @@ public final class QueryBuilder<T> {
         return this;
     }
 
-    public QueryBuilder<T> or(Condition... conditions) {
-        for (Condition condition : conditions) {
-            or(condition.getProperty(), condition.getOperator(), condition.getValue());
+    public QueryBuilder<T> or(Filter... filters) {
+        for (Filter filter : filters) {
+            or(filter.getProperty(), filter.getOperator(), filter.getValue());
         }
         return this;
     }
@@ -74,7 +84,7 @@ public final class QueryBuilder<T> {
         return this;
     }
 
-    public Query toQuery() {
-        return query;
+    public TypeQuery toQuery() {
+        return new TypeQuery(query);
     }
 }
