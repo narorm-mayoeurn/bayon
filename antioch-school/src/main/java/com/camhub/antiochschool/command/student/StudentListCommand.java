@@ -13,7 +13,13 @@ public class StudentListCommand extends FrontCommand {
     @Override
     public void execute() throws ServletException, IOException {
 
-        forward("student-list");
 
+    }
+
+
+    @Override
+    protected void responseAsHtml() throws ServletException, IOException {
+        super.responseAsHtml();
+        forward("student-list");
     }
 }

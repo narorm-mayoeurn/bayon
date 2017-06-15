@@ -16,21 +16,23 @@ import java.io.IOException;
  */
 public class LogoutHandler extends SecurityHandler {
 
-    public LogoutHandler(SecurityHandler delegate) {
-        this.delegate = delegate;
+    public LogoutHandler(SecurityHandler handler) {
+        this.nextHandler = handler;
     }
 
     @Override
-    public void handle(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException, AuthenticationException, AuthorizationException {
+    public void handle(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException, AuthenticationException, AuthorizationException {
+
         HttpServletRequest req = (HttpServletRequest) request;
         if (req.getRequestURI().startsWith(LOGOUT)) {
             req.getSession().invalidate();
             ((HttpServletResponse) response).sendRedirect(INDEX);
         }
-        if (delegate == null) {
+        if (nextHandler == null) {
             chain.doFilter(request, response);
         } else {
-            delegate.handle(request, response, chain);
+            nextHandler.handle(request, response, chain);
         }
     }
 }

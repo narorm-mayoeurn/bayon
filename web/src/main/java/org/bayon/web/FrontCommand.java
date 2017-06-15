@@ -27,7 +27,7 @@ public abstract class FrontCommand {
     public abstract void execute() throws ServletException, IOException;
 
 
-    public void init(String commandName, ServletContext context, HttpServletRequest req, HttpServletResponse resp) {
+    public final void init(String commandName, ServletContext context, HttpServletRequest req, HttpServletResponse resp) {
         this.context = context;
         this.request = req;
         this.response = resp;
@@ -37,11 +37,20 @@ public abstract class FrontCommand {
         this.template = template;
     }
 
-    protected void forward(String target) throws ServletException, IOException {
+    protected final void forward(String target) throws ServletException, IOException {
         request.setAttribute("page", target);
         target = String.format("/template/%s/index.jsp", template);
         RequestDispatcher dispatcher = context.getRequestDispatcher(target);
         dispatcher.forward(request, response);
+    }
+
+
+    protected void responseAsJson() throws ServletException, IOException {
+        response.setHeader("Content-Type", "application/json");
+    }
+
+    protected void responseAsHtml() throws ServletException, IOException {
+        response.setHeader("Content-Type", "text/html");
     }
 
     public String getCommandName() {

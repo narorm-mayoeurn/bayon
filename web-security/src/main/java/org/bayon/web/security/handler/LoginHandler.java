@@ -20,13 +20,15 @@ public class LoginHandler extends SecurityHandler {
 
     private String defaultPage;
 
-    public LoginHandler(SecurityHandler delegate, String defaultPage) {
-        this.delegate = delegate;
+    public LoginHandler(SecurityHandler handler, String defaultPage) {
+        this.nextHandler = handler;
         this.defaultPage = defaultPage;
     }
 
     @Override
-    public void handle(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException, AuthenticationException, AuthorizationException {
+    public void handle(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException, AuthenticationException, AuthorizationException {
+
         HttpServletRequest req = (HttpServletRequest) request;
         if ("post".equalsIgnoreCase(req.getMethod()) && req.getRequestURI().startsWith(LOGIN)) {
 
@@ -40,10 +42,10 @@ public class LoginHandler extends SecurityHandler {
             ((HttpServletResponse) response).sendRedirect(defaultPage);
         }
 
-        if (delegate == null) {
+        if (nextHandler == null) {
             chain.doFilter(request, response);
         } else {
-            delegate.handle(request, response, chain);
+            nextHandler.handle(request, response, chain);
         }
     }
 }

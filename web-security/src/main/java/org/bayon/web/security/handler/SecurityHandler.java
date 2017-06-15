@@ -19,8 +19,8 @@ public abstract class SecurityHandler {
     public static final String LOGIN = "/login";
     public static final String LOGOUT = "/logout";
 
-    protected AuthManager authManager = new AuthManager();
-    protected SecurityHandler delegate;
+    protected AuthManager authManager = AuthManager.getInstance();
+    protected SecurityHandler nextHandler;
 
     public abstract void handle(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException, AuthenticationException, AuthorizationException;

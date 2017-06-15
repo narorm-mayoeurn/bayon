@@ -26,7 +26,7 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" id="student_form" action="/student/add" enctype="application/json" method="post">
+                    <form class="form-horizontal" id="student_form" method="post">
                         <div class="box-body">
 
                             <div class="form-group">
@@ -139,7 +139,7 @@
 
         // prepare all forms for ajax submission
         $('#student_form').ajaxForm({
-
+            contentType: 'application/json'
         });
 
 </script>

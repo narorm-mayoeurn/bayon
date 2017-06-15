@@ -13,12 +13,18 @@ import java.util.List;
  */
 public class AuthManager {
 
+    private static final AuthManager INSTANCE = new AuthManager();
+
     public static final String AUTH = "auth";
     public static final String ADMIN = "admin";
 
     private UserRepository userRepository;
 
-    public AuthManager() {
+    public static AuthManager getInstance() {
+        return INSTANCE;
+    }
+
+    private AuthManager() {
         userRepository = new UserRepositoryImpl();
         if (userRepository.findByUsername("admin") == null) {
             User admin = new User();
