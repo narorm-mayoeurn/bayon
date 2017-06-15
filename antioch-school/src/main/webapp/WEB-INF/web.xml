@@ -1,9 +1,29 @@
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
-    <display-name>HelloWorld Application</display-name>
-    <description>
-        This is a simple web application with a source code organization
-        based on the recommendations of the Application Developer's Guide.
-    </description>
+    <display-name>Antioch Student Management</display-name>
+    <description>Antioch Student Management</description>
+
+    <filter>
+        <filter-name>securityFilter</filter-name>
+        <filter-class>org.bayon.web.security.filter.SecurityFilter</filter-class>
+        <!-- security configuration -->
+        <init-param>
+            <param-name>login-page</param-name>
+            <param-value>/login</param-value>
+        </init-param>
+        <init-param>
+            <param-name>default-page</param-name>
+            <param-value>/student/list</param-value>
+        </init-param>
+        <init-param>
+            <param-name>exclude-uri</param-name>
+            <param-value>/login,/_ah/admin</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <servlet>
         <servlet-name>frontCommand</servlet-name>

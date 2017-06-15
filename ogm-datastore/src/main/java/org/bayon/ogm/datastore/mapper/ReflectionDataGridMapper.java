@@ -15,6 +15,10 @@ public class ReflectionDataGridMapper<T> implements DataGridMapper<T> {
     private static final Logger LOGGER = LoggerFactory.getLogger(ReflectionDataGridMapper.class);
 
     public T map(Entity entity, Class<T> clazz) {
+        if (entity == null) {
+            return null;
+        }
+
         T domain;
         try {
             domain = clazz.newInstance();
@@ -27,9 +31,11 @@ public class ReflectionDataGridMapper<T> implements DataGridMapper<T> {
         }
 
         try {
-            Field id = clazz.getField(__ID_PROPERTY__);
+            Field id = clazz.getDeclaredField(__ID_PROPERTY__);
             id.setAccessible(true);
-            id.set(domain, entity.getKey().getId());
+            if (entity.getKey() != null) {
+                id.set(domain, entity.getKey().getId());
+            }
         } catch (NoSuchFieldException e) {
             LOGGER.error("Unable to find 'id' property.");
             throw new RuntimeException("Unable to find 'id' property.", e);
@@ -38,7 +44,7 @@ public class ReflectionDataGridMapper<T> implements DataGridMapper<T> {
             throw new RuntimeException("Unable to access default constructor.", e);
         }
 
-        for (Method setter : clazz.getMethods()) {
+        for (Method setter : clazz.getDeclaredMethods()) {
             mapProperty(entity, domain, setter);
         }
         return domain;
@@ -47,10 +53,14 @@ public class ReflectionDataGridMapper<T> implements DataGridMapper<T> {
     public Entity map(T domain, Class<T> clazz) {
         Entity entity;
         try {
-            Field id = clazz.getField(__ID_PROPERTY__);
+            Field id = clazz.getDeclaredField(__ID_PROPERTY__);
             id.setAccessible(true);
-            entity = new Entity(clazz.getSimpleName(), (Long) id.get(domain));
-
+            Long value = (Long) id.get(domain);
+            if (value == null) {
+                entity = new Entity(clazz.getSimpleName());
+            } else {
+                entity = new Entity(clazz.getSimpleName(), value);
+            }
         } catch (NoSuchFieldException e) {
             LOGGER.error("Unable to find 'id' property.");
             throw new RuntimeException("Unable to find 'id' property.", e);
@@ -59,7 +69,7 @@ public class ReflectionDataGridMapper<T> implements DataGridMapper<T> {
             throw new RuntimeException("Unable to access default constructor.", e);
         }
 
-        for (Method getter : clazz.getMethods()) {
+        for (Method getter : clazz.getDeclaredMethods()) {
             mapProperty(domain, entity, getter);
         }
         return entity;

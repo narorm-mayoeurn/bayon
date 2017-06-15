@@ -1,2 +1,2 @@
 rootProject.name = 'bayon'
-include 'ogm-datastore', 'antioch-school', 'web', 'form-validation', 'cache-proxy-filter'
+include 'ogm-datastore', 'antioch-school', 'web', 'form-validation', 'cache-proxy-filter', 'web-security'

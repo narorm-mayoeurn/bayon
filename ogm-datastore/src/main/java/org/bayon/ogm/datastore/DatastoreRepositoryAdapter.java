@@ -88,7 +88,8 @@ public class DatastoreRepositoryAdapter<T> implements DatastoreRepository<T> {
         int total = 0;
         try {
             TypeQuery keyOnlyTypeQuery = (TypeQuery) query.clone();
-            total = datastore.prepare(keyOnlyTypeQuery.getQuery().setKeysOnly()).asList(FetchOptions.Builder.withDefaults()).size();
+            keyOnlyTypeQuery.setKeyOnly(true);
+            total = datastore.prepare(keyOnlyTypeQuery.getQuery()).asList(FetchOptions.Builder.withDefaults()).size();
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
