@@ -10,6 +10,7 @@ import com.google.appengine.api.datastore.KeyFactory;
 import org.bayon.ogm.datastore.mapper.DataGridMapper;
 import org.bayon.ogm.datastore.mapper.factory.DataGridMapperFactory;
 import org.bayon.ogm.datastore.mapper.factory.DefaultDataGridMapperFactory;
+import org.bayon.ogm.datastore.query.Page;
 import org.bayon.ogm.datastore.query.QueryBuilder;
 import org.bayon.ogm.datastore.query.TypeQuery;
 
@@ -78,11 +79,20 @@ public class DatastoreRepositoryAdapter<T> implements DatastoreRepository<T> {
     }
 
     @Override
-    public List<T> find(TypeQuery query, int offset, int limit) {
+    public Page<T> find(TypeQuery query, int offset, int limit) {
         List<T> domains = new ArrayList<>();
         for (Entity entity : datastore.prepare(query.getQuery()).asList(FetchOptions.Builder.withOffset(offset).limit(limit))) {
             domains.add(dataGridMapper.map(entity, clazz));
         }
-        return domains;
+
+        int total = 0;
+        try {
+            TypeQuery keyOnlyTypeQuery = (TypeQuery) query.clone();
+            total = datastore.prepare(keyOnlyTypeQuery.getQuery().setKeysOnly()).asList(FetchOptions.Builder.withDefaults()).size();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+
+        return new Page<>(domains, offset, limit, total);
     }
 }
