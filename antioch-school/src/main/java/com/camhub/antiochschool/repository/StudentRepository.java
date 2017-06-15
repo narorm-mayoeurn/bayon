@@ -7,4 +7,5 @@ import org.bayon.ogm.datastore.DatastoreRepository;
  * Created by nm on 9/6/17.
  */
 public interface StudentRepository extends DatastoreRepository<Student> {
+
 }

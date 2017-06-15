@@ -24,7 +24,7 @@ public class StudentAddCommand extends FrontCommand {
         student.setStudentId(request.getParameter("email"));
 
 
-        
+
 
     }
 }
