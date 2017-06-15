@@ -13,3 +13,5 @@ classes
 */.settings/
 **/bin
 .springBeans
+*.jar
+*.war
