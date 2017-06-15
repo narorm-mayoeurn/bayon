@@ -21,23 +21,25 @@ public class ExcludeURIHandler extends SecurityHandler {
 
     private String[] excludeURI;
 
-    public ExcludeURIHandler(SecurityHandler delegate, String[] excludeURI) {
-        this.delegate = delegate;
+    public ExcludeURIHandler(SecurityHandler handler, String[] excludeURI) {
+        this.nextHandler = handler;
         this.excludeURI = excludeURI;
     }
 
     @Override
-    public void handle(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException, AuthenticationException, AuthorizationException {
+    public void handle(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException, AuthenticationException, AuthorizationException {
+
         if (exclude(request)) {
             LOGGER.debug("Exclude URI handler.");
             chain.doFilter(request, response);
         } else {
-            delegate.handle(request, response, chain);
+            nextHandler.handle(request, response, chain);
         }
     }
 
     boolean exclude(ServletRequest request) {
-        if (delegate == null) {
+        if (nextHandler == null) {
             return true;
         }
         if (excludeURI != null && excludeURI.length > 0) {

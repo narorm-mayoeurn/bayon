@@ -15,7 +15,9 @@ import java.io.IOException;
 public class AuthorizationHandler extends SecurityHandler {
 
     @Override
-    public void handle(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException, AuthenticationException, AuthorizationException {
+    public void handle(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException, AuthenticationException, AuthorizationException {
+
         //TODO: Check roles implementation
         chain.doFilter(request, response);
     }

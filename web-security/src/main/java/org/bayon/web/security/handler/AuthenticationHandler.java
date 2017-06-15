@@ -16,25 +16,23 @@ import java.io.IOException;
  */
 public class AuthenticationHandler extends SecurityHandler {
 
-    private AuthManager manager;
-
-    public AuthenticationHandler(SecurityHandler delegate) {
-        this.delegate = delegate;
-        manager = new AuthManager();
+    public AuthenticationHandler(SecurityHandler handler) {
+        this.nextHandler = handler;
     }
 
     @Override
-    public void handle(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException, AuthenticationException, AuthorizationException {
+    public void handle(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException, AuthenticationException, AuthorizationException {
 
         HttpServletRequest req = (HttpServletRequest)request;
         if (req.getSession() == null || req.getSession().getAttribute(AuthManager.AUTH) == null) {
             throw new AuthenticationException("Access Denied");
         }
 
-        if (delegate == null) {
+        if (nextHandler == null) {
             chain.doFilter(request, response);
         } else {
-            delegate.handle(request, response, chain);
+            nextHandler.handle(request, response, chain);
         }
     }
 }

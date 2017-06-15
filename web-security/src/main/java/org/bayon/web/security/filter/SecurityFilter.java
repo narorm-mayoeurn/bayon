@@ -34,6 +34,7 @@ public final class SecurityFilter implements Filter {
 
     @Override
     public void init(FilterConfig conf) throws ServletException {
+
         if (conf.getInitParameter("login-page") == null) {
             throw new SecurityRuntimeException("The 'login-page' init-param is required.");
         }
