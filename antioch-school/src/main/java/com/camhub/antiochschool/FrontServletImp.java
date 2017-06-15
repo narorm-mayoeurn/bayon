@@ -2,6 +2,7 @@ package com.camhub.antiochschool;
 
 import com.camhub.antiochschool.command.HomeCommand;
 import com.camhub.antiochschool.command.login.LoginFormCommand;
+import com.camhub.antiochschool.command.student.StudentAddCommand;
 import com.camhub.antiochschool.command.student.StudentListCommand;
 import com.camhub.antiochschool.command.student.StudentRegisterFormCommand;
 import com.camhub.antiochschool.command.teacher.TeacherFormCommand;
@@ -21,6 +22,7 @@ public class FrontServletImp extends FrontServlet {
         register("student/list", StudentListCommand.class);
         register("student/register", StudentRegisterFormCommand.class);
         register("student/update", StudentRegisterFormCommand.class);
+
 
 
         register("teacher/list", TeacherListCommand.class);

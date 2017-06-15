@@ -20,9 +20,10 @@ public class StudentRegisterFormCommand extends FrontCommand {
             request.setAttribute("action", "update");
         } else request.setAttribute("action", "");
 
-
-
         forward("student-register-form");
 
     }
+
+
+
 }
