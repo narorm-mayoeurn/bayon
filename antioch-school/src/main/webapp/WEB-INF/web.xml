@@ -7,11 +7,11 @@
 
     <servlet>
         <servlet-name>frontCommand</servlet-name>
-        <servlet-class>com.camhub.antiochschool.FrontControllerImp</servlet-class>
+        <servlet-class>com.camhub.antiochschool.FrontServletImp</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>frontCommand</servlet-name>
-        <url-pattern>*.</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>

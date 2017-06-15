@@ -2,6 +2,7 @@ package com.camhub.antiochschool.command;
 
 import org.bayon.web.FrontCommand;
 
+import javax.servlet.ServletException;
 import java.io.IOException;
 
 /**
@@ -10,12 +11,8 @@ import java.io.IOException;
 public class HomeCommand extends FrontCommand {
 
     @Override
-    public void execute() {
-        try {
-            response.getWriter().print("hello hello");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void execute() throws ServletException, IOException {
+        forward("student-list");
     }
 
 }
