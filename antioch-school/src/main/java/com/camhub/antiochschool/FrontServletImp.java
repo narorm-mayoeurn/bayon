@@ -32,6 +32,9 @@ public class FrontServletImp extends FrontServlet {
         register("classroom/add", TeacherFormCommand.class);
         register("classroom/update", TeacherFormCommand.class);
 
+
+        register("about", TeacherFormCommand.class);
+
     }
 
 

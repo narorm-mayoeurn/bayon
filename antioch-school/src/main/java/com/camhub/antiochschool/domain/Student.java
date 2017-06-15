@@ -1,6 +1,7 @@
 package com.camhub.antiochschool.domain;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by nm on 9/6/17.
@@ -13,14 +14,20 @@ public class Student {
     private String khmerName;
     private String gender;
     private Date birthDate;
-    private Long classId;
-    private String session;
-    private String teacherName;
+
+    private Long currentClassroomId;
+    private Long currentSessionId;
+    private Long teacherId;
+
     private Date registeredDate;
-    private Double schoolFee;
-    private Double adminstrationFee;
-    private Double suppliesFee;
+
+
     private String payRollNumber;
+
+    private Date addedDate;
+    private Long addedby;
+    private Date modifiedDate;
+    private Long modifiedBy;
 
     public Long getId() {
         return id;
@@ -70,28 +77,28 @@ public class Student {
         this.birthDate = birthDate;
     }
 
-    public Long getClassId() {
-        return classId;
+    public Long getCurrentClassroomId() {
+        return currentClassroomId;
     }
 
-    public void setClassId(Long classId) {
-        this.classId = classId;
+    public void setCurrentClassroomId(Long currentClassroomId) {
+        this.currentClassroomId = currentClassroomId;
     }
 
-    public String getSession() {
-        return session;
+    public Long getCurrentSessionId() {
+        return currentSessionId;
     }
 
-    public void setSession(String session) {
-        this.session = session;
+    public void setCurrentSessionId(Long currentSessionId) {
+        this.currentSessionId = currentSessionId;
     }
 
-    public String getTeacherName() {
-        return teacherName;
+    public Long getTeacherId() {
+        return teacherId;
     }
 
-    public void setTeacherName(String teacherName) {
-        this.teacherName = teacherName;
+    public void setTeacherId(Long teacherId) {
+        this.teacherId = teacherId;
     }
 
     public Date getRegisteredDate() {
@@ -102,35 +109,43 @@ public class Student {
         this.registeredDate = registeredDate;
     }
 
-    public Double getSchoolFee() {
-        return schoolFee;
-    }
-
-    public void setSchoolFee(Double schoolFee) {
-        this.schoolFee = schoolFee;
-    }
-
-    public Double getAdminstrationFee() {
-        return adminstrationFee;
-    }
-
-    public void setAdminstrationFee(Double adminstrationFee) {
-        this.adminstrationFee = adminstrationFee;
-    }
-
-    public Double getSuppliesFee() {
-        return suppliesFee;
-    }
-
-    public void setSuppliesFee(Double suppliesFee) {
-        this.suppliesFee = suppliesFee;
-    }
-
     public String getPayRollNumber() {
         return payRollNumber;
     }
 
     public void setPayRollNumber(String payRollNumber) {
         this.payRollNumber = payRollNumber;
+    }
+
+    public Date getAddedDate() {
+        return addedDate;
+    }
+
+    public void setAddedDate(Date addedDate) {
+        this.addedDate = addedDate;
+    }
+
+    public Long getAddedby() {
+        return addedby;
+    }
+
+    public void setAddedby(Long addedby) {
+        this.addedby = addedby;
+    }
+
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
+
+    public Long getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(Long modifiedBy) {
+        this.modifiedBy = modifiedBy;
     }
 }

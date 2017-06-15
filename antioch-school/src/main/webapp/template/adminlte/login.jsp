@@ -27,7 +27,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>Antioch</b>School</a>
+        <a href="#"><b>Antioch</b> School</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -67,8 +67,8 @@
         <%--</div>--%>
         <!-- /.social-auth-links -->
 
-        <a href="#">I forgot my password</a><br>
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <%--<a href="#">I forgot my password</a><br>--%>
+        <%--<a href="register.html" class="text-center">Register a new membership</a>--%>
 
     </div>
     <!-- /.login-box-body -->
