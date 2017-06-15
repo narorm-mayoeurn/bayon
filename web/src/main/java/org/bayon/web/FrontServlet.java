@@ -29,9 +29,17 @@ public abstract class FrontServlet extends HttpServlet {
         frontCommand.setTemplate(template);
         frontCommand.execute();
 
-        if(req.getMethod().equals("GET")) {
 
+
+        if("application/json".equals(req.getContentType())) {
+                frontCommand.responseAsJson();
         }
+
+        else {
+            frontCommand.responseAsHtml();
+        }
+
+
     }
 
 

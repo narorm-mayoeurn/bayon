@@ -12,6 +12,12 @@ public class HomeCommand extends FrontCommand {
 
     @Override
     public void execute() throws ServletException, IOException {
+
+    }
+
+    @Override
+    protected void responseAsHtml() throws ServletException, IOException {
+        super.responseAsHtml();
         forward("student-list");
     }
 
