@@ -1,5 +1,11 @@
 package org.bayon.form.validation;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 /**
  * Created by Chandara Leang on 6/14/2017.
  */
@@ -39,7 +45,7 @@ public class UserInput {
     }
 
     public void setDateOfBirth(String dateOfBirth){
-        this.dateOfBirth =dateOfBirth;
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getEmail(){
@@ -112,5 +118,24 @@ public class UserInput {
 
     public void setInputValid(boolean isInputValid){
         this.isInputValid = isInputValid;
+    }
+
+    public int underEighteen() throws ParseException {
+        int age = 0;
+        int factor = 0;
+        Date currentDate = new Date();
+        Calendar cal1 = new GregorianCalendar();
+        Calendar cal2 = new GregorianCalendar();
+        Date dob = new SimpleDateFormat("MM/dd/yyyy").parse(dateOfBirth);
+
+        cal1.setTime(dob);
+        cal2.setTime(currentDate);
+
+        if(cal2.get(Calendar.DAY_OF_YEAR)<cal1.get(Calendar.DAY_OF_YEAR)){
+            factor = -1;
+        }
+
+        age = cal2.get(Calendar.YEAR) - cal1.get(Calendar.YEAR) + factor;
+        return age;
     }
 }
