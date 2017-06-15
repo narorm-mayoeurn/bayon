@@ -15,6 +15,9 @@
     <annotationProcessing enabled="false" useClasspath="true"/>
     <bytecodeTargetLevel target="1.8">
       <module name="ogm-datastore" target="1.7"/>
+      <module name="antioch-school" target="1.7"/>
+      <module name="mvc" target="1.7"/>
+      <module name="web" target="1.7"/>
     </bytecodeTargetLevel>
   </component>
   <component name="CopyrightManager" default="">
@@ -52,6 +55,9 @@
     <modules>
       <module filepath="$PROJECT_DIR$/bayon.iml" fileurl="file://$PROJECT_DIR$/bayon.iml"/>
       <module filepath="$PROJECT_DIR$/ogm-datastore/ogm-datastore.iml" fileurl="file://$PROJECT_DIR$/ogm-datastore/ogm-datastore.iml"/>
+      <module filepath="$PROJECT_DIR$/antioch-school/antioch-school.iml" fileurl="file://$PROJECT_DIR$/antioch-school/antioch-school.iml"/>
+      <module filepath="$PROJECT_DIR$/mvc/mvc.iml" fileurl="file://$PROJECT_DIR$/mvc/mvc.iml"/>
+      <module filepath="$PROJECT_DIR$/web/web.iml" fileurl="file://$PROJECT_DIR$/web/web.iml"/>
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" assert-keyword="true" jdk-15="true" project-jdk-type="JavaSDK" assert-jdk-15="true" project-jdk-name="1.8">

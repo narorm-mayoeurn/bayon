@@ -25,12 +25,14 @@ apply plugin: 'com.google.cloud.tools.appengine'  // App Engine tasks
 dependencies {
     compile(project(':ogm-datastore'))
     compile(project(':web'))
-    providedCompile group: 'javax.servlet', name: 'servlet-api', version:'2.5'
+    compile(project(':web-security'))
+    compileOnly group: 'javax.servlet', name: 'servlet-api', version:'2.5'
 }
 
 appengine {  // App Engine tasks configuration
     run {      // local (dev_appserver) configuration (standard environments only)
         port = 8080                 // default
+        jvmFlags = ["-Dappengine.fullscan.seconds=5"]
     }
 
     deploy {   // deploy configuration

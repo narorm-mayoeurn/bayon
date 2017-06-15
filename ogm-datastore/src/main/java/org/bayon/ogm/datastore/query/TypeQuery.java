@@ -9,13 +9,18 @@ import com.google.appengine.api.datastore.Query;
 public class TypeQuery implements Cloneable {
 
     private Query query;
+    private boolean keyOnly;
 
     TypeQuery(Query query) {
         this.query = query;
     }
 
+    public void setKeyOnly(boolean keyOnly) {
+        this.keyOnly = keyOnly;
+    }
+
     public Query getQuery() {
-        return query;
+        return keyOnly ? query.setKeysOnly() : query;
     }
 
     @Override

@@ -34,8 +34,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a<%= request.getAttribute("page").equals("student-list") ? "class=\"active\"" : "" %> href="/student/list"><i class="fa fa-circle-o"></i> Student List</a></li>
-                    <li><a<%= request.getAttribute("page").equals("student-register-form") ? "class=\"active\"" : "" %> href="/student/register"><i class="fa fa-circle-o"></i> Student Register</a></li>
+                    <li<%= request.getAttribute("page").equals("student-list") ? " class=\"active\"" : "" %>><a href="/student/list"><i class="fa fa-circle-o"></i> Student List</a></li>
+                    <li<%= request.getAttribute("page").equals("student-register-form") ? " class=\"active\"" : "" %>><a href="/student/register"><i class="fa fa-circle-o"></i> Student Register</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -47,22 +47,22 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/teacher/list"><i class="fa fa-circle-o"></i> Teacher List</a></li>
-                    <li><a href="/teacher/add"><i class="fa fa-circle-o"></i> Teacher Add</a></li>
+                    <li<%= request.getAttribute("page").equals("teacher-list") ? " class=\"active\"" : "" %>><a href="/teacher/list"><i class="fa fa-circle-o"></i> Teacher List</a></li>
+                    <li<%= request.getAttribute("page").equals("teacher-form") ? " class=\"active\"" : "" %>><a href="/teacher/add"><i class="fa fa-circle-o"></i> Teacher Add</a></li>
                 </ul>
             </li>
 
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-pie-chart"></i>
-                    <span>Courses</span>
+                    <span>Classroom</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i> Course List</a></li>
-                    <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> Course Add</a></li>
+                    <li<%= request.getAttribute("page").equals("classroom-list") ? " class=\"active\"" : "" %>><a href="/classroom/list"><i class="fa fa-circle-o"></i> Classroom List</a></li>
+                    <li<%= request.getAttribute("page").equals("classroom-form") ? " class=\"active\"" : "" %>><a href="/classroom/add"><i class="fa fa-circle-o"></i> Classroom Add</a></li>
                 </ul>
             </li>
 
