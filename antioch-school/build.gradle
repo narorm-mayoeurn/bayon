@@ -26,6 +26,7 @@ dependencies {
     compile(project(':ogm-datastore'))
     compile(project(':web'))
     compile(project(':web-security'))
+    compile(project(':cache-proxy-filter'))
     compileOnly group: 'javax.servlet', name: 'servlet-api', version:'2.5'
 }
 
