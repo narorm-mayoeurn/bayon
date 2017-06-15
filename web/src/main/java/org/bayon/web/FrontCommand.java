@@ -31,8 +31,6 @@ public abstract class FrontCommand {
         this.context = context;
         this.request = req;
         this.response = resp;
-
-
     }
 
     public void setTemplate(String template) {

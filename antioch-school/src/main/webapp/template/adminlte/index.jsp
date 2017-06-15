@@ -275,6 +275,9 @@
 <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="/template/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+
+<!-- jQuery Form -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.min.js" integrity="sha384-tIwI8+qJdZBtYYCKwRkjxBGQVZS3gGozr3CtI+5JF/oL1JmPEHzCEnIKbDbLTCer" crossorigin="anonymous"></script>
 <script>
   $(function () {
     // Replace the <textarea id="editor1"> with a CKEditor
