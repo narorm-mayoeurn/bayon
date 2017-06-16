@@ -287,17 +287,19 @@
 <script>
 
     function showError(err) {
-        for(var e in err) {
+        for(var k in err) {
 
-            var n = $('#fg_' + e.key);
+            console.log(err[k].key + ' | ' + err[k].value);
+
+            var n = $('#fg_' + err[k].key);
 
             if(n.length > 0) {
                 n.addClass('has-error');
                 var nm = n.find('.help-block');
                 if(nm.length > 0) {
-                    nm.text(e.value);
+                    nm.text(err[k].value);
                 } else {
-                    n.append('<span class="help-block">' + e.value + '</span>');
+                    n.children('div')[0].appendHtml('<span class="help-block">' + err[k].value + '</span>');
                 }
             }
 
