@@ -288,7 +288,9 @@
 
     function showError(err) {
         for(var e in err) {
+
             var n = $('#fg_' + e.key);
+
             if(n.length > 0) {
                 n.addClass('has-error');
                 var nm = n.find('.help-block');
@@ -298,6 +300,7 @@
                     n.append('<span class="help-block">' + e.value + '</span>');
                 }
             }
+
         }
     }
 

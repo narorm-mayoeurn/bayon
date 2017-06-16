@@ -26,4 +26,12 @@ public class StudentFacade {
         QueryBuilder builder = studentRepository.createQueryBuilder();
         return studentRepository.find(builder.toQuery(), offset, limit);
     }
+
+    public void update(Student student) {
+        studentRepository.update(student);
+    }
+
+    public Long create(Student student) {
+        return studentRepository.create(student);
+    }
 }

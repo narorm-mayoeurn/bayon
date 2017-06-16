@@ -26,11 +26,6 @@ public class FrontServletImp extends FrontServlet {
         register(StudentSaveCommand.class, "student/save");
 
 
-        register("teacher/list", TeacherListCommand.class);
-        register("teacher/add", TeacherFormCommand.class);
-        register("teacher/update", TeacherFormCommand.class);
-        register("teacher/save", TeacherSaveCommand.class);
-
 
         register(TeacherListCommand.class, "classroom/list");
         register(TeacherFormCommand.class, "classroom/add");

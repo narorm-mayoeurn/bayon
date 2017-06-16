@@ -83,4 +83,7 @@ public abstract class FrontCommand {
         strategies.add(HttpServletRequestValidationImp.IS_PASSWORD);
 
     }
+
+
+
 }
