@@ -26,8 +26,13 @@ dependencies {
     compile(project(':ogm-datastore'))
     compile(project(':web'))
     compile(project(':web-security'))
+    compile(project(':form-validation'))
     compile(project(':cache-proxy-filter'))
     compileOnly group: 'javax.servlet', name: 'servlet-api', version:'2.5'
+
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.8'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.8'
+
 }
 
 appengine {  // App Engine tasks configuration

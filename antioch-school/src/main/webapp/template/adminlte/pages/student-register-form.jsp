@@ -32,14 +32,14 @@
 
                         <div class="box-body">
 
-                            <div class="form-group">
+                            <div class="form-group" id="fg_student_id">
                                 <label for="student_id" class="col-sm-3 control-label">Student ID</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="student_id" name="student_id" placeholder="ID">
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" id="fg_khmer_name">
                                 <label for="kh_name" class="col-sm-3 control-label">Khmer Name</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="kh_name" name="khmer_name" placeholder="Khmer Name">
@@ -47,7 +47,7 @@
                             </div>
 
 
-                            <div class="form-group">
+                            <div class="form-group" id="fg_english_name">
                                 <label for="en_name" class="col-sm-3 control-label">English Name</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="en_name" name="english_name" placeholder="English Name">
@@ -56,7 +56,7 @@
 
 
 
-                            <div class="form-group">
+                            <div class="form-group" id="fg_gender">
                                 <label for="kh_name" class="col-sm-3 control-label">Gender</label>
 
                                 <div class="col-sm-9">
@@ -77,7 +77,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" id="fg_birthdate">
 
                                 <label for="phone" class="col-sm-3 control-label">Date of Birth</label>
 
@@ -92,7 +92,7 @@
                                 <!-- /.input group -->
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" id="fg_phone">
                                 <label for="phone" class="col-sm-3 control-label">Phone Number</label>
 
                                 <div class="col-sm-9">
@@ -108,7 +108,7 @@
 
 
 
-                            <div class="form-group">
+                            <div class="form-group" id="fg_email">
                                 <label for="email" class="col-sm-3 control-label">Email</label>
 
                                 <div class="col-sm-9">
@@ -120,7 +120,13 @@
                             </div>
 
 
+                            <div id="student-form-message" class="callout callout-success" style="display:none;">
+                            </div>
+
                         </div>
+
+
+
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <button type="submit" class="btn btn-info pull-right">Save</button>
@@ -142,7 +148,12 @@
 
         // prepare all forms for ajax submission
         $('#student_form').ajaxForm({
-
+            success: function(data) {
+                $('#student-form-message').html('<p>' + data.message + '</p>');
+            },
+            error: function(data) {
+                showError(data);
+            }
         });
 
 </script>

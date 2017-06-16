@@ -62,14 +62,19 @@ public abstract class FrontServlet extends HttpServlet {
     public String getCommandName(HttpServletRequest req) {
         return req.getRequestURI().substring(1);
     }
-    public void register(String name, Class<? extends FrontCommand> cls) {
-
-        cmdClassMapper.register(name, cls);
+    public void register(Class<? extends FrontCommand> cls, String... uri) {
+        for(String n : uri) {
+            cmdClassMapper.register(n, cls);
+        }
     }
+
+
+
 
 
     public abstract void registerCommandClass();
     public abstract String defaultTemplate();
+
 
 
 }

@@ -15,27 +15,27 @@ public class FrontServletImp extends FrontServlet {
 
     @Override
     public void registerCommandClass() {
-        register("login", LoginFormCommand.class);
-        register("home", StudentListCommand.class);
-
-        register("student/list", StudentListCommand.class);
-        register("student/register", StudentRegisterFormCommand.class);
-        register("student/update", StudentRegisterFormCommand.class);
-        register("student/save", StudentSaveCommand.class);
+        register(LoginFormCommand.class, "login");
+        register(StudentListCommand.class, "", "home");
 
 
-
-        register("teacher/list", TeacherListCommand.class);
-        register("teacher/add", TeacherFormCommand.class);
-        register("teacher/update", TeacherFormCommand.class);
-
-
-        register("classroom/list", TeacherListCommand.class);
-        register("classroom/add", TeacherFormCommand.class);
-        register("classroom/update", TeacherFormCommand.class);
+        register(StudentListCommand.class, "student/list");
+        register(StudentRegisterFormCommand.class, "student/register");
+        register(StudentRegisterFormCommand.class, "student/update");
+        register(StudentSaveCommand.class, "student/save");
 
 
-        register("about", TeacherFormCommand.class);
+        register(TeacherListCommand.class, "teacher/list");
+        register(TeacherFormCommand.class, "teacher/add");
+        register(TeacherFormCommand.class, "teacher/update");
+
+
+        register(TeacherListCommand.class, "classroom/list");
+        register(TeacherFormCommand.class, "classroom/add");
+        register(TeacherFormCommand.class, "classroom/update");
+
+
+        register(TeacherFormCommand.class, "about");
 
     }
 

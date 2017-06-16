@@ -284,6 +284,32 @@
 <script src="/template/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 
 
+<script>
+
+    function showError(err) {
+        for(var e in err) {
+            var n = $('#fg_' + e.key);
+            if(n.length > 0) {
+                n.addClass('has-error');
+                var nm = n.find('.help-block');
+                if(nm.length > 0) {
+                    nm.text(e.value);
+                } else {
+                    n.append('<span class="help-block">' + e.value + '</span>');
+                }
+            }
+        }
+    }
+
+    $(function() {
+        $('.form-group').focus(function() {
+            $(this).removeClass('has-error');
+            $(this).find('.help-block').hide();
+        });
+    });
+
+</script>
+
 </body>
 </html>
 <% } %>

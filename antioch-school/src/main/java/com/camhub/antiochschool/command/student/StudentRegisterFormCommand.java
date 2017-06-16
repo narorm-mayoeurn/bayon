@@ -24,6 +24,11 @@ public class StudentRegisterFormCommand extends FrontCommand {
         if("student/register".equals(getCommandName())) {
             request.setAttribute("action", "register");
         } else if("student/update".equals(getCommandName())) {
+
+            Long id = Long.valueOf(request.getParameter("id"));
+
+            StudentRepository studentRep = new StudentRepositoryImpl();
+
             request.setAttribute("action", "update");
         } else request.setAttribute("action", "");
 

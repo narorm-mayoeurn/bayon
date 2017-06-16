@@ -1,10 +1,14 @@
 package org.bayon.web;
 
+
+
+import org.bayon.form.validation.HttpServletRequestValidationImp;
+import org.bayon.form.validation.HttpServletRequestValidation;
+import org.bayon.form.validation.RequestValidationContext;
+
 import javax.servlet.RequestDispatcher;
-import javax.servlet.Servlet;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -19,6 +23,9 @@ public abstract class FrontCommand {
     private String template;
     private String commandName;
 
+    protected RequestValidationContext validationContext;
+    protected Set<HttpServletRequestValidation> strategies;
+
     protected ServletContext context;
     protected HttpServletRequest request;
     protected HttpServletResponse response;
@@ -31,6 +38,10 @@ public abstract class FrontCommand {
         this.context = context;
         this.request = req;
         this.response = resp;
+
+        registerValidationRules();
+        validationContext = new RequestValidationContext(strategies);
+
     }
 
     public void setTemplate(String template) {
@@ -53,8 +64,23 @@ public abstract class FrontCommand {
         response.setHeader("Content-Type", "text/html");
     }
 
-    public String getCommandName() {
+    public final String getCommandName() {
         return commandName;
     }
 
+
+
+
+    protected void registerValidationRules() {
+        strategies = new LinkedHashSet<>();
+
+        strategies.add(HttpServletRequestValidationImp.IS_EMPTY);
+        strategies.add(HttpServletRequestValidationImp.IS_AGE);
+        strategies.add(HttpServletRequestValidationImp.IS_DATE);
+        strategies.add(HttpServletRequestValidationImp.IS_EMAIL);
+        strategies.add(HttpServletRequestValidationImp.IS_GENDER);
+        strategies.add(HttpServletRequestValidationImp.IS_PHONE);
+        strategies.add(HttpServletRequestValidationImp.IS_PASSWORD);
+
+    }
 }
