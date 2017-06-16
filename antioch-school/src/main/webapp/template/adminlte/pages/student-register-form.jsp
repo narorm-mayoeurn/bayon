@@ -151,8 +151,9 @@
             success: function(data) {
                 $('#student-form-message').html('<p>' + data.message + '</p>');
             },
-            error: function(data) {
-                showError(data);
+            error: function(xhr) {
+                console.log(xhr.responseText);
+                showError($.parseJSON(xhr.responseText));
             }
         });
 
