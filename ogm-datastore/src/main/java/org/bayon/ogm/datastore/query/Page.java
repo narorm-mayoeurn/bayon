@@ -53,11 +53,11 @@ public class Page<T> {
         this.total = total;
     }
 
-    public Iterator<Integer> getOffsetIterator() {
-        return new OffsetIterator();
+    public PageIterator getPageIterator() {
+        return new PageIterator();
     }
 
-    class OffsetIterator implements Iterator<Integer> {
+    public class PageIterator implements Iterator<Integer> {
 
         @Override
         public Integer next() {
@@ -66,10 +66,24 @@ public class Page<T> {
 
         @Override
         public boolean hasNext() {
-            if (offset + limit < total) {
+            if (offset + limit <= total) {
                 return true;
             }
             return false;
+        }
+
+        public Integer previous() {
+            if (offset - limit <= 0) {
+                return 0;
+            }
+            return offset - limit;
+        }
+
+        public boolean hasPrevious() {
+            if (offset - limit <= 0) {
+                return false;
+            }
+            return true;
         }
 
         @Override

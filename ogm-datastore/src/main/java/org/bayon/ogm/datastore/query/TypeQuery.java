@@ -33,6 +33,6 @@ public class TypeQuery implements Cloneable {
         for (Query.SortPredicate sortPredicate : query.getSortPredicates()) {
             clone.addSort(sortPredicate.getPropertyName(), sortPredicate.getDirection());
         }
-        return clone;
+        return new TypeQuery(clone);
     }
 }
