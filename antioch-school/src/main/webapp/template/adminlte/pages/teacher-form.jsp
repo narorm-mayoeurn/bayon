@@ -26,24 +26,21 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form class="form-horizontal">
+                    <form id="teacher_form" class="form-horizontal" action="/teacher/save" method="post">
+
+
+                        <input type="hidden" name="_a" value="" />
+
                         <div class="box-body">
 
-                            <div class="form-group">
-                                <label for="teacher_id" class="col-sm-3 control-label">Teacher ID</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="teacher_id" name="teacher_id" placeholder="ID">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
+                            <div class="form-group" id="fg_kh_name">
                                 <label for="kh_name" class="col-sm-3 control-label">Khmer Name</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="kh_name" name="kh_name" placeholder="Khmer Name">
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" id="fg_en_name">
                                 <label for="en_name" class="col-sm-3 control-label">English Name</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="en_name" name="en_name" placeholder="English Name">
@@ -52,7 +49,7 @@
 
 
 
-                            <div class="form-group">
+                            <div class="form-group" id="fg_gender">
                                 <label for="kh_name" class="col-sm-3 control-label">Gender</label>
 
                                 <div class="col-sm-9">
@@ -74,7 +71,7 @@
                             </div>
 
 
-                            <div class="form-group">
+                            <div class="form-group" id="fg_birthdate">
 
                                 <label for="phone" class="col-sm-3 control-label">Date of Birth</label>
 
@@ -90,7 +87,7 @@
                             </div>
 
 
-                            <div class="form-group">
+                            <div class="form-group" id="fg_phone">
                                 <label for="phone" class="col-sm-3 control-label">Phone Number</label>
 
                                 <div class="col-sm-9">
@@ -106,7 +103,7 @@
 
 
 
-                            <div class="form-group">
+                            <div class="form-group" id="fg_email">
                                 <label for="email" class="col-sm-3 control-label">Email</label>
 
                                 <div class="col-sm-9">
@@ -134,4 +131,11 @@
         </div>
     </section>
     <!-- /.content -->
-</div>
+</div><script>
+
+    // prepare all forms for ajax submission
+    $('#teacher_form').ajaxForm({
+
+    });
+
+</script>

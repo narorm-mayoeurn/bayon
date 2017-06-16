@@ -7,18 +7,12 @@ import java.util.Date;
  */
 public class Teacher {
     private Long id;
-    private String teacherId;
     private String khmerName;
     private String englishName;
-
-    private Character gender;
+    private String phone;
+    private String email;
+    private String gender;
     private Date birthdate;
-
-
-    private Date addedDate;
-    private Long addedby;
-    private Date modifiedDate;
-    private Long modifiedBy;
 
     public Long getId() {
         return id;
@@ -26,14 +20,6 @@ public class Teacher {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(String teacherId) {
-        this.teacherId = teacherId;
     }
 
     public String getKhmerName() {
@@ -52,11 +38,11 @@ public class Teacher {
         this.englishName = englishName;
     }
 
-    public Character getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Character gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -68,35 +54,19 @@ public class Teacher {
         this.birthdate = birthdate;
     }
 
-    public Date getAddedDate() {
-        return addedDate;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setAddedDate(Date addedDate) {
-        this.addedDate = addedDate;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public Long getAddedby() {
-        return addedby;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAddedby(Long addedby) {
-        this.addedby = addedby;
-    }
-
-    public Date getModifiedDate() {
-        return modifiedDate;
-    }
-
-    public void setModifiedDate(Date modifiedDate) {
-        this.modifiedDate = modifiedDate;
-    }
-
-    public Long getModifiedBy() {
-        return modifiedBy;
-    }
-
-    public void setModifiedBy(Long modifiedBy) {
-        this.modifiedBy = modifiedBy;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
