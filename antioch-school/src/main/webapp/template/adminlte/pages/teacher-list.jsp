@@ -43,6 +43,8 @@
                                 <th>Date of Birth</th>
                                 <th>Phone</th>
                                 <th>Email</th>
+                                <th></th>
+                                <th></th>
 
                             </tr>
 
@@ -57,6 +59,8 @@
                                 <td><%= teacher.getBirthdate()%></td>
                                 <td><%= teacher.getPhone()%></td>
                                 <td><%= teacher.getEmail()%></td>
+                                <td><a href="#"><i class="fa fa-fw fa-edit"></i></a></td>
+                                <td><a href="#" id="teacher-delete"><i class="fa fa-fw fa-remove"></i></a></td>
                             </tr>
                             <%
                                 }
@@ -118,3 +122,12 @@
     </section>
     <!-- /.content -->
 </div>
+
+<script>
+
+    // prepare all forms for ajax submission
+    $('#teacher_form').ajaxForm({
+
+    });
+
+</script>
