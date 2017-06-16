@@ -8,4 +8,7 @@ import org.bayon.ogm.datastore.DatastoreRepositoryAdapter;
  */
 public class StudentRepositoryImpl extends DatastoreRepositoryAdapter<Student> implements StudentRepository {
 
+    StudentRepositoryImpl() {
+
+    }
 }

@@ -1,6 +1,7 @@
 package com.camhub.antiochschool.command.student;
 
 import com.camhub.antiochschool.domain.Student;
+import com.camhub.antiochschool.repository.SingletonRepositoryFactory;
 import com.camhub.antiochschool.repository.StudentRepository;
 import com.camhub.antiochschool.repository.StudentRepositoryImpl;
 import org.bayon.web.FrontCommand;
@@ -27,7 +28,7 @@ public class StudentRegisterFormCommand extends FrontCommand {
 
             Long id = Long.valueOf(request.getParameter("id"));
 
-            StudentRepository studentRep = new StudentRepositoryImpl();
+            StudentRepository studentRep = SingletonRepositoryFactory.getFactory().getStudentRepository();
 
             request.setAttribute("action", "update");
         } else request.setAttribute("action", "");

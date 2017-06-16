@@ -1,6 +1,7 @@
 package com.camhub.antiochschool.command.teacher;
 
 import com.camhub.antiochschool.domain.Teacher;
+import com.camhub.antiochschool.repository.SingletonRepositoryFactory;
 import com.camhub.antiochschool.repository.TeacherRepository;
 import com.camhub.antiochschool.repository.TeacherRepositoryImpl;
 import org.bayon.web.FrontCommand;
@@ -38,7 +39,7 @@ public class TeacherSaveCommand extends FrontCommand {
         teacher.setPhone(request.getParameter("phone"));
         teacher.setEmail(request.getParameter("email"));
 
-        TeacherRepository teacherRep = new TeacherRepositoryImpl();
+        TeacherRepository teacherRep = SingletonRepositoryFactory.getFactory().getTeacherRepository();
         teacherRep.create(teacher);
     }
 
