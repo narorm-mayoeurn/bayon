@@ -8,7 +8,7 @@ public class SchoolFee {
     private Long id;
     private String payrollNo;
 
-    private Double schoolFee;
+    private Double tuitionFee;
     private Double adminstrationFee;
     private Double supplyFee;
 
