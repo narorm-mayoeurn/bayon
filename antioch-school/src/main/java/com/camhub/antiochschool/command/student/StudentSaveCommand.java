@@ -31,6 +31,7 @@ public class StudentSaveCommand extends FrontCommand {
         Student student = new Student();
 
 
+<<<<<<< HEAD
         if(RequestValidationType.IS_EMPTY != validationContext.execute(request, "student_id")) {
             errorMessages.put("student_id", "Student ID cannot be empty.");
         }
@@ -38,6 +39,11 @@ public class StudentSaveCommand extends FrontCommand {
         if(RequestValidationType.IS_EMPTY != validationContext.execute(request, "khmer_name")) {
             errorMessages.put("khmer_name", "Student Khmer name cannot be empty.");
         }
+=======
+        student.setStudentId(request.getParameter("student_id"));
+        student.setKhmerName(request.getParameter("khmer_name"));
+        student.setEnglishName(request.getParameter("english_name"));
+>>>>>>> aff988b15b676f36c5830ce566b1a68f533377f9
 
         if(RequestValidationType.IS_NAME != validationContext.execute(request, "english_name")) {
             errorMessages.put("english_name", "Student English name is not correct.");
@@ -56,6 +62,7 @@ public class StudentSaveCommand extends FrontCommand {
         }
 
 
+<<<<<<< HEAD
 
         if(!errorMessages.isEmpty()) {
 
@@ -94,6 +101,10 @@ public class StudentSaveCommand extends FrontCommand {
 
 
         }
+=======
+        StudentRepository studentRep = new StudentRepositoryImpl();
+        studentRep.create(student);
+>>>>>>> aff988b15b676f36c5830ce566b1a68f533377f9
     }
 
     @Override

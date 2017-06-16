@@ -1,3 +1,5 @@
+<%@ page import="com.camhub.antiochschool.domain.Teacher" %>
+<%@ page import="org.bayon.ogm.datastore.query.Page" %>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -35,14 +37,32 @@
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
                             <tr>
-                                <th>ID</th>
                                 <th>Khmer Name</th>
                                 <th>English Name</th>
                                 <th>Gender</th>
                                 <th>Date of Birth</th>
+                                <th>Phone</th>
+                                <th>Email</th>
 
                             </tr>
+
+                            <%
+                                Page<Teacher> p = (Page<Teacher>)request.getAttribute("teachers");
+                                for (Teacher teacher : p.getItems()) {
+                            %>
                             <tr>
+                                <td><%= teacher.getKhmerName()%></td>
+                                <td><%= teacher.getEnglishName()%></td>
+                                <td><%= teacher.getGender()%></td>
+                                <td><%= teacher.getBirthdate()%></td>
+                                <td><%= teacher.getPhone()%></td>
+                                <td><%= teacher.getEmail()%></td>
+                            </tr>
+                            <%
+                                }
+                            %>
+
+                            <!--<tr>
                                 <td>183</td>
                                 <td>John Doe</td>
                                 <td>11-7-2014</td>
@@ -69,7 +89,7 @@
                                 <td>11-7-2014</td>
                                 <td><span class="label label-danger">Denied</span></td>
                                 <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                            </tr>
+                            </tr>-->
                         </table>
                     </div>
                     <!-- /.box-body -->
@@ -77,11 +97,17 @@
 
                     <div class="box-footer clearfix">
                         <ul class="pagination pagination-sm no-margin pull-right">
-                            <li><a href="#">«</a></li>
+                            <% if (p.getPageIterator().hasPrevious()) { %>
+                            <li><a href="?offset=<%= p.getPageIterator().previous()%>&limit=<%= p.getLimit()%>">«</a></li>
+                            <% } %>
+                            <!--
                             <li><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
                             <li><a href="#">3</a></li>
-                            <li><a href="#">»</a></li>
+                            -->
+                            <% if (p.getPageIterator().hasNext()) { %>
+                            <li><a href="?offset=<%= p.getPageIterator().next()%>&limit=<%= p.getLimit()%>">»</a></li>
+                            <% } %>
                         </ul>
                     </div>
 

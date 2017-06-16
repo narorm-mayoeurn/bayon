@@ -6,6 +6,7 @@ import com.camhub.antiochschool.command.student.StudentRegisterFormCommand;
 import com.camhub.antiochschool.command.student.StudentSaveCommand;
 import com.camhub.antiochschool.command.teacher.TeacherFormCommand;
 import com.camhub.antiochschool.command.teacher.TeacherListCommand;
+import com.camhub.antiochschool.command.teacher.TeacherSaveCommand;
 import org.bayon.web.FrontServlet;
 
 /**
@@ -25,9 +26,10 @@ public class FrontServletImp extends FrontServlet {
         register(StudentSaveCommand.class, "student/save");
 
 
-        register(TeacherListCommand.class, "teacher/list");
-        register(TeacherFormCommand.class, "teacher/add");
-        register(TeacherFormCommand.class, "teacher/update");
+        register("teacher/list", TeacherListCommand.class);
+        register("teacher/add", TeacherFormCommand.class);
+        register("teacher/update", TeacherFormCommand.class);
+        register("teacher/save", TeacherSaveCommand.class);
 
 
         register(TeacherListCommand.class, "classroom/list");

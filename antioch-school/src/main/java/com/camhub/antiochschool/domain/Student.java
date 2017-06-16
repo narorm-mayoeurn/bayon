@@ -12,22 +12,13 @@ public class Student {
     private String studentId;
     private String englishName;
     private String khmerName;
-    private String gender;
+    private Character gender;
     private Date birthDate;
-
     private Long currentClassroomId;
     private Long currentSessionId;
     private Long teacherId;
-
     private Date registeredDate;
-
-
     private String payRollNumber;
-
-    private Date addedDate;
-    private Long addedby;
-    private Date modifiedDate;
-    private Long modifiedBy;
 
     public Long getId() {
         return id;
@@ -61,11 +52,11 @@ public class Student {
         this.khmerName = khmerName;
     }
 
-    public String getGender() {
+    public Character getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Character gender) {
         this.gender = gender;
     }
 
@@ -116,38 +107,4 @@ public class Student {
     public void setPayRollNumber(String payRollNumber) {
         this.payRollNumber = payRollNumber;
     }
-
-    public Date getAddedDate() {
-        return addedDate;
-    }
-
-    public void setAddedDate(Date addedDate) {
-        this.addedDate = addedDate;
-    }
-
-    public Long getAddedby() {
-        return addedby;
-    }
-
-    public void setAddedby(Long addedby) {
-        this.addedby = addedby;
-    }
-
-    public Date getModifiedDate() {
-        return modifiedDate;
-    }
-
-    public void setModifiedDate(Date modifiedDate) {
-        this.modifiedDate = modifiedDate;
-    }
-
-    public Long getModifiedBy() {
-        return modifiedBy;
-    }
-
-    public void setModifiedBy(Long modifiedBy) {
-        this.modifiedBy = modifiedBy;
-    }
-
-
 }
