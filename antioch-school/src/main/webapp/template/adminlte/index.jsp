@@ -289,7 +289,7 @@
     function showError(err) {
         for(var k in err) {
 
-            console.log(err[k].key + ' | ' + err[k].value);
+
 
             var n = $('#fg_' + err[k].key);
 
@@ -299,7 +299,7 @@
                 if(nm.length > 0) {
                     nm.text(err[k].value);
                 } else {
-                    n.children('div')[0].appendHtml('<span class="help-block">' + err[k].value + '</span>');
+                    $(n.children('div')[0]).('<span class="help-block">' + err[k].value + '</span>');
                 }
             }
 

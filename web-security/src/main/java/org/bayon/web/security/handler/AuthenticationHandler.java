@@ -25,9 +25,9 @@ public class AuthenticationHandler extends SecurityHandler {
             throws IOException, ServletException, AuthenticationException, AuthorizationException {
 
         HttpServletRequest req = (HttpServletRequest)request;
-        if (req.getSession() == null || req.getSession().getAttribute(AuthManager.AUTH) == null) {
-            throw new AuthenticationException("Access Denied");
-        }
+//        if (req.getSession() == null || req.getSession().getAttribute(AuthManager.AUTH) == null) {
+//            throw new AuthenticationException("Access Denied");
+//        }
 
         if (nextHandler == null) {
             chain.doFilter(request, response);
