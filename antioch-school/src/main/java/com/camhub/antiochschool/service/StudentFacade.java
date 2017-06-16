@@ -1,6 +1,7 @@
 package com.camhub.antiochschool.service;
 
 import com.camhub.antiochschool.domain.Student;
+import com.camhub.antiochschool.repository.SingletonRepositoryFactory;
 import com.camhub.antiochschool.repository.StudentRepository;
 import com.camhub.antiochschool.repository.StudentRepositoryImpl;
 import org.bayon.ogm.datastore.query.Page;
@@ -19,7 +20,7 @@ public class StudentFacade {
     }
 
     private StudentFacade() {
-        studentRepository = new StudentRepositoryImpl();
+        studentRepository = SingletonRepositoryFactory.getFactory().getStudentRepository();
     }
 
     public Page<Student> getStudents(int offset, int limit) {
