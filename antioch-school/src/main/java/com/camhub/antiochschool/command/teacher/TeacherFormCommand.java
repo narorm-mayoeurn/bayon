@@ -19,10 +19,19 @@ public class TeacherFormCommand extends FrontCommand {
         } else if("student/update".equals(getCommandName())) {
             request.setAttribute("action", "update");
         } else request.setAttribute("action", "");
+    }
 
+    @Override
+    protected void responseAsJson() throws ServletException, IOException {
+        super.responseAsJson();
 
+        response.getWriter().print("Hello !!!!!!");
+    }
 
-        forward("student-register-form");
+    @Override
+    protected void responseAsHtml() throws ServletException, IOException {
+        super.responseAsHtml();
 
+        forward("teacher-form");
     }
 }
