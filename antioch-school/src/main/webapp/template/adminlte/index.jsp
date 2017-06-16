@@ -299,7 +299,7 @@
                 if(nm.length > 0) {
                     nm.text(err[k].value);
                 } else {
-                    $(n.children('div')[0]).('<span class="help-block">' + err[k].value + '</span>');
+                    $(n.children('div')[0]).append('<span class="help-block">' + err[k].value + '</span>');
                 }
             }
 
