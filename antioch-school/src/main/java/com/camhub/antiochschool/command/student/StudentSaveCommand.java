@@ -26,9 +26,6 @@ public class StudentSaveCommand extends FrontCommand {
         student.setStudentId(request.getParameter("student_id"));
         student.setKhmerName(request.getParameter("khmer_name"));
         student.setEnglishName(request.getParameter("english_name"));
-        student.setGender(request.getParameter("gender"));
-        student.setGender(request.getParameter("phone"));
-        student.setGender(request.getParameter("email"));
 
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         Date birthdate = null;
@@ -38,11 +35,6 @@ public class StudentSaveCommand extends FrontCommand {
             e.printStackTrace();
         }
         student.setBirthDate(birthdate);
-
-
-        Date now = new Date();
-        student.setAddedDate(now);
-        student.setModifiedDate(now);
 
         StudentRepository studentRep = new StudentRepositoryImpl();
         studentRep.create(student);
