@@ -1,7 +1,6 @@
 package com.camhub.antiochschool.domain;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by nm on 9/6/17.
@@ -14,6 +13,10 @@ public class Student {
     private String khmerName;
     private Character gender;
     private Date birthDate;
+    private String contactPhone;
+    private String contactAddress;
+
+
     private Long currentClassroomId;
     private Long currentSessionId;
     private Long teacherId;
@@ -106,5 +109,21 @@ public class Student {
 
     public void setPayRollNumber(String payRollNumber) {
         this.payRollNumber = payRollNumber;
+    }
+
+    public String getContactPhone() {
+        return contactPhone;
+    }
+
+    public void setContactPhone(String contactPhone) {
+        this.contactPhone = contactPhone;
+    }
+
+    public String getContactAddress() {
+        return contactAddress;
+    }
+
+    public void setContactAddress(String contactAddress) {
+        this.contactAddress = contactAddress;
     }
 }

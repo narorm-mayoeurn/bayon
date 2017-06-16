@@ -307,7 +307,7 @@ the limitation as if written in the body of this License.
   9. The Free Software Foundation may publish revised and/or new versions
 of the General Public License from time to time.  Such new versions will
 be similar in spirit to the present version, but may differ in detail to
-address new problems or concerns.
+contactAddress new problems or concerns.
 
 Each version is given a distinguishing version number.  If the Program
 specifies a version number of this License which applies to it and "any
@@ -769,7 +769,7 @@ written in the body of this License.
   13. The Free Software Foundation may publish revised and/or new
 versions of the Lesser General Public License from time to time.
 Such new versions will be similar in spirit to the present version,
-but may differ in detail to address new problems or concerns.
+but may differ in detail to contactAddress new problems or concerns.
 
 Each version is given a distinguishing version number.  If the Library
 specifies a version number of this License which applies to it and

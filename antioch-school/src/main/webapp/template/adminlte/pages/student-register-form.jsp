@@ -79,7 +79,7 @@
 
                             <div class="form-group" id="fg_birthdate">
 
-                                <label for="phone" class="col-sm-3 control-label">Date of Birth</label>
+                                <label for="birthdate" class="col-sm-3 control-label">Date of Birth</label>
 
                                 <div class="col-sm-9">
                                 <div class="input-group">
@@ -92,32 +92,41 @@
                                 <!-- /.input group -->
                             </div>
 
-                            <div class="form-group" id="fg_phone">
-                                <label for="phone" class="col-sm-3 control-label">Phone Number</label>
+                            <div class="form-group" id="fg_contact_phone">
+                                <label for="contact_phone" class="col-sm-3 control-label">Contact Phone Number</label>
 
                                 <div class="col-sm-9">
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-phone"></i>
                                     </div>
-                                    <input type="text" class="form-control" name="phone" id="phone" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="">
+                                    <input type="text" class="form-control" name="contact_phone" id="contact_phone" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="">
                                 </div>
                                 </div>
                                 <!-- /.input group -->
                             </div>
 
 
-
-                            <div class="form-group" id="fg_email">
-                                <label for="email" class="col-sm-3 control-label">Email</label>
-
+                            <div class="form-group" id="fg_contact_address">
+                                <label for="contact_address" class="col-sm-3 control-label">Contact Address</label>
                                 <div class="col-sm-9">
-                                    <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-                                    </div>
+                                    <input type="text" class="form-control" id="contact_address" name="conta_address" placeholder="Contact Address">
                                 </div>
                             </div>
+
+
+
+
+                            <%--<div class="form-group" id="fg_email">--%>
+                                <%--<label for="email" class="col-sm-3 control-label">Email</label>--%>
+
+                                <%--<div class="col-sm-9">--%>
+                                    <%--<div class="input-group">--%>
+                                    <%--<span class="input-group-addon"><i class="fa fa-envelope"></i></span>--%>
+                                    <%--<input type="email" class="form-control" name="email" id="email" placeholder="Email">--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
 
 
                             <div id="student-form-message" class="callout callout-success" style="display:none;">

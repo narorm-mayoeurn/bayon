@@ -35,7 +35,7 @@
   <script src="/template/adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
 
   <!-- jQuery Form -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.min.js" integrity="sha384-tIwI8+qJdZBtYYCKwRkjxBGQVZS3gGozr3CtI+5JF/oL1JmPEHzCEnIKbDbLTCer" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.min.js"></script>
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -307,9 +307,10 @@
     }
 
     $(function() {
-        $('.form-group').focus(function() {
-            $(this).removeClass('has-error');
-            $(this).find('.help-block').hide();
+        $('form input, form select').on('focus', function() {
+            var n = $(this).closest('.form-group');
+            n.removeClass('has-error');
+            n.find('.help-block').hide();
         });
     });
 

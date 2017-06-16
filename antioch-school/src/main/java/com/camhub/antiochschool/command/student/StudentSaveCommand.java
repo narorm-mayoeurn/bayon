@@ -32,15 +32,15 @@ public class StudentSaveCommand extends FrontCommand {
 
 
 
-        if(RequestValidationType.IS_EMPTY != validationContext.execute(request, "student_id")) {
+        if(RequestValidationType.IS_EMPTY == validationContext.execute(request, "student_id")) {
             errorMessages.add(new Pair<>("student_id", "Student ID cannot be empty."));
         }
 
-        if(RequestValidationType.IS_EMPTY != validationContext.execute(request, "khmer_name")) {
+        if(RequestValidationType.IS_EMPTY == validationContext.execute(request, "khmer_name")) {
             errorMessages.add(new Pair<>("khmer_name", "Student Khmer name cannot be empty."));
         }
 
-        if(RequestValidationType.IS_NAME != validationContext.execute(request, "english_name")) {
+        if(RequestValidationType.IS_EMPTY == validationContext.execute(request, "english_name")) {
             errorMessages.add(new Pair<>("english_name", "Student English name is not correct."));
         }
 
@@ -48,14 +48,16 @@ public class StudentSaveCommand extends FrontCommand {
             errorMessages.add(new Pair<>("gender", "Gender must be \"Male\" or \"Female\"."));
         }
 
+        String msgBirthdate = "";
         if(RequestValidationType.IS_DATE != validationContext.execute(request, "birthdate")) {
-            errorMessages.add(new Pair<>("birthdate", "Date of birth is not correct."));
+            msgBirthdate = "Date of birth is not correct.";
         }
 
         if(RequestValidationType.IS_DATE != validationContext.execute(request, "birthdate")) {
-            errorMessages.add(new Pair<>("birthdate", "The age must be between 0 to 120."));
+            if(!msgBirthdate.isEmpty()) msgBirthdate += "<br/>";
+            msgBirthdate += "The age must be between 0 to 120.";
         }
-
+        if(!msgBirthdate.isEmpty()) errorMessages.add(new Pair<>("birthdate", msgBirthdate));
 
 
 
@@ -65,7 +67,8 @@ public class StudentSaveCommand extends FrontCommand {
             student.setKhmerName(request.getParameter("khmer_name"));
             student.setEnglishName(request.getParameter("english_name"));
             student.setGender(request.getParameter("gender").charAt(0));
-
+            student.setContactPhone(request.getParameter("contact_phone"));
+            student.setContactAddress(request.getParameter("contact_address"));
 
 
             DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
