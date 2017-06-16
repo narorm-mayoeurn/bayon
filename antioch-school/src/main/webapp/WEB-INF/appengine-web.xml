@@ -4,4 +4,7 @@
     <version>1.0-SNAPSHOT</version>
     <sessions-enabled>true</sessions-enabled>
     <threadsafe>true</threadsafe>
+    <env-variables>
+        <env-var name="DEFAULT_ENCODING" value="UTF-8" />
+    </env-variables>
 </appengine-web-app>
