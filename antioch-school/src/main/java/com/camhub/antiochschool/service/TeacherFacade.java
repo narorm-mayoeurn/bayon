@@ -25,4 +25,12 @@ public class TeacherFacade {
         QueryBuilder builder = teacherRepository.createQueryBuilder();
         return teacherRepository.find(builder.toQuery(), offset, limit);
     }
+
+    public Teacher get(Long id){
+        return teacherRepository.findById(id);
+    }
+
+    public void delete(Long id){
+        teacherRepository.remove(id);
+    }
 }

@@ -1,5 +1,7 @@
 package com.camhub.antiochschool.command.teacher;
 
+import com.camhub.antiochschool.domain.Teacher;
+import com.camhub.antiochschool.service.TeacherFacade;
 import org.bayon.web.FrontCommand;
 
 import javax.servlet.ServletException;
@@ -12,13 +14,18 @@ public class TeacherFormCommand extends FrontCommand {
 
     @Override
     public void execute() throws ServletException, IOException {
-
         // set action attribute
-        if("student/add".equals(getCommandName())) {
+        if("teacher/add".equals(getCommandName())) {
             request.setAttribute("action", "add");
-        } else if("student/update".equals(getCommandName())) {
+        } else if("teacher/update".equals(getCommandName())) {
             request.setAttribute("action", "update");
+
+            Long id = Long.valueOf(request.getParameter("id"));
+            Teacher teacher = TeacherFacade.getInstance().get(id);
+            request.setAttribute("teacher", teacher);
         } else request.setAttribute("action", "");
+
+
     }
 
     @Override

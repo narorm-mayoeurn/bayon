@@ -1,6 +1,8 @@
 package com.camhub.antiochschool.service;
 
+import com.camhub.antiochschool.domain.Payroll;
 import com.camhub.antiochschool.domain.Student;
+import com.camhub.antiochschool.repository.PayrollRepository;
 import com.camhub.antiochschool.repository.SingletonRepositoryFactory;
 import com.camhub.antiochschool.repository.StudentRepository;
 import com.camhub.antiochschool.repository.StudentRepositoryImpl;
@@ -14,6 +16,7 @@ public class StudentFacade {
     private static final StudentFacade INSTANCE = new StudentFacade();
 
     private StudentRepository studentRepository;
+    private PayrollRepository payrollRepository;
 
     public static StudentFacade getInstance() {
         return INSTANCE;
@@ -21,6 +24,7 @@ public class StudentFacade {
 
     private StudentFacade() {
         studentRepository = SingletonRepositoryFactory.getFactory().getStudentRepository();
+        payrollRepository = SingletonRepositoryFactory.getFactory().getPayrollRepository();
     }
 
     public Page<Student> getStudents(int offset, int limit) {
@@ -35,4 +39,13 @@ public class StudentFacade {
     public Long create(Student student) {
         return studentRepository.create(student);
     }
+
+    public Page<Payroll> getPayrolls(int offset, int limit) {
+        QueryBuilder builder = payrollRepository.createQueryBuilder();
+        return payrollRepository.find(builder.toQuery(), offset, limit);
+    }
+
+    public void update(Payroll payroll) { payrollRepository.update(payroll); }
+
+    public Long create(Payroll payroll) { return payrollRepository.create(payroll); }
 }

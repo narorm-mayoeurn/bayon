@@ -40,7 +40,16 @@ public class TeacherSaveCommand extends FrontCommand {
         teacher.setEmail(request.getParameter("email"));
 
         TeacherRepository teacherRep = SingletonRepositoryFactory.getFactory().getTeacherRepository();
-        teacherRep.create(teacher);
+
+        String id = request.getParameter("id");
+
+        if(id == null || id.isEmpty()){
+            teacherRep.create(teacher);
+        } else {
+            teacher.setId(Long.valueOf(id));
+            teacherRep.update(teacher);
+        }
+
     }
 
     @Override

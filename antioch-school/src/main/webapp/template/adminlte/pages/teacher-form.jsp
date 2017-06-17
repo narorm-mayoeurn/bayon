@@ -1,3 +1,5 @@
+<%@ page import="com.camhub.antiochschool.domain.Teacher" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -26,24 +28,24 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
+                    <% Teacher teacher = (Teacher)request.getAttribute("teacher");%>
                     <form id="teacher_form" class="form-horizontal" action="/teacher/save" method="post">
-
-
                         <input type="hidden" name="_a" value="" />
+                        <input type="hidden" name="id" value="<%= teacher == null ? "" : teacher.getId()%>" />
 
                         <div class="box-body">
 
                             <div class="form-group" id="fg_kh_name">
                                 <label for="kh_name" class="col-sm-3 control-label">Khmer Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="kh_name" name="kh_name" placeholder="Khmer Name">
+                                    <input type="text" class="form-control" id="kh_name" name="kh_name" placeholder="Khmer Name" value="<%=teacher == null ? "" : teacher.getKhmerName()%>">
                                 </div>
                             </div>
 
                             <div class="form-group" id="fg_en_name">
                                 <label for="en_name" class="col-sm-3 control-label">English Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="en_name" name="en_name" placeholder="English Name">
+                                    <input type="text" class="form-control" id="en_name" name="en_name" placeholder="English Name" value="<%=teacher == null ? "" : teacher.getEnglishName()%>"/>
                                 </div>
                             </div>
 
@@ -56,13 +58,13 @@
                                     <div class="input-group">
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" name="gender" id="sex_male" value="M" checked="">
+                                                <input type="radio" name="gender" id="sex_male" value="M" <%= teacher == null || "M".equals(teacher.getGender()) ? "checked=\"\"" : ""%>>
                                                 Male
                                             </label>
                                         </div>
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" name="gender" id="sex_female" value="F">
+                                                <input type="radio" name="gender" id="sex_female" value="F" <%= teacher != null && "F".equals(teacher.getGender()) ? "checked=\"\"" : ""%>>
                                                 Female
                                             </label>
                                         </div>
@@ -80,7 +82,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" id="birthdate" name="birthdate" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="">
+                                        <input type="text" id="birthdate" name="birthdate" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="" placeholder="Date of Birth" value="<%=teacher == null || teacher.getBirthdate() == null ? "" : new SimpleDateFormat("mm/dd/yyyy").format(teacher.getBirthdate())%>">
                                     </div>
                                 </div>
                                 <!-- /.input group -->
@@ -95,7 +97,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-phone"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="phone" name="phone" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="">
+                                        <input type="text" class="form-control" id="phone" name="phone" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="" placeholder="Phone Number" value="<%=teacher == null ? "" : teacher.getPhone()%>">
                                     </div>
                                 </div>
                                 <!-- /.input group -->
@@ -109,7 +111,7 @@
                                 <div class="col-sm-9">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<%=teacher == null ? "" : teacher.getEmail()%>">
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +120,7 @@
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-info pull-right">Save</button>
+                            <button type="submit" class="btn btn-info pull-right"><%= request.getAttribute("action").equals("add") ? "Save" : "Update" %></button>
                         </div>
                         <!-- /.box-footer -->
                     </form>

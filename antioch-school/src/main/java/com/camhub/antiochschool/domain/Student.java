@@ -21,7 +21,7 @@ public class Student {
     private Long currentSessionId;
     private Long teacherId;
     private Date registeredDate;
-    private String payRollNumber;
+    private Long payrollId;
 
     public Long getId() {
         return id;
@@ -103,12 +103,12 @@ public class Student {
         this.registeredDate = registeredDate;
     }
 
-    public String getPayRollNumber() {
-        return payRollNumber;
+    public Long getPayRollNumber() {
+        return payrollId;
     }
 
-    public void setPayRollNumber(String payRollNumber) {
-        this.payRollNumber = payRollNumber;
+    public void setPayRollNumber(Long payrollId) {
+        this.payrollId = payrollId;
     }
 
     public String getContactPhone() {

@@ -59,8 +59,8 @@
                                 <td><%= teacher.getBirthdate()%></td>
                                 <td><%= teacher.getPhone()%></td>
                                 <td><%= teacher.getEmail()%></td>
-                                <td><a href="#"><i class="fa fa-fw fa-edit"></i></a></td>
-                                <td><a href="#" id="teacher-delete"><i class="fa fa-fw fa-remove"></i></a></td>
+                                <td><a href="/teacher/update?id=<%=teacher.getId()%>"><i class="fa fa-fw fa-edit"></i></a></td>
+                                <td><a href="#" id="<%=teacher.getId()%>"><i class="fa fa-fw fa-remove"></i></a></td>
                             </tr>
                             <%
                                 }
@@ -126,7 +126,15 @@
 <script>
 
     // prepare all forms for ajax submission
-    $('#teacher_form').ajaxForm({
+    $('a i.fa-remove').click(function(){
+        var _id = $(this).parent().attr('id');
+        $.ajax({
+            method: "POST",
+            url: "/teacher/delete",
+            data: { id: _id }
+        }).done(function( msg ) {
+                window.location.reload();
+            });
 
     });
 
