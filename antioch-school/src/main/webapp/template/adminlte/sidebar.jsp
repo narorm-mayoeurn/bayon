@@ -92,6 +92,10 @@
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
+                <ul class="treeview-menu">
+                    <li<%= request.getAttribute("page").equals("payroll-list") ? " class=\"active\"" : "" %>><a href="/payroll/list"><i class="fa fa-circle-o"></i> Payroll List</a></li>
+                    <li<%= request.getAttribute("page").equals("payroll-form") ? " class=\"active\"" : "" %>><a href="/payroll/add"><i class="fa fa-circle-o"></i> Payroll Add</a></li>
+                </ul>
             </li>
             <li class="treeview active">
                 <a href="#">

@@ -33,4 +33,8 @@ public class TeacherFacade {
     public void delete(Long id){
         teacherRepository.remove(id);
     }
+
+    public void update(Teacher teacher) { teacherRepository.update(teacher); }
+
+    public Long create(Teacher teacher) { return teacherRepository.create(teacher); }
 }
