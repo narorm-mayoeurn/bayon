@@ -55,6 +55,7 @@ public enum FormValidationImp implements FormValidation {
         @Override
         public boolean validate(String input, FormCriteria crit) {
             if(IS_EMPTY.validate(input, crit)) return false;
+            if(input.length() > 1) return false;
 
             List<Character> list;
             if(crit == null) {
@@ -66,7 +67,7 @@ public enum FormValidationImp implements FormValidation {
             }
             boolean has = false;
             for(Character c : list) {
-                if(c.equals(input)) {has = true; break; }
+                if(c.equals(input.charAt(0))) {has = true; break; }
             }
             return has;
         }

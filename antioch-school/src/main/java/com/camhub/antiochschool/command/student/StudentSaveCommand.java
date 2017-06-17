@@ -65,7 +65,7 @@ public class StudentSaveCommand extends FrontCommand {
 
 
 
-        if(!errorMessages.isEmpty()) {
+        if(errorMessages.isEmpty()) {
 
             student.setStudentId(request.getParameter("student_id"));
             student.setKhmerName(request.getParameter("khmer_name"));
@@ -107,7 +107,7 @@ public class StudentSaveCommand extends FrontCommand {
         String json = "";
 
         if(errorMessages.isEmpty()) {
-            json = new ObjectMapper().writeValueAsString(new Pair<>("message", "Student information has been saved."));
+            json = new ObjectMapper().writeValueAsString(new HashMap<>().put("message", "Student information has been saved."));
         } else {
             response.setStatus(400);
             json = new ObjectMapper().writeValueAsString(errorMessages);
