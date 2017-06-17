@@ -98,13 +98,13 @@ public enum FormValidationImp implements FormValidation {
                 }
 
                 Integer from = 0;
-                Integer to = 0;
-                if(crit == null) {
+                Integer to = 120;
+                if(crit != null) {
                     from = crit.getIntFrom();
                     to = crit.getIntTo();
                 }
                 age = cal2.get(Calendar.YEAR) - cal1.get(Calendar.YEAR) + factor;
-                System.out.println(age);
+
                 return age >= from && age <= to;
 
             } catch (ParseException e) {

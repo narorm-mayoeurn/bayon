@@ -34,6 +34,7 @@ public abstract class FrontCommand {
 
 
     public final void init(String commandName, ServletContext context, HttpServletRequest req, HttpServletResponse resp) {
+        this.commandName = commandName;
         this.context = context;
         this.request = req;
         this.response = resp;
