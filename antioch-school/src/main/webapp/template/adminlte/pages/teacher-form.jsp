@@ -116,6 +116,7 @@
                                 </div>
                             </div>
 
+                            <div id="teacher-form-message" class="callout callout-success" style="display:none;"></div>
 
                         </div>
                         <!-- /.box-body -->
