@@ -2,9 +2,10 @@ package org.bayon.web;
 
 
 
-import org.bayon.form.validation.HttpServletRequestValidationImp;
-import org.bayon.form.validation.HttpServletRequestValidation;
-import org.bayon.form.validation.RequestValidationContext;
+import org.bayon.form.validation.FormValidationFactoryImp;
+import org.bayon.form.validation.FormValidationImp;
+import org.bayon.form.validation.FormValidation;
+import org.bayon.form.validation.FormValidationType;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -23,8 +24,6 @@ public abstract class FrontCommand {
     private String template;
     private String commandName;
 
-    protected RequestValidationContext validationContext;
-    protected Set<HttpServletRequestValidation> strategies;
 
     protected ServletContext context;
     protected HttpServletRequest request;
@@ -39,8 +38,7 @@ public abstract class FrontCommand {
         this.request = req;
         this.response = resp;
 
-        registerValidationRules();
-        validationContext = new RequestValidationContext(strategies);
+
 
     }
 
@@ -53,6 +51,10 @@ public abstract class FrontCommand {
         target = String.format("/template/%s/index.jsp", template);
         RequestDispatcher dispatcher = context.getRequestDispatcher(target);
         dispatcher.forward(request, response);
+    }
+
+    protected final FormValidation getValidator(FormValidationType type) {
+        return FormValidationFactoryImp.getInstance().getValidator(type);
     }
 
 
@@ -71,18 +73,8 @@ public abstract class FrontCommand {
 
 
 
-    protected void registerValidationRules() {
-        strategies = new LinkedHashSet<>();
 
-        strategies.add(HttpServletRequestValidationImp.IS_EMPTY);
-        strategies.add(HttpServletRequestValidationImp.IS_AGE);
-        strategies.add(HttpServletRequestValidationImp.IS_DATE);
-        strategies.add(HttpServletRequestValidationImp.IS_EMAIL);
-        strategies.add(HttpServletRequestValidationImp.IS_GENDER);
-        strategies.add(HttpServletRequestValidationImp.IS_PHONE);
-        strategies.add(HttpServletRequestValidationImp.IS_PASSWORD);
 
-    }
 
 
 

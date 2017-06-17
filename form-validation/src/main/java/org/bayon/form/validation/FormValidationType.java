@@ -4,7 +4,7 @@ package org.bayon.form.validation;
  * Created by Chandara Leang on 6/14/2017.
  */
 
-public enum RequestValidationType {
+public enum FormValidationType {
     IS_EMPTY,
     IS_NUMBER,
     IS_DATE,
@@ -14,5 +14,5 @@ public enum RequestValidationType {
     IS_EMAIL,
     IS_PASSWORD,
     IS_PHONE,
-    UNSUPPORTED
+    IS_MATCH
 }

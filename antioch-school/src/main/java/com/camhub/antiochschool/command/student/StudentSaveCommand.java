@@ -4,7 +4,7 @@ import com.camhub.antiochschool.domain.Student;
 import com.camhub.antiochschool.helper.Pair;
 import com.camhub.antiochschool.service.StudentFacade;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.bayon.form.validation.RequestValidationType;
+import org.bayon.form.validation.*;
 import org.bayon.web.FrontCommand;
 
 import javax.servlet.ServletException;
@@ -30,33 +30,37 @@ public class StudentSaveCommand extends FrontCommand {
 
         Student student = new Student();
 
-
-
-        if(RequestValidationType.IS_EMPTY == validationContext.execute(request, "student_id")) {
+        if(getValidator(FormValidationType.IS_EMPTY).validate(request.getParameter("student_id"), null)) {
             errorMessages.add(new Pair<>("student_id", "Student ID cannot be empty."));
         }
 
-        if(RequestValidationType.IS_EMPTY == validationContext.execute(request, "khmer_name")) {
+        if(getValidator(FormValidationType.IS_EMPTY).validate(request.getParameter("khmer_name"), null)) {
             errorMessages.add(new Pair<>("khmer_name", "Student Khmer name cannot be empty."));
         }
 
-        if(RequestValidationType.IS_EMPTY == validationContext.execute(request, "english_name")) {
+        if(getValidator(FormValidationType.IS_EMPTY).validate(request.getParameter("english_name"), null)) {
             errorMessages.add(new Pair<>("english_name", "Student English name is not correct."));
         }
 
-        if(RequestValidationType.IS_GENDER != validationContext.execute(request, "gender")) {
+        if(!getValidator(FormValidationType.IS_GENDER).validate(request.getParameter("gender"), null)) {
             errorMessages.add(new Pair<>("gender", "Gender must be \"Male\" or \"Female\"."));
         }
 
+
         String msgBirthdate = "";
-        if(RequestValidationType.IS_DATE != validationContext.execute(request, "birthdate")) {
+        if(!getValidator(FormValidationType.IS_DATE).validate(request.getParameter("birthdate"), null)) {
             msgBirthdate = "Date of birth is not correct.";
         }
 
-        if(RequestValidationType.IS_DATE != validationContext.execute(request, "birthdate")) {
-            if(!msgBirthdate.isEmpty()) msgBirthdate += "<br/>";
+        FormCriteria crit = new FormCriteriaImp();
+        crit.setIntFrom(0);
+        crit.setIntTo(120);
+        if(!getValidator(FormValidationType.IS_AGE).validate(request.getParameter("birthdate"), crit)) {
+            if(!msgBirthdate.isEmpty()) msgBirthdate += "\n";
             msgBirthdate += "The age must be between 0 to 120.";
         }
+
+
         if(!msgBirthdate.isEmpty()) errorMessages.add(new Pair<>("birthdate", msgBirthdate));
 
 
@@ -82,7 +86,7 @@ public class StudentSaveCommand extends FrontCommand {
 
 
             if(request.getParameter("id") != null) {
-                if(RequestValidationType.IS_NUMBER != validationContext.execute(request, "id")) {
+                if(getValidator(FormValidationType.IS_NUMBER).validate(request.getParameter("id"), null)) {
                     student.setId(Long.valueOf(request.getParameter("id")));
 
                     StudentFacade.getInstance().update(student);
