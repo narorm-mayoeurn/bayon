@@ -48,4 +48,8 @@ public class StudentFacade {
     public void update(Payroll payroll) { payrollRepository.update(payroll); }
 
     public Long create(Payroll payroll) { return payrollRepository.create(payroll); }
+
+    public void deletePayroll(Long id){ payrollRepository.remove(id); }
+
+    public Payroll getPayrollById(Long id) { return payrollRepository.findById(id); }
 }

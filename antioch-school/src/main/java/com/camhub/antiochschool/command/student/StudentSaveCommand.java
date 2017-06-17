@@ -65,7 +65,7 @@ public class StudentSaveCommand extends FrontCommand {
 
 
 
-        if(!errorMessages.isEmpty()) {
+        if(errorMessages.isEmpty()) {
 
             student.setStudentId(request.getParameter("student_id"));
             student.setKhmerName(request.getParameter("khmer_name"));

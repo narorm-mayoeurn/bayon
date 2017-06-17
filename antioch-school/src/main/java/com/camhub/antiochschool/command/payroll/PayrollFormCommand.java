@@ -3,6 +3,7 @@ package com.camhub.antiochschool.command.payroll;
 import com.camhub.antiochschool.domain.Payroll;
 import com.camhub.antiochschool.repository.PayrollRepository;
 import com.camhub.antiochschool.repository.SingletonRepositoryFactory;
+import com.camhub.antiochschool.service.StudentFacade;
 import org.bayon.web.FrontCommand;
 
 import javax.servlet.ServletException;
@@ -19,13 +20,12 @@ public class PayrollFormCommand extends FrontCommand {
         // set action attribute
         if("payroll/add".equals(getCommandName())) {
             request.setAttribute("action", "add");
-        } else if("payroll/add".equals(getCommandName())) {
+        } else if("payroll/update".equals(getCommandName())) {
+            request.setAttribute("action", "update");
 
             Long id = Long.valueOf(request.getParameter("id"));
-
-            PayrollRepository studentRep = SingletonRepositoryFactory.getFactory().getPayrollRepository();
-
-            request.setAttribute("action", "update");
+            Payroll payroll = StudentFacade.getInstance().getPayrollById(id);
+            request.setAttribute("payroll", payroll);
         } else request.setAttribute("action", "");
 
     }

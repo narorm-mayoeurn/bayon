@@ -4,6 +4,7 @@ import com.camhub.antiochschool.domain.Teacher;
 import com.camhub.antiochschool.repository.SingletonRepositoryFactory;
 import com.camhub.antiochschool.repository.TeacherRepository;
 import com.camhub.antiochschool.repository.TeacherRepositoryImpl;
+import com.camhub.antiochschool.service.TeacherFacade;
 import org.bayon.web.FrontCommand;
 
 import javax.servlet.ServletException;
@@ -39,15 +40,13 @@ public class TeacherSaveCommand extends FrontCommand {
         teacher.setPhone(request.getParameter("phone"));
         teacher.setEmail(request.getParameter("email"));
 
-        TeacherRepository teacherRep = SingletonRepositoryFactory.getFactory().getTeacherRepository();
-
         String id = request.getParameter("id");
 
         if(id == null || id.isEmpty()){
-            teacherRep.create(teacher);
+            TeacherFacade.getInstance().create(teacher);
         } else {
             teacher.setId(Long.valueOf(id));
-            teacherRep.update(teacher);
+            TeacherFacade.getInstance().update(teacher);
         }
 
     }

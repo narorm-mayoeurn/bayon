@@ -10,7 +10,7 @@ public class Payroll {
     private String payrollNo;
 
     private Double tuitionFee;
-    private Double adminstrationFee;
+    private Double administrationFee;
     private Double supplyFee;
 
     public Long getId() {
@@ -45,12 +45,12 @@ public class Payroll {
         this.tuitionFee = tuitionFee;
     }
 
-    public Double getAdminstrationFee() {
-        return adminstrationFee;
+    public Double getAdministrationFee() {
+        return administrationFee;
     }
 
-    public void setAdminstrationFee(Double adminstrationFee) {
-        this.adminstrationFee = adminstrationFee;
+    public void setAdministrationFee(Double administrationFee) {
+        this.administrationFee = administrationFee;
     }
 
     public Double getSupplyFee() {
