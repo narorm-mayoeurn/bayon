@@ -73,14 +73,14 @@
             <li class="treeview<%= pages.get("classroom") %>">
                 <a href="#">
                     <i class="fa fa-pie-chart"></i>
-                    <span>Classroom</span>
+                    <span>Classes</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li<%= pages.get("classroom-list") %>><a href="/classroom/list"><i class="fa fa-circle-o"></i> Classroom List</a></li>
-                    <li<%= pages.get("classroom-form") %>><a href="/classroom/add"><i class="fa fa-circle-o"></i> Classroom Add</a></li>
+                    <li<%= pages.get("classroom-list") %>><a href="/classes"><i class="fa fa-circle-o"></i> Classes</a></li>
+                    <li<%= pages.get("classroom-form") %>><a href="/classes/add"><i class="fa fa-circle-o"></i> Create Class</a></li>
                 </ul>
             </li>
 

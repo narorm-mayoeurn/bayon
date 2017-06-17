@@ -18,8 +18,6 @@ public class Student {
 
 
     private Long currentClassroomId;
-    private Long currentSessionId;
-    private Long teacherId;
     private Date registeredDate;
     private Long payrollId;
 
@@ -77,22 +75,6 @@ public class Student {
 
     public void setCurrentClassroomId(Long currentClassroomId) {
         this.currentClassroomId = currentClassroomId;
-    }
-
-    public Long getCurrentSessionId() {
-        return currentSessionId;
-    }
-
-    public void setCurrentSessionId(Long currentSessionId) {
-        this.currentSessionId = currentSessionId;
-    }
-
-    public Long getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
     }
 
     public Date getRegisteredDate() {

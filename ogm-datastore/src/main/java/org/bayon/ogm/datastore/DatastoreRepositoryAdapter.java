@@ -79,7 +79,16 @@ public class DatastoreRepositoryAdapter<T> implements DatastoreRepository<T> {
     }
 
     @Override
+    public Page<T> find(int offset, int limit) {
+        return find(null, offset, limit);
+    }
+
+    @Override
     public Page<T> find(TypeQuery query, int offset, int limit) {
+        if (query == null) {
+            query = createQueryBuilder().toQuery();
+        }
+
         List<T> domains = new ArrayList<>();
         for (Entity entity : datastore.prepare(query.getQuery()).asList(FetchOptions.Builder.withOffset(offset).limit(limit))) {
             domains.add(dataGridMapper.map(entity, clazz));

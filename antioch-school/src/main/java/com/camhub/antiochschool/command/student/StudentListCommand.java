@@ -26,12 +26,4 @@ public class StudentListCommand extends FrontCommand {
         super.responseAsHtml();
         forward("student-list");
     }
-
-    int getIntParam(String name, int _default) {
-        String param = request.getParameter(name);
-        if (param == null) {
-            return _default;
-        }
-        return Integer.parseInt(param);
-    }
 }

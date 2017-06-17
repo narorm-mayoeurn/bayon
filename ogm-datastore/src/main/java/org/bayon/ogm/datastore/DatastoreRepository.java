@@ -23,5 +23,7 @@ public interface DatastoreRepository<T> {
 
     List<T> find(TypeQuery query);
 
+    Page<T> find(int offset, int limit);
+
     Page<T> find(TypeQuery query, int offset, int limit);
 }
