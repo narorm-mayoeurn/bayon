@@ -1,3 +1,5 @@
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.Map" %>
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
@@ -24,9 +26,25 @@
         <%--</form>--%>
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
+        <%
+            String p = (String) request.getAttribute("page");
+            HashMap<String, String> pages = new HashMap<String, String>();
+
+            pages.put("student", p.equals("student-list") || p.equals("student-register-form") ? " active" : "");
+            pages.put("student-list", p.equals("student-list") ? " class=\"active\"" : "");
+            pages.put("student-register-form", p.equals("student-register-form") ? " class=\"active\"" : "");
+
+            pages.put("teacher", p.equals("teacher-list") || p.equals("teacher-form") ? " active" : "");
+            pages.put("teacher-list", p.equals("teacher-list") ? " class=\"active\"" : "");
+            pages.put("teacher-form", p.equals("teacher-form") ? " class=\"active\"" : "");
+
+            pages.put("classroom", p.equals("classroom-list") || p.equals("classroom-form") ? " active" : "");
+            pages.put("classroom-list", p.equals("classroom-list") ? " class=\"active\"" : "");
+            pages.put("classroom-form", p.equals("classroom-form") ? " class=\"active\"" : "");
+        %>
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview">
+            <li class="treeview<%= pages.get("student") %>">
                 <a href="#">
                     <i class="fa fa-users"></i> <span>Students</span>
                     <span class="pull-right-container">
@@ -34,11 +52,11 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li<%= request.getAttribute("page").equals("student-list") ? " class=\"active\"" : "" %>><a href="/student/list"><i class="fa fa-circle-o"></i> Student List</a></li>
-                    <li<%= request.getAttribute("page").equals("student-register-form") ? " class=\"active\"" : "" %>><a href="/student/register"><i class="fa fa-circle-o"></i> Student Register</a></li>
+                    <li<%= pages.get("student-list") %>><a href="/student/list"><i class="fa fa-circle-o"></i> Student List</a></li>
+                    <li<%= pages.get("student-register-form") %>><a href="/student/register"><i class="fa fa-circle-o"></i> Student Register</a></li>
                 </ul>
             </li>
-            <li class="treeview">
+            <li class="treeview<%= pages.get("teacher") %>">
                 <a href="#">
                     <i class="fa fa-suitcase"></i>
                     <span>Teachers</span>
@@ -47,12 +65,12 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li<%= request.getAttribute("page").equals("teacher-list") ? " class=\"active\"" : "" %>><a href="/teacher/list"><i class="fa fa-circle-o"></i> Teacher List</a></li>
-                    <li<%= request.getAttribute("page").equals("teacher-form") ? " class=\"active\"" : "" %>><a href="/teacher/add"><i class="fa fa-circle-o"></i> Teacher Add</a></li>
+                    <li<%= pages.get("teacher-list") %>><a href="/teacher/list"><i class="fa fa-circle-o"></i> Teacher List</a></li>
+                    <li<%= pages.get("teacher-form") %>><a href="/teacher/add"><i class="fa fa-circle-o"></i> Teacher Add</a></li>
                 </ul>
             </li>
 
-            <li class="treeview">
+            <li class="treeview<%= pages.get("classroom") %>">
                 <a href="#">
                     <i class="fa fa-pie-chart"></i>
                     <span>Classroom</span>
@@ -61,8 +79,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li<%= request.getAttribute("page").equals("classroom-list") ? " class=\"active\"" : "" %>><a href="/classroom/list"><i class="fa fa-circle-o"></i> Classroom List</a></li>
-                    <li<%= request.getAttribute("page").equals("classroom-form") ? " class=\"active\"" : "" %>><a href="/classroom/add"><i class="fa fa-circle-o"></i> Classroom Add</a></li>
+                    <li<%= pages.get("classroom-list") %>><a href="/classroom/list"><i class="fa fa-circle-o"></i> Classroom List</a></li>
+                    <li<%= pages.get("classroom-form") %>><a href="/classroom/add"><i class="fa fa-circle-o"></i> Classroom Add</a></li>
                 </ul>
             </li>
 

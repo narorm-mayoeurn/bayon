@@ -129,8 +129,7 @@
                             <%--</div>--%>
 
 
-                            <div id="student-form-message" class="callout callout-success" style="display:none;">
-                            </div>
+                            <div id="student-form-message" class="callout callout-success" style="display:none;"></div>
 
                         </div>
 
@@ -156,7 +155,9 @@
         // prepare all forms for ajax submission
         $('#student_form').ajaxForm({
             success: function(data) {
-                $('#student-form-message').html('<p>' + data.message + '</p>');
+
+                formMessage('student-form-message', data.message);
+
             },
             error: function(xhr) {
                 console.log(xhr.responseText);

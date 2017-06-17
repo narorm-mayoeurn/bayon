@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Editors</title>
+  <title>Antioch School</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -289,8 +289,6 @@
     function showError(err) {
         for(var k in err) {
 
-
-
             var n = $('#fg_' + err[k].key);
 
             if(n.length > 0) {
@@ -304,6 +302,18 @@
             }
 
         }
+    }
+
+    function formMessage(id, message, duration, type) {
+        if(!duration) duration = 6000;
+        if(!type) type = 'success';
+
+        type = 'callout-' + type;
+
+        $('#' + id).html(message).fadeIn();
+        setTimeout(function() {
+            $('#' + id).fadeOut();
+        }, duration);
     }
 
     $(function() {
