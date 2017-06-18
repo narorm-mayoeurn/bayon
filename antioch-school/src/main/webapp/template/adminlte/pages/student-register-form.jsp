@@ -90,7 +90,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" id="birthdate" name="birthdate" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="" placeholder="MM/dd/yyyy" value="<%=student == null || student.getBirthDate() == null ? "" : new SimpleDateFormat("MM/dd/yyyy").format(student.getBirthDate())%>">
+                                    <input type="text" id="birthdate" name="birthdate" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="" placeholder="mm/dd/yyyy" value="<%=student == null || student.getBirthDate() == null ? "" : new SimpleDateFormat("MM/dd/yyyy").format(student.getBirthDate())%>">
                                 </div>
                                 </div>
                                 <!-- /.input group -->
@@ -104,7 +104,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-phone"></i>
                                     </div>
-                                    <input type="text" class="form-control" name="contact_phone" id="contact_phone" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="" placeholder="Phone Number" value="<%=student == null ? "" : student.getContactPhone()%>">
+                                    <input type="text" class="form-control" name="contact_phone" id="contact_phone" data-inputmask="'mask': '(999) 999-9999'" data-mask="" placeholder="Phone Number" value="<%=student == null ? "" : student.getContactPhone()%>">
                                 </div>
                                 </div>
                                 <!-- /.input group -->

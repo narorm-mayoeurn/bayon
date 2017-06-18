@@ -1,11 +1,10 @@
 package com.camhub.antiochschool.service;
 
-import com.camhub.antiochschool.domain.Payroll;
+import com.camhub.antiochschool.domain.Invoice;
 import com.camhub.antiochschool.domain.Student;
-import com.camhub.antiochschool.repository.PayrollRepository;
+import com.camhub.antiochschool.repository.InvoiceRepository;
 import com.camhub.antiochschool.repository.SingletonRepositoryFactory;
 import com.camhub.antiochschool.repository.StudentRepository;
-import com.camhub.antiochschool.repository.StudentRepositoryImpl;
 import org.bayon.ogm.datastore.query.Page;
 import org.bayon.ogm.datastore.query.QueryBuilder;
 
@@ -18,7 +17,7 @@ public class StudentFacade {
     private static final StudentFacade INSTANCE = new StudentFacade();
 
     private StudentRepository studentRepository;
-    private PayrollRepository payrollRepository;
+    private InvoiceRepository invoiceRepository;
 
     public static StudentFacade getInstance() {
         return INSTANCE;
@@ -26,7 +25,7 @@ public class StudentFacade {
 
     private StudentFacade() {
         studentRepository = SingletonRepositoryFactory.getFactory().getStudentRepository();
-        payrollRepository = SingletonRepositoryFactory.getFactory().getPayrollRepository();
+        invoiceRepository = SingletonRepositoryFactory.getFactory().getInvoiceRepository();
     }
 
     public Page<Student> getStudents(int offset, int limit) {
@@ -46,28 +45,30 @@ public class StudentFacade {
 
     public Student get(Long id) { return studentRepository.findById(id);}
 
-    public Page<Payroll> getPayrolls(int offset, int limit) {
-        QueryBuilder builder = payrollRepository.createQueryBuilder();
-        return payrollRepository.find(builder.toQuery(), offset, limit);
+    public Page<Invoice> getPayrolls(int offset, int limit) {
+        QueryBuilder builder = invoiceRepository.createQueryBuilder();
+        return invoiceRepository.find(builder.toQuery(), offset, limit);
     }
 
-    public void update(Payroll payroll) { payrollRepository.update(payroll); }
+    public void update(Invoice invoice) { invoiceRepository.update(invoice); }
 
-    public Long create(Payroll payroll) { return payrollRepository.create(payroll); }
+    public Long create(Invoice invoice) { return invoiceRepository.create(invoice); }
 
-    public void deletePayroll(Long id){ payrollRepository.remove(id); }
+    public void deletePayroll(Long id){
+        invoiceRepository.remove(id);
+    }
 
-    public Payroll getPayrollById(Long id) { return payrollRepository.findById(id); }
+    public Invoice getPayrollById(Long id) { return invoiceRepository.findById(id); }
 
 
     public boolean isPaid(Student student) {
-        if(student.getPayrollId() == null) return false;
+        if(student.getInvoiceId() == null) return false;
 
-        Payroll payroll = payrollRepository.findById(student.getPayrollId());
-        if(payroll == null || payroll.getArchived() == true || payroll.getEndDate() == null) return false;
+        Invoice invoice = invoiceRepository.findById(student.getInvoiceId());
+        if(invoice == null || invoice.getArchived() == true || invoice.getEndDate() == null) return false;
 
         Date now = new Date();
 
-        return now.getTime() - payroll.getEndDate().getTime() > 0;
+        return now.getTime() - invoice.getEndDate().getTime() > 0;
     }
 }

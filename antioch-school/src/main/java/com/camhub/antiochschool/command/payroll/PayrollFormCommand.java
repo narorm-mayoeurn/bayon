@@ -1,8 +1,6 @@
 package com.camhub.antiochschool.command.payroll;
 
-import com.camhub.antiochschool.domain.Payroll;
-import com.camhub.antiochschool.repository.PayrollRepository;
-import com.camhub.antiochschool.repository.SingletonRepositoryFactory;
+import com.camhub.antiochschool.domain.Invoice;
 import com.camhub.antiochschool.service.StudentFacade;
 import org.bayon.web.FrontCommand;
 
@@ -20,12 +18,12 @@ public class PayrollFormCommand extends FrontCommand {
         // set action attribute
         if("payroll/add".equals(getCommandName())) {
             request.setAttribute("action", "add");
-        } else if("payroll/update".equals(getCommandName())) {
-            request.setAttribute("action", "update");
+        } else if("payroll/updateInvoice".equals(getCommandName())) {
+            request.setAttribute("action", "updateInvoice");
 
             Long id = Long.valueOf(request.getParameter("id"));
-            Payroll payroll = StudentFacade.getInstance().getPayrollById(id);
-            request.setAttribute("payroll", payroll);
+            Invoice invoice = StudentFacade.getInstance().getPayrollById(id);
+            request.setAttribute("invoice", invoice);
         } else request.setAttribute("action", "");
 
     }

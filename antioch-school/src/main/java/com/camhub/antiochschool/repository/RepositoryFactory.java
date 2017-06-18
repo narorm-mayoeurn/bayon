@@ -8,6 +8,6 @@ public interface RepositoryFactory {
     ClassRepository getClassRepository();
     StudentRepository getStudentRepository();
     TeacherRepository getTeacherRepository();
-    PayrollRepository getPayrollRepository();
+    InvoiceRepository getInvoiceRepository();
     ProgramRepository getProgramRepository();
 }

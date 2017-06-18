@@ -14,6 +14,8 @@ public class Teacher {
     private String gender;
     private Date birthdate;
 
+    private Boolean Archived = false;
+
     public Long getId() {
         return id;
     }
@@ -68,5 +70,13 @@ public class Teacher {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Boolean getArchived() {
+        return Archived;
+    }
+
+    public void setArchived(Boolean archived) {
+        Archived = archived;
     }
 }

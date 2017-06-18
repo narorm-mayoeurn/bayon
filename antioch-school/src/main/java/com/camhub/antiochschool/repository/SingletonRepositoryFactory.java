@@ -10,7 +10,7 @@ public class SingletonRepositoryFactory implements RepositoryFactory {
     private ClassRepository classRepository = new ClassRepositoryImpl();
     private StudentRepository studentRepository = new StudentRepositoryImpl();
     private TeacherRepository teacherRepository = new TeacherRepositoryImpl();
-    private PayrollRepository payrollRepository = new PayrollRepositoryImpl();
+    private InvoiceRepository invoiceRepository = new InvoiceRepositoryImpl();
     private ProgramRepository programRepository = new ProgramRepositoryImpl();
 
     private SingletonRepositoryFactory(){
@@ -35,7 +35,7 @@ public class SingletonRepositoryFactory implements RepositoryFactory {
     public TeacherRepository getTeacherRepository() { return teacherRepository; }
 
     @Override
-    public PayrollRepository getPayrollRepository() { return payrollRepository; }
+    public InvoiceRepository getInvoiceRepository() { return invoiceRepository; }
 
     @Override
     public ProgramRepository getProgramRepository() {

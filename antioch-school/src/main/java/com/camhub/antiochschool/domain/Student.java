@@ -19,7 +19,7 @@ public class Student {
 
     private Long currentClassroomId;
     private Date registeredDate;
-    private Long payrollId;
+    private Long invoiceId;
 
     private Boolean archived;
 
@@ -59,12 +59,12 @@ public class Student {
         return gender;
     }
 
-    public Long getPayrollId() {
-        return payrollId;
+    public Long getInvoiceId() {
+        return invoiceId;
     }
 
-    public void setPayrollId(Long payrollId) {
-        this.payrollId = payrollId;
+    public void setInvoiceId(Long invoiceId) {
+        this.invoiceId = invoiceId;
     }
 
     public Boolean getArchived() {

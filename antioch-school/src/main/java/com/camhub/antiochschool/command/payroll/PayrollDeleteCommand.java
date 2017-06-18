@@ -16,7 +16,9 @@ public class PayrollDeleteCommand extends FrontCommand {
         String id = request.getParameter("id");
 
         if(id != null && !id.isEmpty()){
+
             StudentFacade.getInstance().deletePayroll(Long.valueOf(id));
+
         }
     }
 }

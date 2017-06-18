@@ -1,5 +1,6 @@
 <%@ page import="com.camhub.antiochschool.domain.Student" %>
 <%@ page import="org.bayon.ogm.datastore.query.Page" %>
+<%@ page import="com.camhub.antiochschool.service.StudentFacade" %>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -47,6 +48,7 @@
                                 <th>Current Classroom</th>
                                 <th></th>
                                 <th></th>
+
                             </tr>
                             <%
                                 Page<Student> p = (Page<Student>)request.getAttribute("students");
@@ -58,9 +60,12 @@
                                 <td><%= student.getEnglishName()%></td>
                                 <td><%= student.getGender()%></td>
                                 <td><%= student.getBirthDate()%></td>
-                                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                <td><a href="/student/update?id=<%=student.getId()%>"><i class="fa fa-fw fa-edit"></i></a></td>
-                                <td><a href="#" id="<%=student.getId()%>" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-fw fa-remove"></i></a></td>
+                                <td></td>
+                                <td><%= StudentFacade.getInstance().isPaid(student) ? "<span class=\"badge bg-green\">Paid</span>" : "<span class=\"badge bg-yellow\">Unpaid</span>" %></td>
+                                <td>
+                                    <a href="/student/update?id=<%=student.getId()%>"><i class="fa fa-fw fa-edit"></i></a>
+                                    <a href="#" id="<%=student.getId()%>" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-fw fa-remove"></i></a>
+                                </td>
                             </tr>
                             <%
                                 }

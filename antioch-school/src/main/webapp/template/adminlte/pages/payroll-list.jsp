@@ -1,5 +1,5 @@
 <%@ page import="org.bayon.ogm.datastore.query.Page" %>
-<%@ page import="com.camhub.antiochschool.domain.Payroll" %>
+<%@ page import="com.camhub.antiochschool.domain.Invoice" %>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -25,7 +25,8 @@
 
                         <div class="box-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                                <input type="text" name="table_search" class="form-control pull-right"
+                                       placeholder="Search">
 
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -37,7 +38,7 @@
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
                             <tr>
-                                <th>payroll No</th>
+                                <th>invoice No</th>
                                 <th>Tuition Fee</th>
                                 <th>Administration Fee</th>
                                 <th>Suppy Fee</th>
@@ -46,16 +47,16 @@
                             </tr>
 
                             <%
-                                Page<Payroll> p = (Page<Payroll>)request.getAttribute("payrolls");
-                                for (Payroll payroll : p.getItems()) {
+                                Page<Invoice> p = (Page<Invoice>)request.getAttribute("payrolls");
+                                for (Invoice invoice : p.getItems()) {
                             %>
                             <tr>
-                                <td><%= payroll.getPayrollNo()%></td>
-                                <td><%= payroll.getTuitionFee()%></td>
-                                <td><%= payroll.getAdministrationFee()%></td>
-                                <td><%= payroll.getSupplyFee()%></td>
-                                <td><a href="/payroll/update?id=<%=payroll.getId()%>"><i class="fa fa-fw fa-edit"></i></a></td>
-                                <td><a href="#" id="<%=payroll.getId()%>" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-fw fa-remove"></i></a></td>
+                                <td><%= invoice.getPayrollNo()%></td>
+                                <td><%= invoice.getTuitionFee()%></td>
+                                <td><%= invoice.getAdministrationFee()%></td>
+                                <td><%= invoice.getSupplyFee()%></td>
+                                <td><a href="/invoice/update?id=<%=invoice.getId()%>"><i class="fa fa-fw fa-edit"></i></a></td>
+                                <td><a href="#" id="<%=invoice.getId()%>" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-fw fa-remove"></i></a></td>
                             </tr>
                             <%
                                 }
@@ -129,7 +130,7 @@
                     <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
                 </div>
                 <div class="modal-body">
-                    <b>Are you sure you want to delete this payroll?</b>
+                    <b>Are you sure you want to delete this invoice?</b>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -152,7 +153,7 @@
     $('#delete').on('click', function() {
         $.ajax({
             method: "POST",
-            url: "/payroll/delete",
+            url: "/invoice/delete",
             data: { id: _id }
         }).done(function( msg ) {
             window.location.reload();

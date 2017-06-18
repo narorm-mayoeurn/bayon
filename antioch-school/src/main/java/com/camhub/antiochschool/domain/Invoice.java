@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by darith on 6/15/17.
  */
-public class Payroll {
+public class Invoice {
 
     private Long id;
     private Long studentId;
@@ -21,7 +21,7 @@ public class Payroll {
 
     private Double totalDiscount;
 
-    private Boolean archived;
+    private Boolean archived = false;
 
     public Long getId() {
         return id;
