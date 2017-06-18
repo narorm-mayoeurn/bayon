@@ -67,6 +67,8 @@
                                 </div>
                                 <!-- /.input group -->
                             </div>
+
+                            <div id="payroll-form-message" class="callout callout-success" style="display:none;"></div>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
@@ -89,8 +91,11 @@
     $('#payroll_form').ajaxForm({
         success: function(data) {
 
+            formMessage('payroll-form-message', data.message);
+
         },
         error: function(xhr) {
+            console.log(xhr.responseText);
             showError($.parseJSON(xhr.responseText));
         }
     });

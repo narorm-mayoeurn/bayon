@@ -45,6 +45,8 @@
                                 <th>Gender</th>
                                 <th>Date of Birth</th>
                                 <th>Current Classroom</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                             <%
                                 Page<Student> p = (Page<Student>)request.getAttribute("students");
@@ -57,6 +59,8 @@
                                 <td><%= student.getGender()%></td>
                                 <td><%= student.getBirthDate()%></td>
                                 <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                <td><a href="/student/update?id=<%=student.getId()%>"><i class="fa fa-fw fa-edit"></i></a></td>
+                                <td><a href="#" id="<%=student.getId()%>" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-fw fa-remove"></i></a></td>
                             </tr>
                             <%
                                 }
@@ -116,4 +120,25 @@
     </section>
     <!-- /.content -->
 </div>
+
+<script>
+
+    var _id = null;
+
+    // prepare all forms for ajax submission
+    $('a i.fa-remove').click(function(){
+        _id = $(this).parent().attr('id');
+    });
+
+    $('#delete').on('click', function() {
+        $.ajax({
+            method: "POST",
+            url: "/student/delete",
+            data: { id: _id }
+        }).done(function( msg ) {
+            window.location.reload();
+        });
+    });
+
+</script>
 

@@ -1,3 +1,5 @@
+<%@ page import="com.camhub.antiochschool.domain.Student" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -26,23 +28,25 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form class="form-horizontal" id="student_form" method="post" action="/student/save">
+                    <% Student student = (Student)request.getAttribute("student");%>
+                    <form id="student_form" class="form-horizontal" id="student_form" method="post" action="/student/save">
 
                         <input type="hidden" name="_a" value="" />
+                        <input type="hidden" name="id" value="<%= student == null ? "" : student.getId()%>" />
 
                         <div class="box-body">
 
                             <div class="form-group" id="fg_student_id">
                                 <label for="student_id" class="col-sm-3 control-label">Student ID</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="student_id" name="student_id" placeholder="ID">
+                                    <input type="text" class="form-control" id="student_id" name="student_id" placeholder="ID" value="<%=student == null ? "" : student.getStudentId()%>">
                                 </div>
                             </div>
 
                             <div class="form-group" id="fg_khmer_name">
                                 <label for="kh_name" class="col-sm-3 control-label">Khmer Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="kh_name" name="khmer_name" placeholder="Khmer Name">
+                                    <input type="text" class="form-control" id="kh_name" name="khmer_name" placeholder="Khmer Name" value="<%=student == null ? "" : student.getKhmerName()%>">
                                 </div>
                             </div>
 
@@ -50,7 +54,7 @@
                             <div class="form-group" id="fg_english_name">
                                 <label for="en_name" class="col-sm-3 control-label">English Name</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="en_name" name="english_name" placeholder="English Name">
+                                    <input type="text" class="form-control" id="en_name" name="english_name" placeholder="English Name" value="<%=student == null ? "" : student.getEnglishName()%>">
                                 </div>
                             </div>
 
@@ -63,13 +67,13 @@
                                     <div class="input-group">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="gender" id="gender_male" value="M" checked="">
+                                            <input type="radio" name="gender" id="gender_male" value="M" <%= student == null || "M".equals(student.getGender()) ? "checked=\"\"" : ""%>>
                                             Male
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="gender" id="gender_female" value="F">
+                                            <input type="radio" name="gender" id="gender_female" value="F" <%= student != null && "F".equals(student.getGender()) ? "checked=\"\"" : ""%>>
                                             Female
                                         </label>
                                     </div>
@@ -86,7 +90,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" id="birthdate" name="birthdate" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="">
+                                    <input type="text" id="birthdate" name="birthdate" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="" placeholder="mm/dd/yyyy" value="<%=student == null || student.getBirthDate() == null ? "" : new SimpleDateFormat("mm/dd/yyyy").format(student.getBirthDate())%>">
                                 </div>
                                 </div>
                                 <!-- /.input group -->
@@ -100,7 +104,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-phone"></i>
                                     </div>
-                                    <input type="text" class="form-control" name="contact_phone" id="contact_phone" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="">
+                                    <input type="text" class="form-control" name="contact_phone" id="contact_phone" data-inputmask="&quot;mask&quot;: &quot;(999) 999-9999&quot;" data-mask="" placeholder="Phone Number" value="<%=student == null ? "" : student.getContactPhone()%>">
                                 </div>
                                 </div>
                                 <!-- /.input group -->
@@ -110,7 +114,7 @@
                             <div class="form-group" id="fg_contact_address">
                                 <label for="contact_address" class="col-sm-3 control-label">Contact Address</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="contact_address" name="conta_address" placeholder="Contact Address">
+                                    <input type="text" class="form-control" id="contact_address" name="conta_address" placeholder="Contact Address" value="<%=student == null ? "" : student.getContactAddress()%>">
                                 </div>
                             </div>
 

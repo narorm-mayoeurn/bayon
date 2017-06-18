@@ -82,7 +82,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" id="birthdate" name="birthdate" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="" placeholder="Date of Birth" value="<%=teacher == null || teacher.getBirthdate() == null ? "" : new SimpleDateFormat("mm/dd/yyyy").format(teacher.getBirthdate())%>">
+                                        <input type="text" id="birthdate" name="birthdate" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="" placeholder="mm/dd/yyyy" value="<%=teacher == null || teacher.getBirthdate() == null ? "" : new SimpleDateFormat("mm/dd/yyyy").format(teacher.getBirthdate())%>">
                                     </div>
                                 </div>
                                 <!-- /.input group -->
@@ -138,7 +138,15 @@
 
     // prepare all forms for ajax submission
     $('#teacher_form').ajaxForm({
+        success: function(data) {
 
+            formMessage('teacher-form-message', data.message);
+
+        },
+        error: function(xhr) {
+            console.log(xhr.responseText);
+            showError($.parseJSON(xhr.responseText));
+        }
     });
 
 </script>
