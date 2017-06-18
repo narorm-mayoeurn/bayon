@@ -8,11 +8,11 @@ import java.io.IOException;
 /**
  * Created by darith on 6/14/17.
  */
-public class ContactPageCommand extends FrontCommand {
+public class Page404Command extends FrontCommand {
 
     @Override
     public void execute() throws ServletException, IOException {
-        forward("contact");
+        forward("404");
     }
 
 }

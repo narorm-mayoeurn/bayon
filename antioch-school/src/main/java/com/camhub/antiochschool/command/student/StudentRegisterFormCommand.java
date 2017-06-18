@@ -25,7 +25,7 @@ public class StudentRegisterFormCommand extends FrontCommand {
         // set action attribute
         if("student/register".equals(getCommandName())) {
             request.setAttribute("action", "register");
-        } else if("student/updateInvoice".equals(getCommandName())) {
+        } else if("student/update".equals(getCommandName())) {
 
             Long id = Long.valueOf(request.getParameter("id"));
             Student student = StudentFacade.getInstance().get(id);

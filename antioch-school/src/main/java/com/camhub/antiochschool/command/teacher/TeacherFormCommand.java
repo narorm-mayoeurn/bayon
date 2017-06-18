@@ -18,7 +18,7 @@ public class TeacherFormCommand extends FrontCommand {
         if("teacher/add".equals(getCommandName())) {
             request.setAttribute("action", "add");
         } else if("teacher/updateInvoice".equals(getCommandName())) {
-            request.setAttribute("action", "updateInvoice");
+            request.setAttribute("action", "update");
 
             Long id = Long.valueOf(request.getParameter("id"));
             Teacher teacher = TeacherFacade.getInstance().get(id);

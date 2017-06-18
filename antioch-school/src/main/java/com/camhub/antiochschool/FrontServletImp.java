@@ -27,9 +27,9 @@ public class FrontServletImp extends FrontServlet {
         register(StudentListCommand.class, "", "home");
 
         register(StudentListCommand.class, "student/list");
-        register(StudentRegisterFormCommand.class, "student/register");
+        register(StudentRegisterFormCommand.class, "student/register", "student/update");
         register(StudentDeleteCommand.class, "student/delete");
-        register(StudentRegisterFormCommand.class, "student/updateInvoice");
+
         register(StudentSaveCommand.class, "student/save");
 
         register(TeacherListCommand.class, "teacher/list");
@@ -46,7 +46,7 @@ public class FrontServletImp extends FrontServlet {
 
         register(TeacherFormCommand.class, "about");
         register(ClassListCommand.class, "classes");
-        register(ClassFormCommand.class, "classes/add", "classes/updateInvoice");
+        register(ClassFormCommand.class, "classes/add", "classes/update");
         register(ClassSaveCommand.class, "classes/save");
         register(ClassDeleteCommand.class, "classes/delete");
     }

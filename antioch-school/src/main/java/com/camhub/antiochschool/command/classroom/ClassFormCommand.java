@@ -21,7 +21,7 @@ public class ClassFormCommand extends FrontCommand {
         if("classes/add".equals(getCommandName())) {
             request.setAttribute("action", "add");
         } else if("classes/updateInvoice".equals(getCommandName())) {
-            request.setAttribute("action", "updateInvoice");
+            request.setAttribute("action", "update");
 
             Long id = Long.valueOf(request.getParameter("id"));
             Class clazz = ClassFacade.getInstance().get(id);
