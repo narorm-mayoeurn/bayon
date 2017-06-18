@@ -57,17 +57,17 @@ public enum FormValidationImp implements FormValidation {
             if(IS_EMPTY.validate(input, crit)) return false;
             if(input.length() > 1) return false;
 
-            List<Character> list;
+            List<String> list;
             if(crit == null) {
                 list = new ArrayList<>();
-                list.add('M');
-                list.add('F');
+                list.add("M");
+                list.add("F");
             } else {
-                list = crit.getCharList();
+                list = crit.getStringList();
             }
             boolean has = false;
-            for(Character c : list) {
-                if(c.equals(input.charAt(0))) {has = true; break; }
+            for(String c : list) {
+                if(c.equals(input)) {has = true; break; }
             }
             return has;
         }

@@ -71,7 +71,7 @@ public class StudentSaveCommand extends FrontCommand {
             student.setStudentId(request.getParameter("student_id"));
             student.setKhmerName(request.getParameter("khmer_name"));
             student.setEnglishName(request.getParameter("english_name"));
-            student.setGender(request.getParameter("gender").charAt(0));
+            student.setGender(request.getParameter("gender"));
             student.setContactPhone(request.getParameter("contact_phone"));
             student.setContactAddress(request.getParameter("contact_address"));
 
@@ -86,15 +86,15 @@ public class StudentSaveCommand extends FrontCommand {
             student.setBirthDate(birthdate);
 
 
-            if(!getValidator(FormValidationType.IS_EMPTY).validate(request.getParameter("id"), null)) {
-                if(getValidator(FormValidationType.IS_NUMBER).validate(request.getParameter("id"), null)) {
-                    student.setId(Long.valueOf(request.getParameter("id")));
+            if(getValidator(FormValidationType.IS_NUMBER).validate(request.getParameter("id"), null)) {
 
-                    StudentFacade.getInstance().update(student);
-                } else {
-                    StudentFacade.getInstance().create(student);
-                }
+                student.setId(Long.valueOf(request.getParameter("id")));
+                StudentFacade.getInstance().update(student);
+            } else {
+
+                StudentFacade.getInstance().create(student);
             }
+
 
 
         }
