@@ -9,7 +9,7 @@ public class Invoice {
 
     private Long id;
     private Long studentId;
-    private String payrollNo;
+    private String invoiceNo;
 
     private Double tuitionFee;
     private Double administrationFee;
@@ -39,12 +39,12 @@ public class Invoice {
         this.studentId = studentId;
     }
 
-    public String getPayrollNo() {
-        return payrollNo;
+    public String getInvoiceNo() {
+        return invoiceNo;
     }
 
-    public void setPayrollNo(String payrollNo) {
-        this.payrollNo = payrollNo;
+    public void setInvoiceNo(String invoiceNo) {
+        this.invoiceNo = invoiceNo;
     }
 
     public Double getTuitionFee() {

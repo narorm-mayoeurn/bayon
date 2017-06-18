@@ -12,15 +12,15 @@ import java.io.IOException;
 /**
  * Created by Chandara Leang on 6/16/2017.
  */
-public class PayrollFormCommand extends FrontCommand {
+public class InvoiceFormCommand extends FrontCommand {
 
-    String target = "payroll-form";
+    String target = "invoice-form";
 
     @Override
     public void execute() throws ServletException, IOException {
 
         if(!getValidator(FormValidationType.IS_NUMBER).validate(request.getParameter("id"), null)) {
-            //target = "404";
+            target = "404";
         } else {
             Student student = StudentFacade.getInstance().get(Long.valueOf(request.getParameter("id")));
             if(student == null) target = "404";

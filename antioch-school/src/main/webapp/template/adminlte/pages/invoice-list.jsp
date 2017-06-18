@@ -51,7 +51,7 @@
                                 for (Invoice invoice : p.getItems()) {
                             %>
                             <tr>
-                                <td><%= invoice.getPayrollNo()%></td>
+                                <td><%= invoice.getInvoiceNo()%></td>
                                 <td><%= invoice.getTuitionFee()%></td>
                                 <td><%= invoice.getAdministrationFee()%></td>
                                 <td><%= invoice.getSupplyFee()%></td>

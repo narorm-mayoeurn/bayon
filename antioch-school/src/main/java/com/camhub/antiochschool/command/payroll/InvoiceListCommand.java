@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * Created by Chandara Leang on 6/16/2017.
  */
-public class PayrollListCommand extends FrontCommand {
+public class InvoiceListCommand extends FrontCommand {
 
     @Override
     public void execute() throws ServletException, IOException {
@@ -24,6 +24,6 @@ public class PayrollListCommand extends FrontCommand {
     @Override
     protected void responseAsHtml() throws ServletException, IOException {
         super.responseAsHtml();
-        forward("payroll-list");
+        forward("invoice-list");
     }
 }

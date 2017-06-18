@@ -68,7 +68,7 @@ public class StudentFacade {
         if(invoice == null || invoice.getArchived() == true || invoice.getEndDate() == null) return false;
 
         Date now = new Date();
-
-        return now.getTime() - invoice.getEndDate().getTime() > 0;
+        System.out.println(invoice.getEndDate().getTime() - now.getTime());
+        return invoice.getEndDate().getTime() - now.getTime() > 0;
     }
 }

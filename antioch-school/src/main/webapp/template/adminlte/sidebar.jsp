@@ -42,6 +42,10 @@
             pages.put("classroom", p.equals("classroom-list") || p.equals("classroom-form") ? " active" : "");
             pages.put("classroom-list", p.equals("classroom-list") ? " class=\"active\"" : "");
             pages.put("classroom-form", p.equals("classroom-form") ? " class=\"active\"" : "");
+
+            pages.put("invoice", p.equals("invoice-list") || p.equals("invoice-form") ? " active" : "");
+            pages.put("invoice-list", p.equals("invoice-list") ? " class=\"active\"" : "");
+            pages.put("invoice-form", p.equals("invoice-form") ? " class=\"active\"" : "");
         %>
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
@@ -85,7 +89,7 @@
                 </ul>
             </li>
 
-            <li class="treeview">
+            <li class="treeview<%= pages.get("invoice") %>">
                 <a href="#">
                     <i class="fa fa-laptop"></i>
                     <span>Finance</span>
@@ -94,8 +98,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li<%= request.getAttribute("page").equals("payroll-list") ? " class=\"active\"" : "" %>><a href="/payroll/list"><i class="fa fa-circle-o"></i> Invoices</a></li>
-                    <li<%= request.getAttribute("page").equals("payroll-form") ? " class=\"active\"" : "" %>><a href="/payroll/add"><i class="fa fa-circle-o"></i> New Invoice</a></li>
+                    <li<%= pages.get("invoice-list") %>><a href="/invoice/list"><i class="fa fa-circle-o"></i> Invoices</a></li>
+                    <li<%= pages.get("invoice-form") %>><a href="/invoice/add"><i class="fa fa-circle-o"></i> New Invoice</a></li>
                 </ul>
             </li>
             <li class="treeview">
