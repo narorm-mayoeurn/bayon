@@ -52,4 +52,11 @@ public class StudentFacade {
     public void deletePayroll(Long id){ payrollRepository.remove(id); }
 
     public Payroll getPayrollById(Long id) { return payrollRepository.findById(id); }
+
+
+    public boolean isPaid(Student student) {
+        if(student.getPayRollId() == null) return false;
+
+
+    }
 }

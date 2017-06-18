@@ -85,11 +85,11 @@ public class Student {
         this.registeredDate = registeredDate;
     }
 
-    public Long getPayRollNumber() {
+    public Long getPayRollId() {
         return payrollId;
     }
 
-    public void setPayRollNumber(Long payrollId) {
+    public void setPayRollId(Long payrollId) {
         this.payrollId = payrollId;
     }
 
