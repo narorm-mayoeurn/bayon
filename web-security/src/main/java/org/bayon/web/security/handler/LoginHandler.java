@@ -36,7 +36,7 @@ public class LoginHandler extends SecurityHandler {
             String password = req.getParameter("password");
             User user = authManager.authenticate(username, password);
 
-            req.getSession().setAttribute(AuthManager.AUTH, true);
+            req.getSession().setAttribute(AuthManager.AUTH, user.getName());
             req.getSession().setAttribute(AuthManager.ADMIN, user.getRoles().contains(User.ADMIN));
 
             ((HttpServletResponse) response).sendRedirect(defaultPage);
