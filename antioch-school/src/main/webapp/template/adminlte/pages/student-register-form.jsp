@@ -1,5 +1,9 @@
 <%@ page import="com.camhub.antiochschool.domain.Student" %>
+<%@ page import="com.camhub.antiochschool.domain.Class" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Map" %>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -32,7 +36,7 @@
                     <form id="student_form" class="form-horizontal" id="student_form" method="post" action="/student/save">
 
                         <input type="hidden" name="_a" value="" />
-                        <input type="hidden" name="id" value="<%= student == null ? "" : student.getId()%>" />
+                        <input type="hidden" name="id" value="<%= student == null ? "" : student.getId() + "" %>" />
 
                         <div class="box-body">
 
@@ -119,6 +123,20 @@
                             </div>
 
 
+                            <div class="form-group" id="fg_class">
+                                <label for="class" class="col-sm-3 control-label">Class</label>
+                                <div class="col-sm-9">
+                                    <select id="class" class="form-control" name="class">
+                                        <option value="">Select:</option>
+                                        <%
+                                            Map<Long, String> classList = (Map<Long, String>) request.getAttribute("classList");
+                                            for(Map.Entry<Long, String> e : classList.entrySet()) {
+                                        %>
+                                        <option<%= student != null && student.getCurrentClassroomId() == e.getKey() ? " selected=\"selected\"" : "" %> value="<%= e.getKey() %>"><%= e.getValue() %></option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            </div>
 
 
                             <%--<div class="form-group" id="fg_email">--%>

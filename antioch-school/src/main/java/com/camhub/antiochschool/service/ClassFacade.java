@@ -11,6 +11,7 @@ import org.bayon.ogm.datastore.query.Page;
 import org.bayon.ogm.datastore.query.QueryBuilder;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -71,5 +72,20 @@ public class ClassFacade {
             teachers.put(teacher.getId(), teacher.getEnglishName());
         }
         return teachers;
+    }
+
+    public Map<Long, String> getAllClasses() {
+        QueryBuilder builder = classRepository.createQueryBuilder();
+        builder.selectOnly("name", String.class);
+
+        Map<Long, String> classes = new HashMap<>();
+        for(Class c : classRepository.find(builder.toQuery())) {
+            classes.put(c.getId(), c.getName());
+        }
+        return classes;
+    }
+
+    public String getNameById(Long id) {
+        return classRepository.findById(id).getName();
     }
 }

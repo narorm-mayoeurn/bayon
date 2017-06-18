@@ -1,6 +1,7 @@
 <%@ page import="com.camhub.antiochschool.domain.Student" %>
 <%@ page import="org.bayon.ogm.datastore.query.Page" %>
 <%@ page import="com.camhub.antiochschool.service.StudentFacade" %>
+<%@ page import="com.camhub.antiochschool.service.ClassFacade" %>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -60,7 +61,7 @@
                                 <td><%= student.getEnglishName()%></td>
                                 <td><%= student.getGender()%></td>
                                 <td><%= student.getBirthDate()%></td>
-                                <td></td>
+                                <td><%= student.getCurrentClassroomId().equals("") ? "" : ClassFacade.getInstance().getNameById(student.getCurrentClassroomId()) %></td>
                                 <td><%= StudentFacade.getInstance().isPaid(student) ? "<span class=\"badge bg-green\">Paid</span>" : "<span class=\"badge bg-yellow\">Unpaid</span>" %></td>
                                 <td>
                                     <a href="/student/update?id=<%=student.getId()%>"><i class="fa fa-fw fa-edit"></i></a>

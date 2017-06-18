@@ -72,8 +72,16 @@ public class StudentSaveCommand extends FrontCommand {
             student.setKhmerName(request.getParameter("khmer_name"));
             student.setEnglishName(request.getParameter("english_name"));
             student.setGender(request.getParameter("gender"));
-            student.setContactPhone(request.getParameter("contact_phone"));
-            student.setContactAddress(request.getParameter("contact_address"));
+
+            if(!getValidator(FormValidationType.IS_EMPTY).validate(request.getParameter("contact_phone"), null)) {
+                student.setContactPhone(request.getParameter("contact_phone"));
+            }
+            if(!getValidator(FormValidationType.IS_EMPTY).validate(request.getParameter("contact_address"), null)) {
+                student.setContactAddress(request.getParameter("contact_address"));
+            }
+            if(getValidator(FormValidationType.IS_NUMBER).validate(request.getParameter("class"), null)) {
+                student.setCurrentClassroomId(Long.valueOf(request.getParameter("class")));
+            }
 
 
             DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
