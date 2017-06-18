@@ -113,23 +113,13 @@ public class StudentSaveCommand extends FrontCommand {
     protected void responseAsJson() throws ServletException, IOException {
         super.responseAsJson();
 
-        String json = "";
-
         if(errorMessages.isEmpty()) {
-            System.out.println("yes");
             Map<String, String> msg = new HashMap<>();
             msg.put("message", "Student information has been saved.");
-            json = objectMapper.writeValueAsString(msg);
+            response.getWriter().write(objectMapper.writeValueAsString(msg));
         } else {
             response.setStatus(400);
-            json = new ObjectMapper().writeValueAsString(errorMessages);
+            response.getWriter().write(objectMapper.writeValueAsString(errorMessages));
         }
-
-        response.getWriter().write(json);
     }
-
-
-
-
-
 }
