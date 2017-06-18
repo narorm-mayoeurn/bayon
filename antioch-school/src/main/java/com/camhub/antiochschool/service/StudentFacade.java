@@ -44,6 +44,8 @@ public class StudentFacade {
 
     public void delete(Long id) { studentRepository.remove(id);}
 
+    public Student get(Long id) { return studentRepository.findById(id);}
+
     public Page<Payroll> getPayrolls(int offset, int limit) {
         QueryBuilder builder = payrollRepository.createQueryBuilder();
         return payrollRepository.find(builder.toQuery(), offset, limit);

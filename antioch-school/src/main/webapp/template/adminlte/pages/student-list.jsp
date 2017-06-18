@@ -119,6 +119,28 @@
         </div>
     </section>
     <!-- /.content -->
+
+    <!-- Button trigger modal -->
+    <%--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#delete-modal">--%>
+    <%--Launch demo modal--%>
+    <%--</button>--%>
+    <!-- Modal -->
+    <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="Delete Student" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                </div>
+                <div class="modal-body">
+                    <b>Are you sure you want to delete this student?</b>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="delete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>

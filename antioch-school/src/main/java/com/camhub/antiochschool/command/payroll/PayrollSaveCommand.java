@@ -68,7 +68,10 @@ public class PayrollSaveCommand extends FrontCommand {
         String json = "";
 
         if(errorMessages.isEmpty()) {
-            json = new ObjectMapper().writeValueAsString(new HashMap<>().put("message", "Payroll information has been saved."));
+            System.out.println("yes");
+            Map<String, String> msg = new HashMap<>();
+            msg.put("message", "Payroll information has been saved.");
+            json = objectMapper.writeValueAsString(msg);
         } else {
             response.setStatus(400);
             json = new ObjectMapper().writeValueAsString(errorMessages);

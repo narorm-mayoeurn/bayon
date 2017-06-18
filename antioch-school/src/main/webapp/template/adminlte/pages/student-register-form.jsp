@@ -90,7 +90,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" id="birthdate" name="birthdate" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="" placeholder="mm/dd/yyyy" value="<%=student == null || student.getBirthDate() == null ? "" : new SimpleDateFormat("mm/dd/yyyy").format(student.getBirthDate())%>">
+                                    <input type="text" id="birthdate" name="birthdate" class="form-control" data-inputmask="'alias': 'mm/dd/yyyy'" data-mask="" placeholder="MM/dd/yyyy" value="<%=student == null || student.getBirthDate() == null ? "" : new SimpleDateFormat("MM/dd/yyyy").format(student.getBirthDate())%>">
                                 </div>
                                 </div>
                                 <!-- /.input group -->

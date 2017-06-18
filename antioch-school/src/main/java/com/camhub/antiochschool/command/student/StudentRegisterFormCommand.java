@@ -4,6 +4,7 @@ import com.camhub.antiochschool.domain.Student;
 import com.camhub.antiochschool.repository.SingletonRepositoryFactory;
 import com.camhub.antiochschool.repository.StudentRepository;
 import com.camhub.antiochschool.repository.StudentRepositoryImpl;
+import com.camhub.antiochschool.service.StudentFacade;
 import org.bayon.web.FrontCommand;
 
 import javax.servlet.ServletException;
@@ -27,8 +28,8 @@ public class StudentRegisterFormCommand extends FrontCommand {
         } else if("student/update".equals(getCommandName())) {
 
             Long id = Long.valueOf(request.getParameter("id"));
-
-            StudentRepository studentRep = SingletonRepositoryFactory.getFactory().getStudentRepository();
+            Student student = StudentFacade.getInstance().get(id);
+            request.setAttribute("student", student);
 
             request.setAttribute("action", "update");
         } else request.setAttribute("action", "");
