@@ -16,6 +16,7 @@ public final class SingletonTaskFactory implements TaskFactory {
         tasks = new HashMap<>();
         tasks.put("populatePrograms", new PopulateProgramsTask());
         tasks.put("createAdminUser", new CreateAdminUserTask());
+        tasks.put("populateMockData", new PopulateMockDataTask());
     }
 
     public static SingletonTaskFactory getInstance() {
