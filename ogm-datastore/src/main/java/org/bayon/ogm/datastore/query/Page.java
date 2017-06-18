@@ -66,7 +66,7 @@ public class Page<T> {
 
         @Override
         public boolean hasNext() {
-            if (offset + limit <= total) {
+            if (offset + limit < total) {
                 return true;
             }
             return false;

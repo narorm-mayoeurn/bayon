@@ -6,7 +6,9 @@ import org.bayon.web.security.repository.UserRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -29,7 +31,7 @@ public class CreateAdminUserTask implements Task {
             user.setName(req.getParameter("name"));
             user.setUsername(username);
             user.setPassword(req.getParameter("password"));
-            Set<String> roles = new HashSet<>();
+            List<String> roles = new ArrayList<>();
             for (String role : req.getParameterValues("roles")) {
                 roles.add(role.toUpperCase());
             }
