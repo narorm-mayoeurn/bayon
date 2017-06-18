@@ -216,7 +216,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="/template/adminlte/dist/img/avatar5.png" class="user-image" alt="User Image">
-              <span class="hidden-xs"><%= "Hi, " + request.getAttribute(AuthManager.AUTH) + "!"%></span>
+              <span class="hidden-xs"><%= "Hi, " + request.getSession().getAttribute(AuthManager.AUTH) + "!"%></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image

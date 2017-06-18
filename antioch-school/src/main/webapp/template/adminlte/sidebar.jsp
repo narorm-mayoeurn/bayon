@@ -11,7 +11,7 @@
                 <img src="/template/adminlte/dist/img/avatar5.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p><%= "Hi, " + request.getAttribute(AuthManager.AUTH) + "!"%></p>
+                <p><%= "Hi, " + request.getSession().getAttribute(AuthManager.AUTH) + "!"%></p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>

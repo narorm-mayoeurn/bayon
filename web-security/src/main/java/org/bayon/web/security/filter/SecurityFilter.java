@@ -9,6 +9,7 @@ import org.bayon.web.security.handler.ExcludeURIHandler;
 import org.bayon.web.security.handler.LoginHandler;
 import org.bayon.web.security.handler.LogoutHandler;
 import org.bayon.web.security.handler.SecurityHandler;
+import org.bayon.web.security.handler.TrimmingParametersHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,6 +20,9 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import java.io.IOException;
+import java.util.Enumeration;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by nm on 14/6/17.
@@ -31,6 +35,7 @@ public final class SecurityFilter implements Filter {
     private String defaultPage;
     private String[] excludeURI;
     private SecurityHandler handler;
+    private boolean enableTrimmer;
 
     @Override
     public void init(FilterConfig conf) throws ServletException {
@@ -48,6 +53,12 @@ public final class SecurityFilter implements Filter {
 
         if (conf.getInitParameter("exclude-uri") != null) {
             excludeURI = conf.getInitParameter("exclude-uri").split(",");
+        }
+
+        if (conf.getInitParameter("enable-trimmer") != null) {
+            enableTrimmer = Boolean.parseBoolean(conf.getInitParameter("enable-trimmer"));
+        } else {
+            enableTrimmer = true;
         }
 
         handler = getChainHandler();
@@ -77,7 +88,11 @@ public final class SecurityFilter implements Filter {
         SecurityHandler excludeURIHandler = new ExcludeURIHandler(authenticationHandler, excludeURI);
         SecurityHandler loginHandler = new LoginHandler(excludeURIHandler, defaultPage);
         SecurityHandler logoutHandler = new LogoutHandler(loginHandler);
-        return logoutHandler;
+        if (enableTrimmer) {
+            return new TrimmingParametersHandler(logoutHandler);
+        } else {
+            return logoutHandler;
+        }
     }
 
     @Override
