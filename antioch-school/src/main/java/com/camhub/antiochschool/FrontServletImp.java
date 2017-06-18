@@ -9,6 +9,7 @@ import com.camhub.antiochschool.command.payroll.PayrollDeleteCommand;
 import com.camhub.antiochschool.command.payroll.PayrollFormCommand;
 import com.camhub.antiochschool.command.payroll.PayrollListCommand;
 import com.camhub.antiochschool.command.payroll.PayrollSaveCommand;
+import com.camhub.antiochschool.command.student.StudentDeleteCommand;
 import com.camhub.antiochschool.command.student.StudentListCommand;
 import com.camhub.antiochschool.command.student.StudentRegisterFormCommand;
 import com.camhub.antiochschool.command.student.StudentSaveCommand;
@@ -27,6 +28,7 @@ public class FrontServletImp extends FrontServlet {
 
         register(StudentListCommand.class, "student/list");
         register(StudentRegisterFormCommand.class, "student/register");
+        register(StudentDeleteCommand.class, "student/delete");
         register(StudentRegisterFormCommand.class, "student/update");
         register(StudentSaveCommand.class, "student/save");
 
