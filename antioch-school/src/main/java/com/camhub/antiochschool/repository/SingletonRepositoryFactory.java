@@ -11,6 +11,7 @@ public class SingletonRepositoryFactory implements RepositoryFactory {
     private StudentRepository studentRepository = new StudentRepositoryImpl();
     private TeacherRepository teacherRepository = new TeacherRepositoryImpl();
     private PayrollRepository payrollRepository = new PayrollRepositoryImpl();
+    private ProgramRepository programRepository = new ProgramRepositoryImpl();
 
     private SingletonRepositoryFactory(){
 
@@ -35,4 +36,9 @@ public class SingletonRepositoryFactory implements RepositoryFactory {
 
     @Override
     public PayrollRepository getPayrollRepository() { return payrollRepository; }
+
+    @Override
+    public ProgramRepository getProgramRepository() {
+        return programRepository;
+    }
 }

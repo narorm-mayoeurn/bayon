@@ -40,6 +40,11 @@ public final class QueryBuilder<T> {
         return this;
     }
 
+    public QueryBuilder selectOnly(String property, Class returnType) {
+        query.addProjection(new PropertyProjection(property, returnType));
+        return this;
+    }
+
     public QueryBuilder<T> and(String property, Filter.Operator operator, Object value) {
         Query.Filter filter = get(property, operator, value);
         if (query.getFilter() == null) {

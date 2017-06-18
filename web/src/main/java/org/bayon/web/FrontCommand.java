@@ -82,4 +82,11 @@ public abstract class FrontCommand {
 
 
 
+    public int getIntParam(String name, int _default) {
+        String param = request.getParameter(name);
+        if (param == null) {
+            return _default;
+        }
+        return Integer.parseInt(param);
+    }
 }
