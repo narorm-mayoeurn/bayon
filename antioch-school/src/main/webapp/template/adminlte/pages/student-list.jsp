@@ -10,7 +10,7 @@
             <small>List of all students in the school</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="/home"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Students</li>
         </ol>
     </section>
@@ -45,7 +45,7 @@
                                 <th>English Name</th>
                                 <th>Gender</th>
                                 <th>Date of Birth</th>
-                                <th>Current Classroom</th>
+                                <th>Current Class</th>
                                 <th></th>
                                 <th></th>
 

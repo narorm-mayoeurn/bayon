@@ -20,7 +20,7 @@ public class ClassFormCommand extends FrontCommand {
         // set action attribute
         if("classes/add".equals(getCommandName())) {
             request.setAttribute("action", "add");
-        } else if("classes/updateInvoice".equals(getCommandName())) {
+        } else if("classes/update".equals(getCommandName())) {
             request.setAttribute("action", "update");
 
             Long id = Long.valueOf(request.getParameter("id"));

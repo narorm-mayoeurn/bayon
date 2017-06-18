@@ -9,7 +9,7 @@
             <small>Add or update teacher information</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="/home"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="/teacher/list"> Teachers</a></li>
             <li class="active"><%= request.getAttribute("action").equals("add") ? "New" : "Update" %></li>
         </ol>
