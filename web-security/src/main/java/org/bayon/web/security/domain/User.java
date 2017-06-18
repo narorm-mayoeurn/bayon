@@ -1,6 +1,6 @@
 package org.bayon.web.security.domain;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by nm on 14/6/17.
@@ -11,9 +11,10 @@ public class User {
     public static final String USER = "USER";
 
     private Long id;
+    private String name;
     private String username;
     private String password;
-    private List<String> roles;
+    private Set<String> roles;
 
     public Long getId() {
         return id;
@@ -21,6 +22,14 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getUsername() {
@@ -39,11 +48,11 @@ public class User {
         this.password = password;
     }
 
-    public List<String> getRoles() {
+    public Set<String> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<String> roles) {
+    public void setRoles(Set<String> roles) {
         this.roles = roles;
     }
 }

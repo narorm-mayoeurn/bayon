@@ -26,16 +26,6 @@ public class AuthManager {
 
     private AuthManager() {
         userRepository = new UserRepositoryImpl();
-        if (userRepository.findByUsername("admin") == null) {
-            User admin = new User();
-            admin.setUsername("admin");
-            admin.setPassword("admin");
-            List<String> roles = new ArrayList<>();
-            roles.add(User.ADMIN);
-            roles.add(User.USER);
-            admin.setRoles(roles);
-            userRepository.create(admin);
-        }
     }
 
     public User authenticate(String username, String password) throws AuthenticationException {
