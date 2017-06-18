@@ -48,10 +48,9 @@ public class ClassFacade {
         return programs;
     }
 
-    public void createClass(Class clazz) {
-        classRepository.create(clazz);
+    public Long createClass(Class clazz) {
+        return classRepository.create(clazz);
     }
-
     public void updateClass(Class clazz) {
         classRepository.update(clazz);
     }
@@ -87,5 +86,14 @@ public class ClassFacade {
 
     public String getNameById(Long id) {
         return classRepository.findById(id).getName();
+    }
+
+
+
+    public Long createProgram(Program program) {
+        return programRepository.create(program);
+    }
+    public void update(Program program) {
+        programRepository.update(program);
     }
 }

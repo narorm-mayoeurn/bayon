@@ -14,7 +14,16 @@ import com.camhub.antiochschool.command.student.StudentListCommand;
 import com.camhub.antiochschool.command.student.StudentRegisterFormCommand;
 import com.camhub.antiochschool.command.student.StudentSaveCommand;
 import com.camhub.antiochschool.command.teacher.*;
+import com.camhub.antiochschool.domain.Program;
+import com.camhub.antiochschool.domain.Student;
+import com.camhub.antiochschool.domain.Teacher;
+import com.camhub.antiochschool.domain.Class;
+import com.camhub.antiochschool.service.ClassFacade;
+import com.camhub.antiochschool.service.TeacherFacade;
 import org.bayon.web.FrontServlet;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by darith on 6/14/17.
@@ -49,6 +58,40 @@ public class FrontServletImp extends FrontServlet {
         register(ClassFormCommand.class, "classes/add", "classes/update");
         register(ClassSaveCommand.class, "classes/save");
         register(ClassDeleteCommand.class, "classes/delete");
+
+        // default value
+//        Teacher t = new Teacher();
+//        t.setKhmerName("Sok Samol");
+//        t.setEnglishName("Sok Samol");
+//        t.setGender("M");
+//        try {
+//            t.setBirthdate(new SimpleDateFormat("MM/dd/yyyy").parse("11/11/1990"));
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        t.setPhone("012994455");
+//        t.setEmail("sok.samol@gmail.com");
+//
+//        Long teacherId = TeacherFacade.getInstance().create(t);
+//
+//        // program
+//        Program p = new Program();
+//        p.setName("(GEPP) General English Program Part-Time");
+//        Long programId = ClassFacade.getInstance().createProgram(p);
+//
+//
+//        Class c = new Class();
+//        c.setName("12E");
+//        c.setTeacherId(teacherId);
+//        c.setProgramId(programId);
+//        c.setSession("Morning");
+//        c.setDescription("Just for testing");
+//        Long classId = ClassFacade.getInstance().createClass(c);
+//
+//        Student s = new Student();
+//        s.setKhmerName("Sok San");
+//        s.setEnglishName("Sok San");
+//
     }
 
 
