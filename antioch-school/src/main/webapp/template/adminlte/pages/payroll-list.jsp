@@ -55,7 +55,7 @@
                                 <td><%= payroll.getAdministrationFee()%></td>
                                 <td><%= payroll.getSupplyFee()%></td>
                                 <td><a href="/payroll/update?id=<%=payroll.getId()%>"><i class="fa fa-fw fa-edit"></i></a></td>
-                                <td><a href="#" id="<%=payroll.getId()%>"><i class="fa fa-fw fa-remove"></i></a></td>
+                                <td><a href="#" id="<%=payroll.getId()%>" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-fw fa-remove"></i></a></td>
                             </tr>
                             <%
                                 }
@@ -116,13 +116,40 @@
         </div>
     </section>
     <!-- /.content -->
+
+    <!-- Button trigger modal -->
+    <%--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#delete-modal">--%>
+    <%--Launch demo modal--%>
+    <%--</button>--%>
+    <!-- Modal -->
+    <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="Delete Teacher" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                </div>
+                <div class="modal-body">
+                    <b>Are you sure you want to delete this payroll?</b>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="delete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
 
+    var _id = null;
+
     // prepare all forms for ajax submission
     $('a i.fa-remove').click(function(){
-        var _id = $(this).parent().attr('id');
+        _id = $(this).parent().attr('id');
+    });
+
+    $('#delete').on('click', function() {
         $.ajax({
             method: "POST",
             url: "/payroll/delete",
@@ -130,7 +157,6 @@
         }).done(function( msg ) {
             window.location.reload();
         });
-
     });
 
 </script>

@@ -12,14 +12,16 @@ import org.bayon.web.FrontCommand;
 import javax.servlet.ServletException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Chandara Leang on 6/16/2017.
  */
 public class PayrollSaveCommand extends FrontCommand {
 
-    List<Pair<String, String>> errorMessages = new ArrayList<>();
+    Map<String, String> errorMessages = new HashMap<>();
 
     @Override
     public void execute() throws ServletException, IOException {
@@ -27,19 +29,19 @@ public class PayrollSaveCommand extends FrontCommand {
         Payroll payroll = new Payroll();
 
         if(getValidator(FormValidationType.IS_EMPTY).validate(request.getParameter("payroll_no"), null)) {
-            errorMessages.add(new Pair<>("payroll_no", "Payroll No cannot be empty."));
+            errorMessages.put("payroll_no", "Payroll No cannot be empty.");
         }
 
-        if(getValidator(FormValidationType.IS_EMPTY).validate(request.getParameter("tuition_fee"), null)) {
-            errorMessages.add(new Pair<>("tuition_fee", "Turtion Fee is required."));
+        if(!getValidator(FormValidationType.IS_NUMBER).validate(request.getParameter("tuition_fee"), null)) {
+            errorMessages.put("tuition_fee", "Turtion Fee is required.");
         }
 
-        if(getValidator(FormValidationType.IS_EMPTY).validate(request.getParameter("admin_fee"), null)) {
-            errorMessages.add(new Pair<>("admin_fee", "Administration Fee is required."));
+        if(!getValidator(FormValidationType.IS_NUMBER).validate(request.getParameter("admin_fee"), null)) {
+            errorMessages.put("admin_fee", "Administration Fee is required.");
         }
 
-        if(getValidator(FormValidationType.IS_EMPTY).validate(request.getParameter("supply_fee"), null)) {
-            errorMessages.add(new Pair<>("supply_fee", "Supply Fee is required."));
+        if(!getValidator(FormValidationType.IS_NUMBER).validate(request.getParameter("supply_fee"), null)) {
+            errorMessages.put("supply_fee", "Supply Fee is required.");
         }
 
         if(errorMessages.isEmpty()) {
@@ -66,7 +68,7 @@ public class PayrollSaveCommand extends FrontCommand {
         String json = "";
 
         if(errorMessages.isEmpty()) {
-            json = new ObjectMapper().writeValueAsString(new Pair<>("message", "Payroll information has been saved."));
+            json = new ObjectMapper().writeValueAsString(new HashMap<>().put("message", "Payroll information has been saved."));
         } else {
             response.setStatus(400);
             json = new ObjectMapper().writeValueAsString(errorMessages);
