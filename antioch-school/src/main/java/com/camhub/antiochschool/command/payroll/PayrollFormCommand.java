@@ -1,7 +1,9 @@
 package com.camhub.antiochschool.command.payroll;
 
 import com.camhub.antiochschool.domain.Invoice;
+import com.camhub.antiochschool.domain.Student;
 import com.camhub.antiochschool.service.StudentFacade;
+import org.bayon.form.validation.FormValidationType;
 import org.bayon.web.FrontCommand;
 
 import javax.servlet.ServletException;
@@ -12,19 +14,28 @@ import java.io.IOException;
  */
 public class PayrollFormCommand extends FrontCommand {
 
+    String target = "payroll-form";
+
     @Override
     public void execute() throws ServletException, IOException {
+
+        if(!getValidator(FormValidationType.IS_NUMBER).validate(request.getParameter("id"), null)) {
+            //target = "404";
+        } else {
+            Student student = StudentFacade.getInstance().get(Long.valueOf(request.getParameter("id")));
+            if(student == null) target = "404";
+            else {
+                request.setAttribute("student", student);
+            }
+        }
 
         // set action attribute
         if("payroll/add".equals(getCommandName())) {
             request.setAttribute("action", "add");
-        } else if("payroll/updateInvoice".equals(getCommandName())) {
-            request.setAttribute("action", "updateInvoice");
-
-            Long id = Long.valueOf(request.getParameter("id"));
-            Invoice invoice = StudentFacade.getInstance().getPayrollById(id);
-            request.setAttribute("invoice", invoice);
-        } else request.setAttribute("action", "");
+        }
+        else {
+            request.setAttribute("action", "");
+        }
 
     }
 
@@ -37,6 +48,6 @@ public class PayrollFormCommand extends FrontCommand {
     @Override
     protected void responseAsHtml() throws ServletException, IOException {
         super.responseAsHtml();
-        forward("payroll-form");
+        forward(target);
     }
 }

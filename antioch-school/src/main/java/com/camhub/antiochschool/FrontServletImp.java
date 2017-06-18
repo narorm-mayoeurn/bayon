@@ -24,7 +24,7 @@ public class FrontServletImp extends FrontServlet {
     @Override
     public void registerCommandClass() {
         register(LoginFormCommand.class, "login");
-        register(StudentListCommand.class, "");
+        register(StudentListCommand.class, "", "home");
 
         register(StudentListCommand.class, "student/list");
         register(StudentRegisterFormCommand.class, "student/register", "student/update");
@@ -33,15 +33,18 @@ public class FrontServletImp extends FrontServlet {
         register(StudentSaveCommand.class, "student/save");
 
         register(TeacherListCommand.class, "teacher/list");
-        register(TeacherFormCommand.class, "teacher/add", "teacher/update");
-        register(TeacherSaveCommand.class, "teacher/save");
         register(TeacherDeleteCommand.class, "teacher/delete");
+        register(TeacherFormCommand.class, "teacher/add");
+        register(TeacherFormCommand.class, "teacher/updateInvoice");
+        register(TeacherSaveCommand.class, "teacher/save");
 
         register(PayrollListCommand.class, "payroll/list");
-        register(PayrollFormCommand.class, "payroll/add", "payroll/updateInvoice");
-        register(PayrollSaveCommand.class, "payroll/save");
         register(PayrollDeleteCommand.class, "payroll/delete");
+        register(PayrollFormCommand.class, "payroll/add");
+        register(PayrollFormCommand.class, "payroll/updateInvoice");
+        register(PayrollSaveCommand.class, "payroll/save");
 
+        register(TeacherFormCommand.class, "about");
         register(ClassListCommand.class, "classes");
         register(ClassFormCommand.class, "classes/add", "classes/update");
         register(ClassSaveCommand.class, "classes/save");

@@ -1,16 +1,18 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="com.camhub.antiochschool.domain.Invoice" %>
+<%@ page import="com.camhub.antiochschool.domain.Student" %>
+<%@ page import="com.camhub.antiochschool.service.ClassFacade" %>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Payroll Form
+            Invoice Form
             <small>Add or update invoice information</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="/invoice/list"> Payrolls</a></li>
+            <li><a href="/invoice/list"> Invoices</a></li>
             <li class="active"><%= request.getAttribute("action").equals("add") ? "New" : "Update" %></li>
         </ol>
     </section>
@@ -28,12 +30,34 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
+
+                    <% Student student = (Student)request.getAttribute("student");%>
                     <% Invoice invoice = (Invoice)request.getAttribute("invoice");%>
+
+
                     <form id="payroll_form" class="form-horizontal" action="/invoice/save" method="post">
                         <input type="hidden" name="_a" value="" />
-                        <input type="hidden" name="id" value="<%= invoice == null ? "" : invoice.getId()%>" />
+                        <input type="hidden" name="id" value="<%= invoice == null ? "" : invoice.getId() + "" %>" />
 
                         <div class="box-body">
+
+                            <div class="with-border">
+                                <div class="form-group">
+                                    <label for="payroll_no" class="col-sm-3 control-label">Student ID</label>
+                                    <div class="col-sm-9"><%= student.getStudentId() %></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="payroll_no" class="col-sm-3 control-label">Student Name</label>
+                                    <div class="col-sm-9"><%= student.getKhmerName() + " (" + student.getEnglishName() + ")" %></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="payroll_no" class="col-sm-3 control-label">Current Class</label>
+                                    <div class="col-sm-9"><%= student.getCurrentClassroomId() == null ? "" : ClassFacade.getInstance().getNameById(student.getCurrentClassroomId()) %></div>
+                                </div>
+                            </div>
+
 
                             <div class="form-group" id="fg_payroll_no">
                                 <label for="payroll_no" class="col-sm-3 control-label">Payroll No</label>
@@ -46,7 +70,7 @@
                             <div class="form-group" id="fg_tuition_fee">
                                 <label for="tuition_fee" class="col-sm-3 control-label">Tuition Fee</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="tuition_fee" name="tuition_fee" placeholder="Tuition Fee" value="<%=invoice == null ? "" : invoice.getTuitionFee()%>"/>
+                                    <input type="text" class="form-control" id="tuition_fee" name="tuition_fee" placeholder="Tuition Fee" value="<%=invoice == null ? "" : invoice.getTuitionFee() + "" %>"/>
                                 </div>
                             </div>
 
@@ -54,7 +78,7 @@
                             <div class="form-group" id="fg_admin_fee">
                                 <label for="admin_fee" class="col-sm-3 control-label">Administration Fee</label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="admin_fee" name="admin_fee" class="form-control" placeholder="Administration Fee" value="<%=invoice == null ? "" : invoice.getAdministrationFee()%>">
+                                    <input type="text" id="admin_fee" name="admin_fee" class="form-control" placeholder="Administration Fee" value="<%=invoice == null ? "" : invoice.getAdministrationFee() + "" %>">
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -63,7 +87,7 @@
                             <div class="form-group" id="fg_supply_fee">
                                 <label for="supply_fee" class="col-sm-3 control-label">Supply Fee</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="supply_fee" name="supply_fee" placeholder="Supply Fee" value="<%=invoice == null ? "" : invoice.getSupplyFee()%>">
+                                    <input type="text" class="form-control" id="supply_fee" name="supply_fee" placeholder="Supply Fee" value="<%=invoice == null ? "" : invoice.getSupplyFee() + "" %>">
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -72,7 +96,7 @@
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-info pull-right"><%= request.getAttribute("action").equals("add") ? "Save" : "Update" %></button>
+                            <button type="submit" class="btn btn-info pull-right">Save</button>
                         </div>
                         <!-- /.box-footer -->
                     </form>
