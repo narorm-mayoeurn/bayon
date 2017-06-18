@@ -11,7 +11,7 @@ public class Student {
     private String studentId;
     private String englishName;
     private String khmerName;
-    private Character gender;
+    private String gender;
     private Date birthDate;
     private String contactPhone;
     private String contactAddress;
@@ -53,11 +53,11 @@ public class Student {
         this.khmerName = khmerName;
     }
 
-    public Character getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Character gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

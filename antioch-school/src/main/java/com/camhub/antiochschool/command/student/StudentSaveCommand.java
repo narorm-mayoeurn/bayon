@@ -23,27 +23,27 @@ import java.util.*;
  */
 public class StudentSaveCommand extends FrontCommand {
 
-    List<Pair<String, String>> errorMessages = new ArrayList<>();
+    Map<String, String> errorMessages = new HashMap<>();
 
     @Override
     public void execute() throws ServletException, IOException {
 
-        Student student = new Student();
+
 
         if(getValidator(FormValidationType.IS_EMPTY).validate(request.getParameter("student_id"), null)) {
-            errorMessages.add(new Pair<>("student_id", "Student ID cannot be empty."));
+            errorMessages.put("student_id", "Student ID cannot be empty.");
         }
 
         if(getValidator(FormValidationType.IS_EMPTY).validate(request.getParameter("khmer_name"), null)) {
-            errorMessages.add(new Pair<>("khmer_name", "Student Khmer name cannot be empty."));
+            errorMessages.put("khmer_name", "Student Khmer name cannot be empty.");
         }
 
         if(getValidator(FormValidationType.IS_EMPTY).validate(request.getParameter("english_name"), null)) {
-            errorMessages.add(new Pair<>("english_name", "Student English name is not correct."));
+            errorMessages.put("english_name", "Student English name is not correct.");
         }
 
         if(!getValidator(FormValidationType.IS_GENDER).validate(request.getParameter("gender"), null)) {
-            errorMessages.add(new Pair<>("gender", "Gender must be \"Male\" or \"Female\"."));
+            errorMessages.put("gender", "Gender must be \"Male\" or \"Female\".");
         }
 
 
@@ -61,16 +61,17 @@ public class StudentSaveCommand extends FrontCommand {
         }
 
 
-        if(!msgBirthdate.isEmpty()) errorMessages.add(new Pair<>("birthdate", msgBirthdate));
+        if(!msgBirthdate.isEmpty()) errorMessages.put("birthdate", msgBirthdate);
 
 
 
         if(errorMessages.isEmpty()) {
+            Student student = new Student();
 
             student.setStudentId(request.getParameter("student_id"));
             student.setKhmerName(request.getParameter("khmer_name"));
             student.setEnglishName(request.getParameter("english_name"));
-            student.setGender(request.getParameter("gender").charAt(0));
+            student.setGender(request.getParameter("gender"));
             student.setContactPhone(request.getParameter("contact_phone"));
             student.setContactAddress(request.getParameter("contact_address"));
 
@@ -85,15 +86,15 @@ public class StudentSaveCommand extends FrontCommand {
             student.setBirthDate(birthdate);
 
 
-            if(request.getParameter("id") != null) {
-                if(getValidator(FormValidationType.IS_NUMBER).validate(request.getParameter("id"), null)) {
-                    student.setId(Long.valueOf(request.getParameter("id")));
+            if(getValidator(FormValidationType.IS_NUMBER).validate(request.getParameter("id"), null)) {
 
-                    StudentFacade.getInstance().update(student);
-                } else {
-                    StudentFacade.getInstance().create(student);
-                }
+                student.setId(Long.valueOf(request.getParameter("id")));
+                StudentFacade.getInstance().update(student);
+            } else {
+
+                StudentFacade.getInstance().create(student);
             }
+
 
 
         }
@@ -107,7 +108,10 @@ public class StudentSaveCommand extends FrontCommand {
         String json = "";
 
         if(errorMessages.isEmpty()) {
-            json = new ObjectMapper().writeValueAsString(new HashMap<>().put("message", "Student information has been saved."));
+            System.out.println("yes");
+            Map<String, String> msg = new HashMap<>();
+            msg.put("message", "Student information has been saved.");
+            json = objectMapper.writeValueAsString(msg);
         } else {
             response.setStatus(400);
             json = new ObjectMapper().writeValueAsString(errorMessages);
