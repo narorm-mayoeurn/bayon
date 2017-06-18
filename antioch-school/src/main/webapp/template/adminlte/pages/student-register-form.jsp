@@ -114,7 +114,7 @@
                             <div class="form-group" id="fg_contact_address">
                                 <label for="contact_address" class="col-sm-3 control-label">Contact Address</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="contact_address" name="conta_address" placeholder="Contact Address" value="<%=student == null ? "" : student.getContactAddress()%>">
+                                    <input type="text" class="form-control" id="contact_address" name="contact_address" placeholder="Contact Address" value="<%=student == null ? "" : student.getContactAddress()%>">
                                 </div>
                             </div>
 

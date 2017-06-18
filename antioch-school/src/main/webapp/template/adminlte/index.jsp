@@ -15,6 +15,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="/template/adminlte/plugins/daterangepicker/daterangepicker.css">
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="/template/adminlte/plugins/datepicker/datepicker3.css">
+
   <!-- Theme style -->
   <link rel="stylesheet" href="/template/adminlte/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -272,6 +278,20 @@
 
 <!-- Bootstrap 3.3.6 -->
 <script src="/template/adminlte/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- InputMask -->
+<script src="/template/adminlte/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="/template/adminlte/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="/template/adminlte/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<!-- date-range-picker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="/template/adminlte/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap datepicker -->
+<script src="/template/adminlte/plugins/datepicker/bootstrap-datepicker.js"></script>
+
+<!-- iCheck 1.0.1 -->
+<script src="/template/adminlte/plugins/iCheck/icheck.min.js"></script>
+
 <!-- FastClick -->
 <script src="/template/adminlte/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->

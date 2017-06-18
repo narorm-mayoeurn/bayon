@@ -9,6 +9,8 @@ import com.camhub.antiochschool.repository.StudentRepositoryImpl;
 import org.bayon.ogm.datastore.query.Page;
 import org.bayon.ogm.datastore.query.QueryBuilder;
 
+import java.util.Date;
+
 /**
  * Created by darith on 6/15/17.
  */
@@ -57,8 +59,13 @@ public class StudentFacade {
 
 
     public boolean isPaid(Student student) {
-        if(student.getPayRollId() == null) return false;
+        if(student.getPayrollId() == null) return false;
 
+        Payroll payroll = payrollRepository.findById(student.getPayrollId());
+        if(payroll == null || payroll.getArchived() == true || payroll.getEndDate() == null) return false;
 
+        Date now = new Date();
+
+        return now.getTime() - payroll.getEndDate().getTime() > 0;
     }
 }

@@ -21,6 +21,8 @@ public class Student {
     private Date registeredDate;
     private Long payrollId;
 
+    private Boolean archived;
+
     public Long getId() {
         return id;
     }
@@ -57,6 +59,22 @@ public class Student {
         return gender;
     }
 
+    public Long getPayrollId() {
+        return payrollId;
+    }
+
+    public void setPayrollId(Long payrollId) {
+        this.payrollId = payrollId;
+    }
+
+    public Boolean getArchived() {
+        return archived;
+    }
+
+    public void setArchived(Boolean archived) {
+        this.archived = archived;
+    }
+
     public void setGender(String gender) {
         this.gender = gender;
     }
@@ -83,14 +101,6 @@ public class Student {
 
     public void setRegisteredDate(Date registeredDate) {
         this.registeredDate = registeredDate;
-    }
-
-    public Long getPayRollId() {
-        return payrollId;
-    }
-
-    public void setPayRollId(Long payrollId) {
-        this.payrollId = payrollId;
     }
 
     public String getContactPhone() {

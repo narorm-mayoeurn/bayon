@@ -88,7 +88,7 @@ public enum FormValidationImp implements FormValidation {
             Calendar cal2 = new GregorianCalendar();
             Date dob = null;
             try {
-                dob = new SimpleDateFormat("mm/dd/yyyy").parse(input);
+                dob = new SimpleDateFormat("MM/dd/yyyy").parse(input);
 
                 cal1.setTime(dob);
                 cal2.setTime(currentDate);
