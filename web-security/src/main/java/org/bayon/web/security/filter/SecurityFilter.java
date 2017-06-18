@@ -76,8 +76,8 @@ public final class SecurityFilter implements Filter {
         SecurityHandler authenticationHandler = new AuthenticationHandler(authorizationHandler);
         SecurityHandler excludeURIHandler = new ExcludeURIHandler(authenticationHandler, excludeURI);
         SecurityHandler loginHandler = new LoginHandler(excludeURIHandler, defaultPage);
-        SecurityHandler looutHander = new LogoutHandler(loginHandler);
-        return looutHander;
+        SecurityHandler logoutHandler = new LogoutHandler(loginHandler);
+        return logoutHandler;
     }
 
     @Override

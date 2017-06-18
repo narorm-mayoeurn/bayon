@@ -1,5 +1,6 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.Map" %>
+<%@ page import="org.bayon.web.security.manager.AuthManager" %>
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
@@ -7,10 +8,10 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="/template/adminlte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="/template/adminlte/dist/img/avatar5.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
+                <p><%= "Hi, " + request.getAttribute(AuthManager.AUTH) + "!"%></p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -52,8 +53,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li<%= pages.get("student-list") %>><a href="/student/list"><i class="fa fa-circle-o"></i> Student List</a></li>
-                    <li<%= pages.get("student-register-form") %>><a href="/student/register"><i class="fa fa-circle-o"></i> Student Register</a></li>
+                    <li<%= pages.get("student-list") %>><a href="/student/list"><i class="fa fa-circle-o"></i> Students</a></li>
+                    <li<%= pages.get("student-register-form") %>><a href="/student/register"><i class="fa fa-circle-o"></i> Student Registration</a></li>
                 </ul>
             </li>
             <li class="treeview<%= pages.get("teacher") %>">
@@ -65,8 +66,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li<%= pages.get("teacher-list") %>><a href="/teacher/list"><i class="fa fa-circle-o"></i> Teacher List</a></li>
-                    <li<%= pages.get("teacher-form") %>><a href="/teacher/add"><i class="fa fa-circle-o"></i> Teacher Add</a></li>
+                    <li<%= pages.get("teacher-list") %>><a href="/teacher/list"><i class="fa fa-circle-o"></i> Teachers</a></li>
+                    <li<%= pages.get("teacher-form") %>><a href="/teacher/add"><i class="fa fa-circle-o"></i> New Teacher</a></li>
                 </ul>
             </li>
 
@@ -80,7 +81,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li<%= pages.get("classroom-list") %>><a href="/classes"><i class="fa fa-circle-o"></i> Classes</a></li>
-                    <li<%= pages.get("classroom-form") %>><a href="/classes/add"><i class="fa fa-circle-o"></i> Create Class</a></li>
+                    <li<%= pages.get("classroom-form") %>><a href="/classes/add"><i class="fa fa-circle-o"></i> New Class</a></li>
                 </ul>
             </li>
 
@@ -93,18 +94,9 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li<%= request.getAttribute("page").equals("payroll-list") ? " class=\"active\"" : "" %>><a href="/payroll/list"><i class="fa fa-circle-o"></i> Payroll List</a></li>
-                    <li<%= request.getAttribute("page").equals("payroll-form") ? " class=\"active\"" : "" %>><a href="/payroll/add"><i class="fa fa-circle-o"></i> Payroll Add</a></li>
+                    <li<%= request.getAttribute("page").equals("payroll-list") ? " class=\"active\"" : "" %>><a href="/payroll/list"><i class="fa fa-circle-o"></i> Invoices</a></li>
+                    <li<%= request.getAttribute("page").equals("payroll-form") ? " class=\"active\"" : "" %>><a href="/payroll/add"><i class="fa fa-circle-o"></i> New Invoice</a></li>
                 </ul>
-            </li>
-            <li class="treeview active">
-                <a href="#">
-                    <i class="fa fa-edit"></i> <span>Intenvory</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                </a>
-
             </li>
             <li class="treeview">
                 <a href="#">
@@ -119,15 +111,9 @@
                 </ul>
             </li>
 
-
-
-
-
-
-            <li class="header">LABELS</li>
-            <li><a href="/about"><i class="fa fa-circle-o text-red"></i> <span>About</span></a></li>
-            <li><a href="/contact"><i class="fa fa-circle-o text-yellow"></i> <span>Contact</span></a></li>
-            <li><a href="/help"><i class="fa fa-circle-o text-aqua"></i> <span>Help</span></a></li>
+            <li class="header">SUPPORTS</li>
+            <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Contact Developer</span></a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Help</span></a></li>
         </ul>
     </section>
     <!-- /.sidebar -->
