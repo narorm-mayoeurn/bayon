@@ -14,7 +14,7 @@ public class Teacher {
     private String gender;
     private Date birthdate;
 
-    private Boolean Archived = false;
+    private Boolean archived = false;
 
     public Long getId() {
         return id;
@@ -73,10 +73,10 @@ public class Teacher {
     }
 
     public Boolean getArchived() {
-        return Archived;
+        return archived;
     }
 
     public void setArchived(Boolean archived) {
-        Archived = archived;
+        archived = archived;
     }
 }
