@@ -73,14 +73,14 @@ public class Page<T> {
         }
 
         public Integer previous() {
-            if (offset - limit <= 0) {
+            if (offset - limit < 0) {
                 return 0;
             }
             return offset - limit;
         }
 
         public boolean hasPrevious() {
-            if (offset - limit <= 0) {
+            if (offset - limit < 0) {
                 return false;
             }
             return true;

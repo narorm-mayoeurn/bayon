@@ -17,7 +17,7 @@ public class TeacherFormCommand extends FrontCommand {
         // set action attribute
         if("teacher/add".equals(getCommandName())) {
             request.setAttribute("action", "add");
-        } else if("teacher/updateInvoice".equals(getCommandName())) {
+        } else if("teacher/update".equals(getCommandName())) {
             request.setAttribute("action", "update");
 
             Long id = Long.valueOf(request.getParameter("id"));
@@ -31,8 +31,6 @@ public class TeacherFormCommand extends FrontCommand {
     @Override
     protected void responseAsJson() throws ServletException, IOException {
         super.responseAsJson();
-
-        response.getWriter().print("Hello !!!!!!");
     }
 
     @Override

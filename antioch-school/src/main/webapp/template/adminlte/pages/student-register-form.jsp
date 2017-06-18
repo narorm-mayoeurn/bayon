@@ -13,7 +13,7 @@
             <small>Register or update student information</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="/home"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="/student/list"> Students</a></li>
             <li class="active"><%= request.getAttribute("action").equals("register") ? "Register" : "Update" %></li>
         </ol>

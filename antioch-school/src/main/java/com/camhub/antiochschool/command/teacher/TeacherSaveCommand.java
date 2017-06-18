@@ -102,7 +102,6 @@ public class TeacherSaveCommand extends FrontCommand {
         String json = "";
 
         if(errorMessages.isEmpty()) {
-            System.out.println("yes");
             Map<String, String> msg = new HashMap<>();
             msg.put("message", "Teacher information has been saved.");
             json = objectMapper.writeValueAsString(msg);

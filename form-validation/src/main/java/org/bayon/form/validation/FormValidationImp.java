@@ -35,10 +35,6 @@ public enum FormValidationImp implements FormValidation {
 
             String[] fragment = input.split("/");
 
-            System.out.println(fragment[0]);
-            System.out.println(fragment[1]);
-            System.out.println(fragment[2]);
-
             int m = Integer.valueOf(fragment[0]);
             int d = Integer.valueOf(fragment[1]);
             int y = Integer.valueOf(fragment[2]);
