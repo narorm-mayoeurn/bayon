@@ -2,6 +2,7 @@ package org.bayon.web;
 
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.bayon.form.validation.FormValidationFactoryImp;
 import org.bayon.form.validation.FormValidationImp;
 import org.bayon.form.validation.FormValidation;
@@ -29,6 +30,8 @@ public abstract class FrontCommand {
     protected HttpServletRequest request;
     protected HttpServletResponse response;
 
+    protected ObjectMapper objectMapper;
+
 
     public abstract void execute() throws ServletException, IOException;
 
@@ -39,7 +42,7 @@ public abstract class FrontCommand {
         this.request = req;
         this.response = resp;
 
-
+        objectMapper = new ObjectMapper();
 
     }
 

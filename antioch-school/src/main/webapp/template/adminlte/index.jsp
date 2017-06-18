@@ -289,15 +289,15 @@
     function showError(err) {
         for(var k in err) {
 
-            var n = $('#fg_' + err[k].key);
+            var n = $('#fg_' + k);
 
             if(n.length > 0) {
                 n.addClass('has-error');
                 var nm = n.find('.help-block');
                 if(nm.length > 0) {
-                    nm.text(err[k].value);
+                    nm.text(err[k]);
                 } else {
-                    $(n.children('div')[0]).append('<span class="help-block">' + err[k].value + '</span>');
+                    $(n.children('div')[0]).append('<span class="help-block">' + err[k] + '</span>');
                 }
             }
 
@@ -310,7 +310,8 @@
 
         type = 'callout-' + type;
 
-        $('#' + id).html(message).fadeIn();
+        $('#' + id).css('class', 'callout');
+        $('#' + id).addClass(type).html(message).fadeIn();
         setTimeout(function() {
             $('#' + id).fadeOut();
         }, duration);

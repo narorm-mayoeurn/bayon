@@ -129,7 +129,7 @@
                             <%--</div>--%>
 
 
-                            <div id="student-form-message" class="callout callout-success" style="display:none;"></div>
+                            <div id="student-form-message" class="callout" style="display:none;"></div>
 
                         </div>
 
@@ -160,7 +160,6 @@
 
             },
             error: function(xhr) {
-                console.log(xhr.responseText);
                 showError($.parseJSON(xhr.responseText));
             }
         });
