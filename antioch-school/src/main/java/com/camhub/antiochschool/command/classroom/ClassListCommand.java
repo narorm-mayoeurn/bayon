@@ -20,7 +20,11 @@ public class ClassListCommand extends FrontCommand {
         request.setAttribute("classes", ClassFacade.getInstance().getClasses(offset, limit));
         request.setAttribute("programs", ClassFacade.getInstance().getPrograms());
         request.setAttribute("teachers", ClassFacade.getInstance().getTeachers());
+    }
 
+    @Override
+    protected void responseAsHtml() throws ServletException, IOException {
+        super.responseAsHtml();
         forward("classroom-list");
     }
 }

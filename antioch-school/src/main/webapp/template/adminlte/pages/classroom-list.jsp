@@ -59,7 +59,7 @@
                                 <td><%= clazz.getTeacherId() == null ? "" : teachers.get(clazz.getTeacherId())%></td>
                                 <td><%= clazz.getProgramId() == null ? "" : programs.get(clazz.getProgramId())%></td>
                                 <td><a href="/classes/update?id=<%=clazz.getId()%>"><i class="fa fa-fw fa-edit"></i></a></td>
-                                <td><a href="#" id="<%=clazz.getId()%>"><i class="fa fa-fw fa-remove"></i></a></td>
+                                <td><a href="#" id="<%=clazz.getId()%>" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-fw fa-remove"></i></a></td>
                             </tr>
                             <%
                                 }
@@ -113,18 +113,47 @@
         </div>
     </section>
     <!-- /.content -->
+
+    <!-- Button trigger modal -->
+    <%--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#delete-modal">--%>
+    <%--Launch demo modal--%>
+    <%--</button>--%>
+    <!-- Modal -->
+    <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="Delete Class" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                </div>
+                <div class="modal-body">
+                    <b>Are you sure you want to delete this class?</b>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="delete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
+
+    var _id = null;
+
     // prepare all forms for ajax submission
     $('a i.fa-remove').click(function(){
-        var _id = $(this).parent().attr('id');
+        _id = $(this).parent().attr('id');
+    });
+
+    $('#delete').on('click', function() {
         $.ajax({
             method: "POST",
             url: "/classes/delete",
             data: { id: _id }
         }).done(function( msg ) {
-                window.location.reload();
-            });
+            window.location.reload();
+        });
     });
+
 </script>

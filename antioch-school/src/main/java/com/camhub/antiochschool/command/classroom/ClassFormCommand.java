@@ -31,8 +31,17 @@ public class ClassFormCommand extends FrontCommand {
 
         request.setAttribute("programs", ClassFacade.getInstance().getPrograms());
         request.setAttribute("teachers", ClassFacade.getInstance().getTeachers());
+    }
 
+    @Override
+    protected void responseAsJson() throws ServletException, IOException {
+        super.responseAsJson();
+
+    }
+
+    @Override
+    protected void responseAsHtml() throws ServletException, IOException {
+        super.responseAsHtml();
         forward("classroom-form");
-
     }
 }
