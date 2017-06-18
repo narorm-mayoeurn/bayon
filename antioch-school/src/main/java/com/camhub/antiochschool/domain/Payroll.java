@@ -1,5 +1,7 @@
 package com.camhub.antiochschool.domain;
 
+import java.util.Date;
+
 /**
  * Created by darith on 6/15/17.
  */
@@ -12,6 +14,10 @@ public class Payroll {
     private Double tuitionFee;
     private Double administrationFee;
     private Double supplyFee;
+
+    private Date invoiceDate;
+    private Date startDate;
+    private Date endDate;
 
     public Long getId() {
         return id;
