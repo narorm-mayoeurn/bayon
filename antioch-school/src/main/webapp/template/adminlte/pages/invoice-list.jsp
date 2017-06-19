@@ -1,5 +1,8 @@
 <%@ page import="org.bayon.ogm.datastore.query.Page" %>
 <%@ page import="com.camhub.antiochschool.domain.Invoice" %>
+<%@ page import="java.text.DecimalFormat" %>
+<%@ page import="com.camhub.antiochschool.service.StudentFacade" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -38,11 +41,16 @@
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
                             <tr>
-                                <th>invoice No</th>
+                                <th>Invoice No</th>
+                                <th>Invoice Date</th>
+                                <th>End Date</th>
+                                <th>Student Name</th>
+
                                 <th>Tuition Fee</th>
                                 <th>Administration Fee</th>
                                 <th>Suppy Fee</th>
-                                <th></th>
+                                <th>Discount</th>
+                                <th>Total</th>
                                 <th></th>
                             </tr>
 
@@ -51,12 +59,21 @@
                                 for (Invoice invoice : p.getItems()) {
                             %>
                             <tr>
-                                <td><%= invoice.getInvoiceNo()%></td>
-                                <td><%= invoice.getTuitionFee()%></td>
-                                <td><%= invoice.getAdministrationFee()%></td>
-                                <td><%= invoice.getSupplyFee()%></td>
-                                <td><a href="/invoice/update?id=<%=invoice.getId()%>"><i class="fa fa-fw fa-edit"></i></a></td>
-                                <td><a href="#" id="<%=invoice.getId()%>" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-fw fa-remove"></i></a></td>
+                                <td><%= invoice.getInvoiceNo() %></td>
+                                <td><%= new SimpleDateFormat("MM/dd/yyyy").format(invoice.getInvoiceDate()) %></td>
+                                <td><%= invoice.getEndDate() == null ? "" : new SimpleDateFormat("MM/dd/yyyy").format(invoice.getEndDate()) %></td>
+                                <td><%= StudentFacade.getInstance().getNameById(invoice.getStudentId()) %></td>
+                                <td class="text-right"><%= new DecimalFormat("0.00").format(invoice.getTuitionFee()) %></td>
+                                <td class="text-right"><%= new DecimalFormat("0.00").format(invoice.getAdministrationFee()) %></td>
+                                <td class="text-right"><%= new DecimalFormat("0.00").format(invoice.getSupplyFee()) %></td>
+                                <td class="text-right"><%= new DecimalFormat("0.00").format(invoice.getTotalDiscount()) %></td>
+                                <td class="text-right"><%= new DecimalFormat("0.00").format(invoice.getTuitionFee() + invoice.getAdministrationFee() + invoice.getSupplyFee() - invoice.getTotalDiscount()) %></td>
+                                <td>
+
+                                    <%--<a href="/invoice/update?id=<%=invoice.getId()%>"><i class="fa fa-fw fa-edit"></i></a>--%>
+                                        <a href="/invoice/print?id=<%= invoice.getId() %>"><i class="fa fa-fw fa-print"></i></a>
+                                    <a href="#" id="<%=invoice.getId()%>" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-fw fa-remove"></i></a>
+                                </td>
                             </tr>
                             <%
                                 }

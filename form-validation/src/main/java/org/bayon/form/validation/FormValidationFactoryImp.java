@@ -24,6 +24,7 @@ public class FormValidationFactoryImp implements FormValidationFactory {
         if(type == FormValidationType.IS_NUMBER) return FormValidationImp.IS_NUMBER;
         if(type == FormValidationType.IS_PASSWORD) return FormValidationImp.IS_PASSWORD;
         if(type == FormValidationType.IS_PHONE) return FormValidationImp.IS_PHONE;
+        if(type == FormValidationType.IS_RANGE) return FormValidationImp.IS_RANGE;
         return null;
     }
 }

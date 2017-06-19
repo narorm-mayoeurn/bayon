@@ -14,5 +14,6 @@ public enum FormValidationType {
     IS_EMAIL,
     IS_PASSWORD,
     IS_PHONE,
-    IS_MATCH
+    IS_MATCH,
+    IS_RANGE
 }

@@ -14,6 +14,8 @@ public class FormCriteriaImp implements FormCriteria {
 
     private String stringValue;
 
+    private Boolean flag;
+
     @Override
     public Integer getIntFrom() {
         return intFrom;
@@ -62,5 +64,15 @@ public class FormCriteriaImp implements FormCriteria {
     @Override
     public void setStringValue(String stringValue) {
         this.stringValue = stringValue;
+    }
+
+    @Override
+    public Boolean getFlag() {
+        return flag;
+    }
+
+    @Override
+    public void setFlag(Boolean flag) {
+        this.flag = flag;
     }
 }

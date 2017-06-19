@@ -16,4 +16,6 @@ public interface FormCriteria {
     public List<String> getStringList();
     public void setStringValue(String stringValue);
     public String getStringValue();
+    public void setFlag(Boolean flag);
+    public Boolean getFlag();
 }

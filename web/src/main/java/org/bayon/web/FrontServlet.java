@@ -18,6 +18,10 @@ public abstract class FrontServlet extends HttpServlet {
 
 
     public void init() throws ServletException {
+        start();
+    }
+
+    public final void start() {
         registerCommandClass();
         template = defaultTemplate();
     }
@@ -29,22 +33,16 @@ public abstract class FrontServlet extends HttpServlet {
         frontCommand.setTemplate(template);
         frontCommand.execute();
 
-
-
         if(req.getParameter("_a") != null) {
                 frontCommand.responseAsJson();
         }
-
         else {
             frontCommand.responseAsHtml();
         }
-
-
     }
 
 
-
-    private FrontCommand getCommand(HttpServletRequest req) {
+    public final FrontCommand getCommand(HttpServletRequest req) {
         try {
             String name = getCommandName(req);
             return CommandClassMapper.getInstance().getCommandClass(name).asSubclass(FrontCommand.class).newInstance();

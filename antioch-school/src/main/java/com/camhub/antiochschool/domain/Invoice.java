@@ -11,15 +11,15 @@ public class Invoice {
     private Long studentId;
     private String invoiceNo;
 
-    private Double tuitionFee;
-    private Double administrationFee;
-    private Double supplyFee;
+    private Double tuitionFee = 0.0;
+    private Double administrationFee = 0.0;
+    private Double supplyFee = 0.0;
 
     private Date invoiceDate;
     private Date startDate;
     private Date endDate;
 
-    private Double totalDiscount;
+    private Double totalDiscount = 0.0;
 
     private Boolean archived = false;
 

@@ -3,6 +3,8 @@ package com.camhub.antiochschool.command.payroll;
 import com.camhub.antiochschool.domain.Invoice;
 import com.camhub.antiochschool.domain.Student;
 import com.camhub.antiochschool.service.StudentFacade;
+import org.bayon.form.validation.FormCriteria;
+import org.bayon.form.validation.FormCriteriaImp;
 import org.bayon.form.validation.FormValidationType;
 import org.bayon.web.FrontCommand;
 
@@ -37,26 +39,39 @@ public class InvoiceSaveCommand extends FrontCommand {
             errorMessages.put("invoice_date", "Invoice date cannot be empty.");
         }
 
-        if(getValidator(FormValidationType.IS_EMPTY).validate(request.getParameter("start_end_date"), null)) {
-            errorMessages.put("start_end_date", "Effective date cannot be empty.");
+
+        Boolean hasTuitionFee = false;
+
+        FormCriteria crit = new FormCriteriaImp();
+        crit.setFlag(true);
+        crit.setIntFrom(0);
+        crit.setIntTo(1000);
+
+        if(!getValidator(FormValidationType.IS_RANGE).validate(request.getParameter("tuition_fee"), crit)) {
+            errorMessages.put("tuition_fee", "Tuition Fee is required (0 - 1000).");
+        } else {
+            crit.setFlag(false);
+            if(getValidator(FormValidationType.IS_RANGE).validate(request.getParameter("tuition_fee"), crit)) {
+                hasTuitionFee = true;
+                if(getValidator(FormValidationType.IS_EMPTY).validate(request.getParameter("start_end_date"), null)) {
+                    errorMessages.put("start_end_date", "Effective date cannot be empty.");
+                }
+            }
+            crit.setFlag(true);
         }
 
-        if(!getValidator(FormValidationType.IS_NUMBER).validate(request.getParameter("tuition_fee"), null)) {
-            errorMessages.put("tuition_fee", "Turtion Fee is required.");
+        if(!getValidator(FormValidationType.IS_RANGE).validate(request.getParameter("admin_fee"), crit)) {
+            errorMessages.put("admin_fee", "Administration Fee is required (0 - 1000).");
         }
 
-        if(!getValidator(FormValidationType.IS_NUMBER).validate(request.getParameter("admin_fee"), null)) {
-            errorMessages.put("admin_fee", "Administration Fee is required.");
-        }
-
-        if(!getValidator(FormValidationType.IS_NUMBER).validate(request.getParameter("supply_fee"), null)) {
-            errorMessages.put("supply_fee", "Supply Fee is required.");
+        if(!getValidator(FormValidationType.IS_RANGE).validate(request.getParameter("supply_fee"), crit)) {
+            errorMessages.put("supply_fee", "Supply Fee is required (0 - 1000).");
         }
 
         String startDate = "";
         String endDate = "";
 
-        if(errorMessages.isEmpty()) {
+        if(errorMessages.isEmpty() && hasTuitionFee) {
             String[] t = request.getParameter("start_end_date").split(" - ");
             startDate = t[0];
             endDate = t[1];
@@ -73,8 +88,12 @@ public class InvoiceSaveCommand extends FrontCommand {
 
             try {
                 invoice.setInvoiceDate(new SimpleDateFormat("MM/dd/yyyy").parse(request.getParameter("invoice_date")));
-                invoice.setStartDate(new SimpleDateFormat("MM/dd/yyyy").parse(startDate));
-                invoice.setEndDate(new SimpleDateFormat("MM/dd/yyyy").parse(endDate));
+
+                if(hasTuitionFee) {
+                    invoice.setStartDate(new SimpleDateFormat("MM/dd/yyyy").parse(startDate));
+                    invoice.setEndDate(new SimpleDateFormat("MM/dd/yyyy").parse(endDate));
+                }
+
             } catch (ParseException e) {
                 e.printStackTrace();
             }

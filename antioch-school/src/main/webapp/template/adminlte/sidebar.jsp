@@ -99,7 +99,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li<%= pages.get("invoice-list") %>><a href="/invoice/list"><i class="fa fa-circle-o"></i> Invoices</a></li>
-                    <li<%= pages.get("invoice-form") %>><a href="/invoice/add"><i class="fa fa-circle-o"></i> New Invoice</a></li>
+                    <%--<li<%= pages.get("invoice-form") %>><a href="/invoice/add"><i class="fa fa-circle-o"></i> New Invoice</a></li>--%>
                 </ul>
             </li>
             <li class="treeview">

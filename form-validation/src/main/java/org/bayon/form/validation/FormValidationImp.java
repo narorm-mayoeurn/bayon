@@ -46,6 +46,18 @@ public enum FormValidationImp implements FormValidation {
             return true;
         }
     },
+
+
+    IS_RANGE() {
+        @Override
+        public boolean validate(String input, FormCriteria crit) {
+            if(crit == null || !IS_NUMBER.validate(input, crit)) return false;
+            Double value = Double.valueOf(input);
+
+            if(crit.getFlag()) return value >= crit.getIntFrom() && value <= crit.getIntTo();
+            return value > crit.getIntFrom() && value < crit.getIntTo();
+        }
+    },
     
     IS_GENDER(){
         @Override

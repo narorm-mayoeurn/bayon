@@ -71,4 +71,8 @@ public class StudentFacade {
         System.out.println(invoice.getEndDate().getTime() - now.getTime());
         return invoice.getEndDate().getTime() - now.getTime() > 0;
     }
+
+    public String getNameById(Long id) {
+        return studentRepository.findById(id).getKhmerName();
+    }
 }
