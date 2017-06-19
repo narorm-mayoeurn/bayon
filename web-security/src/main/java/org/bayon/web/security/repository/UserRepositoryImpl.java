@@ -3,6 +3,7 @@ package org.bayon.web.security.repository;
 import org.bayon.ogm.datastore.DatastoreRepositoryAdapter;
 import org.bayon.ogm.datastore.query.Filter;
 import org.bayon.ogm.datastore.query.QueryBuilder;
+import org.bayon.ogm.datastore.query.QueryBuilderImpl;
 import org.bayon.web.security.domain.User;
 
 /**

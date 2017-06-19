@@ -12,6 +12,7 @@ import org.bayon.ogm.datastore.mapper.factory.DataGridMapperFactory;
 import org.bayon.ogm.datastore.mapper.factory.DefaultDataGridMapperFactory;
 import org.bayon.ogm.datastore.query.Page;
 import org.bayon.ogm.datastore.query.QueryBuilder;
+import org.bayon.ogm.datastore.query.QueryBuilderImpl;
 import org.bayon.ogm.datastore.query.TypeQuery;
 
 import java.lang.reflect.ParameterizedType;
@@ -61,7 +62,7 @@ public class DatastoreRepositoryAdapter<T> implements DatastoreRepository<T> {
     }
 
     public QueryBuilder<T> createQueryBuilder() {
-        return new QueryBuilder<>(clazz);
+        return new QueryBuilderImpl<>(clazz);
     }
 
     @Override

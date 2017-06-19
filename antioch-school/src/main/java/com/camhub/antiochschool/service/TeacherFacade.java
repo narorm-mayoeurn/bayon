@@ -3,10 +3,10 @@ package com.camhub.antiochschool.service;
 import com.camhub.antiochschool.domain.Teacher;
 import com.camhub.antiochschool.repository.SingletonRepositoryFactory;
 import com.camhub.antiochschool.repository.TeacherRepository;
-import com.camhub.antiochschool.repository.TeacherRepositoryImpl;
 import org.bayon.ogm.datastore.query.Filter;
 import org.bayon.ogm.datastore.query.Page;
 import org.bayon.ogm.datastore.query.QueryBuilder;
+import org.bayon.ogm.datastore.query.QueryBuilderImpl;
 
 /**
  * Created by Chandara Leang on 6/15/2017.

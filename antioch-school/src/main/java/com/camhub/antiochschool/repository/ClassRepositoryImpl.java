@@ -1,8 +1,6 @@
 package com.camhub.antiochschool.repository;
 
 import com.camhub.antiochschool.domain.Class;
-import com.camhub.antiochschool.domain.Invoice;
-import com.camhub.antiochschool.domain.Student;
 import com.camhub.antiochschool.domain.Teacher;
 import com.camhub.antiochschool.service.TeacherObserver;
 import org.bayon.ogm.datastore.DatastoreRepositoryAdapter;

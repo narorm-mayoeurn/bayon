@@ -4,6 +4,7 @@ import com.camhub.antiochschool.domain.Program;
 import org.bayon.ogm.datastore.DatastoreRepositoryAdapter;
 import org.bayon.ogm.datastore.query.Filter;
 import org.bayon.ogm.datastore.query.QueryBuilder;
+import org.bayon.ogm.datastore.query.QueryBuilderImpl;
 
 /**
  * Created by nm on 16/6/17.

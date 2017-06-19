@@ -8,6 +8,7 @@ import com.camhub.antiochschool.repository.StudentRepository;
 import org.bayon.ogm.datastore.query.Filter;
 import org.bayon.ogm.datastore.query.Page;
 import org.bayon.ogm.datastore.query.QueryBuilder;
+import org.bayon.ogm.datastore.query.QueryBuilderImpl;
 
 import java.util.Date;
 

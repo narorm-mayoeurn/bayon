@@ -9,9 +9,9 @@ import com.camhub.antiochschool.repository.SingletonRepositoryFactory;
 import com.camhub.antiochschool.repository.TeacherRepository;
 import org.bayon.ogm.datastore.query.Page;
 import org.bayon.ogm.datastore.query.QueryBuilder;
+import org.bayon.ogm.datastore.query.QueryBuilderImpl;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**

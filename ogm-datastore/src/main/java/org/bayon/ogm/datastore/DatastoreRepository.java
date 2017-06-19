@@ -1,6 +1,5 @@
 package org.bayon.ogm.datastore;
 
-import com.google.appengine.api.datastore.Query;
 import org.bayon.ogm.datastore.query.Page;
 import org.bayon.ogm.datastore.query.QueryBuilder;
 import org.bayon.ogm.datastore.query.TypeQuery;
