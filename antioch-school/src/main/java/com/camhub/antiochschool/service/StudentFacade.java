@@ -5,6 +5,7 @@ import com.camhub.antiochschool.domain.Student;
 import com.camhub.antiochschool.repository.InvoiceRepository;
 import com.camhub.antiochschool.repository.SingletonRepositoryFactory;
 import com.camhub.antiochschool.repository.StudentRepository;
+import org.bayon.ogm.datastore.query.Filter;
 import org.bayon.ogm.datastore.query.Page;
 import org.bayon.ogm.datastore.query.QueryBuilder;
 
@@ -47,6 +48,7 @@ public class StudentFacade {
 
     public Page<Invoice> getPayrolls(int offset, int limit) {
         QueryBuilder builder = invoiceRepository.createQueryBuilder();
+        builder.and("archived", Filter.Operator.EQUAL, false);
         return invoiceRepository.find(builder.toQuery(), offset, limit);
     }
 

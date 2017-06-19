@@ -4,6 +4,7 @@ import com.camhub.antiochschool.domain.Teacher;
 import com.camhub.antiochschool.repository.SingletonRepositoryFactory;
 import com.camhub.antiochschool.repository.TeacherRepository;
 import com.camhub.antiochschool.repository.TeacherRepositoryImpl;
+import org.bayon.ogm.datastore.query.Filter;
 import org.bayon.ogm.datastore.query.Page;
 import org.bayon.ogm.datastore.query.QueryBuilder;
 
@@ -23,6 +24,7 @@ public class TeacherFacade {
 
     public Page<Teacher> getTeachers(int offset, int limit) {
         QueryBuilder builder = teacherRepository.createQueryBuilder();
+        builder.and("archived", Filter.Operator.EQUAL, false);
         return teacherRepository.find(builder.toQuery(), offset, limit);
     }
 
