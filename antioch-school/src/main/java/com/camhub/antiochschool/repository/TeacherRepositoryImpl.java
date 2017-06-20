@@ -47,7 +47,7 @@ public class TeacherRepositoryImpl extends DatastoreRepositoryAdapter<Teacher> i
     @Override
     public void notifyObservers() {
         for(TeacherObserver observer : observers) {
-            observer.updateInvoice(teacher);
+            observer.updateTeacher(teacher);
         }
     }
 }

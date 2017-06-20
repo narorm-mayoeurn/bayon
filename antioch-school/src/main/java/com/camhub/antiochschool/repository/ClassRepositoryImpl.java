@@ -18,7 +18,7 @@ public class ClassRepositoryImpl extends DatastoreRepositoryAdapter<Class> imple
     }
 
     @Override
-    public void updateInvoice(Teacher teacher) {
+    public void updateTeacher(Teacher teacher) {
 
         if (teacher.getArchived()) {
 
