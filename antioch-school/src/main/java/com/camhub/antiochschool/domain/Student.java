@@ -16,8 +16,7 @@ public class Student {
     private String contactPhone;
     private String contactAddress;
 
-
-    private Long currentClassroomId;
+    private Long classId;
     private Date registeredDate;
     private Long invoiceId;
 
@@ -87,12 +86,12 @@ public class Student {
         this.birthDate = birthDate;
     }
 
-    public Long getCurrentClassroomId() {
-        return currentClassroomId;
+    public Long getClassId() {
+        return classId;
     }
 
-    public void setCurrentClassroomId(Long currentClassroomId) {
-        this.currentClassroomId = currentClassroomId;
+    public void setClassId(Long classId) {
+        this.classId = classId;
     }
 
     public Date getRegisteredDate() {

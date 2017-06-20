@@ -62,7 +62,7 @@
                                 <td><%= student.getEnglishName()%></td>
                                 <td><%= student.getGender()%></td>
                                 <td><%= new SimpleDateFormat("MM/dd/yyyy").format(student.getBirthDate()) %></td>
-                                <td><%= student.getCurrentClassroomId()== null || student.getCurrentClassroomId().equals("") ? "" : ClassFacade.getInstance().getNameById(student.getCurrentClassroomId()) %></td>
+                                <td><%= student.getClassId()== null || student.getClassId().equals("") ? "" : ClassFacade.getInstance().getNameById(student.getClassId()) %></td>
                                 <td><%= StudentFacade.getInstance().isPaid(student) ? "<span class=\"badge bg-green\">Paid</span>" : "<span class=\"badge bg-yellow\">Unpaid</span>" %></td>
                                 <td>
                                     <a href="/invoice/add?id=<%=student.getId() %>"><i class="fa fa-fw fa-dollar"></i></a>

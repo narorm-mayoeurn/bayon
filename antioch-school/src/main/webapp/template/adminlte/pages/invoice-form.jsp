@@ -55,7 +55,7 @@
 
                                 <div class="form-group">
                                     <label class="col-sm-3">Current Class</label>
-                                    <div class="col-sm-9"><%= student.getCurrentClassroomId() == null ? "" : ClassFacade.getInstance().getNameById(student.getCurrentClassroomId()) %></div>
+                                    <div class="col-sm-9"><%= student.getClassId() == null ? "" : ClassFacade.getInstance().getNameById(student.getClassId()) %></div>
                                 </div>
                             </div>
 

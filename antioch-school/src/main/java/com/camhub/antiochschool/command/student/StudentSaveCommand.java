@@ -1,9 +1,7 @@
 package com.camhub.antiochschool.command.student;
 
 import com.camhub.antiochschool.domain.Student;
-import com.camhub.antiochschool.helper.Pair;
 import com.camhub.antiochschool.service.StudentFacade;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.bayon.form.validation.*;
 import org.bayon.web.FrontCommand;
 
@@ -80,7 +78,7 @@ public class StudentSaveCommand extends FrontCommand {
                 student.setContactAddress(request.getParameter("contact_address"));
             }
             if(getValidator(FormValidationType.IS_NUMBER).validate(request.getParameter("class"), null)) {
-                student.setCurrentClassroomId(Long.valueOf(request.getParameter("class")));
+                student.setClassId(Long.valueOf(request.getParameter("class")));
             }
 
 

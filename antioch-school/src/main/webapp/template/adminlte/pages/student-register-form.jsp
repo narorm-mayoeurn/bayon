@@ -132,7 +132,7 @@
                                             Map<Long, String> classList = (Map<Long, String>) request.getAttribute("classList");
                                             for(Map.Entry<Long, String> e : classList.entrySet()) {
                                         %>
-                                        <option<%= student != null && student.getCurrentClassroomId() == e.getKey() ? " selected=\"selected\"" : "" %> value="<%= e.getKey() %>"><%= e.getValue() %></option>
+                                        <option<%= student != null && student.getClassId() == e.getKey() ? " selected=\"selected\"" : "" %> value="<%= e.getKey() %>"><%= e.getValue() %></option>
                                         <% } %>
                                     </select>
                                 </div>

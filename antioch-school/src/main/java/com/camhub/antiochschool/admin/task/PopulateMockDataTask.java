@@ -64,7 +64,7 @@ public class PopulateMockDataTask implements Task {
             student.setContactAddress("Contact Address " + i);
             student.setContactPhone("Contact Phone " + i);
             student.setStudentId("SID" + i);
-            student.setCurrentClassroomId(clazz.getId());
+            student.setClassId(clazz.getId());
             student.setId(factory.getStudentRepository().create(student));
         }
 
