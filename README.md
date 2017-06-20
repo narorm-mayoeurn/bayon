@@ -8,6 +8,7 @@ Narorm Mayoeurn
  + Chain of Responsibility
  + Flyweight
  + Decorator
+ + Builder
 
 Darith Pen
 - Role: Developer and Tester
